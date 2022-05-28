@@ -8,7 +8,7 @@ package Model;
  *
  * @author wvxbs
  */
-public class Itens {
-    public Itens() {
+public class Item {
+    public Item() {
     }
 }

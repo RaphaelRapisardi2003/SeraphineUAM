@@ -11,7 +11,7 @@ import java.util.List;
  * @author wvxbs
  */
 public class Usuario extends Pessoa {
-    private List<Itens> ListaDeItens;
+    private List<Item> listaDeItens;
     
     public Usuario () {
     }   
