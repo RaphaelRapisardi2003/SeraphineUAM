@@ -22,6 +22,4 @@ public class Funcionario extends Pessoa{
     public void setCategoria(String Categoria) {
         this.Categoria = Categoria;
     }
-    
-    
 }

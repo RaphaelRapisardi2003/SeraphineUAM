@@ -11,11 +11,12 @@ package Model;
  */
 public class Pessoa {
     private String Nome, Endereco; 
-    private int Idade;
+    private int Id, Idade;
 
     public Pessoa() {
         this.Nome = "";
         this.Endereco = "";
+        this.Id = 0;
         this.Idade = 0;
     }
 
