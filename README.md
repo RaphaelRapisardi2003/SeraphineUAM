@@ -23,7 +23,7 @@ abcabc
 # 🤖 Técnicas e tecnologias utilizadas
 
 - ``Java``
-- ``InteliJ IDEA``
+- ``Java AWT``
 - ``Paradigma de orientação a objetos``
 
 ## 📁 Como acessar o projeto
