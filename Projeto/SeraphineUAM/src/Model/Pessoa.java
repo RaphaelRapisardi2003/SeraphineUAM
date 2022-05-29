@@ -1,13 +1,15 @@
 package Model;
 
 public class Pessoa {
-    private String Nome, Endereco; 
-    private int Id, Idade;
+    private String Nome, Cargo, NomeDeUsuario, Senha;
+    private int ID, Idade;
 
     public Pessoa() {
         this.Nome = "";
-        this.Endereco = "";
-        this.Id = 0;
+        this.Cargo = "";
+        this.NomeDeUsuario = "";
+        this.Senha = "";
+        this.ID = 0;
         this.Idade = 0;
     }
 
@@ -15,26 +17,47 @@ public class Pessoa {
         return Nome;
     }
 
-    public void setNome(String Nome) {
-        this.Nome = Nome;
+    public void setNome(String nome) {
+        Nome = nome;
     }
 
-    public String getEndereco() {
-        return Endereco;
+    public String getCargo() {
+        return Cargo;
     }
 
-    public void setEndereco(String Endereco) {
-        this.Endereco = Endereco;
+    public void setCargo(String cargo) {
+        Cargo = cargo;
+    }
+
+    public String getNomeDeUsuario() {
+        return NomeDeUsuario;
+    }
+
+    public void setNomeDeUsuario(String nomeDeUsuario) {
+        NomeDeUsuario = nomeDeUsuario;
+    }
+
+    public String getSenha() {
+        return Senha;
+    }
+
+    public void setSenha(String senha) {
+        Senha = senha;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public int getIdade() {
         return Idade;
     }
 
-    public void setIdade(int Idade) {
-        this.Idade = Idade;
+    public void setIdade(int idade) {
+        Idade = idade;
     }
-    
-    
-    
 }
