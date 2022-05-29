@@ -9,7 +9,6 @@ public class Pessoa {
         this.Cargo = "";
         this.NomeDeUsuario = "";
         this.Senha = "";
-        this.ID = 0;
         this.Idade = 0;
     }
 
