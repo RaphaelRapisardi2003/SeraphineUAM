@@ -1,0 +1,70 @@
+package Model;
+
+import java.util.List;
+
+public class Cliente extends Pessoa {    
+    String Nome, Endereco;  
+    double Telefone, Celular, Cpf; 
+    int Idade;
+
+    public Cliente() {
+        this.Nome = "";
+        this.Endereco = "";
+        this.Telefone = 0;
+        this.Celular = 0;
+        this.Cpf = 0;
+        this.Idade = 0;
+    }
+    
+    
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public void setNome(String Nome) {
+        this.Nome = Nome;
+    }
+
+    public String getEndereco() {
+        return Endereco;
+    }
+
+    public void setEndereco(String Endereco) {
+        this.Endereco = Endereco;
+    }
+
+    public double getTelefone() {
+        return Telefone;
+    }
+
+    public void setTelefone(double Telefone) {
+        this.Telefone = Telefone;
+    }
+
+    public double getCelular() {
+        return Celular;
+    }
+
+    public void setCelular(double Celular) {
+        this.Celular = Celular;
+    }
+
+    public double getCpf() {
+        return Cpf;
+    }
+
+    public void setCpf(double Cpf) {
+        this.Cpf = Cpf;
+    }
+
+    public int getIdade() {
+        return Idade;
+    }
+
+    public void setIdade(int Idade) {
+        this.Idade = Idade;
+    }
+    
+    
+}
