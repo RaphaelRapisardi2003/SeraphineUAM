@@ -70,7 +70,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setOpaque(true);
 
         jButton1.setBackground(new java.awt.Color(252, 249, 249));
-        jButton1.setText("trarem");
+        jButton1.setText("Entrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
