@@ -3,6 +3,11 @@ package Model;
 public class Pessoa {
     private String Nome, Cargo, NomeDeUsuario, Senha;
     private int ID, Idade;
+    
+    public Pessoa (String NomeDeUsuario, String Senha) {
+        this.NomeDeUsuario = Nome;
+        this.Senha = Senha;
+    }
 
     public Pessoa() {
         this.Nome = "";
