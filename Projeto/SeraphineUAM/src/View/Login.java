@@ -54,7 +54,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setText("Login");
 
         jLabel4.setIcon(new javax.swing.ImageIcon(
-                "C:\\Users\\rapha\\OneDrive\\Área de Trabalho\\TrabalhoA3\\Imagens\\istockphoto-1095289632-170667a (1).jpg")); // NOI18N
+                "Imagens/istockphoto-1095289632-170667a (1).jpg")); // NOI18N
 
         jCheckBox1.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         jCheckBox1.setForeground(new java.awt.Color(153, 153, 153));
@@ -66,7 +66,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         jLabel2.setIcon(
-                new javax.swing.ImageIcon("C:\\Users\\rapha\\OneDrive\\Área de Trabalho\\TrabalhoA3\\Imagens\\seraphine.jpg")); // NOI18N
+                new javax.swing.ImageIcon("Imagens/seraphine.jpg")); // NOI18N
         jLabel2.setOpaque(true);
 
         jButton1.setBackground(new java.awt.Color(252, 249, 249));

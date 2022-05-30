@@ -170,7 +170,7 @@ public class TelaAtendente extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\rapha\\OneDrive\\Área de Trabalho\\TrabalhoA3\\Imagens\\logo seraphine.jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("Imagens/logo seraphine.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -190,7 +190,7 @@ public class TelaAtendente extends javax.swing.JFrame {
         );
 
         jButton1.setBackground(new java.awt.Color(254, 254, 254));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\rapha\\OneDrive\\Área de Trabalho\\TrabalhoA3\\Imagens\\Add.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("Imagens/Add.png")); // NOI18N
         jButton1.setToolTipText("");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setLabel("<html>F2<br />Adicionar Item</html>");
@@ -210,7 +210,7 @@ public class TelaAtendente extends javax.swing.JFrame {
         });
 
         jButton2.setBackground(new java.awt.Color(254, 254, 254));
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\rapha\\OneDrive\\Área de Trabalho\\TrabalhoA3\\Imagens\\Menos.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("Imagens/Menos.png")); // NOI18N
         jButton2.setToolTipText("");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setLabel("<html>F3<br />remover item</html>");
@@ -230,7 +230,7 @@ public class TelaAtendente extends javax.swing.JFrame {
         });
 
         jButton3.setBackground(new java.awt.Color(254, 254, 254));
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\rapha\\OneDrive\\Área de Trabalho\\TrabalhoA3\\Imagens\\x (1).jpg")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("Imagens/x (1).jpg")); // NOI18N
         jButton3.setText("<html>F4<br />Cancelar compra</html>");
         jButton3.setToolTipText("");
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -250,7 +250,7 @@ public class TelaAtendente extends javax.swing.JFrame {
         });
 
         jButton4.setBackground(new java.awt.Color(254, 254, 254));
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\rapha\\OneDrive\\Área de Trabalho\\TrabalhoA3\\Imagens\\V.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon("Imagens/V.png")); // NOI18N
         jButton4.setText("<html>F5<br />Finalizar compra</html>");
         jButton4.setToolTipText("");
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -270,7 +270,7 @@ public class TelaAtendente extends javax.swing.JFrame {
         });
 
         jButto5.setBackground(new java.awt.Color(245, 243, 243));
-        jButto5.setIcon(new javax.swing.ImageIcon("C:\\Users\\rapha\\OneDrive\\Área de Trabalho\\TrabalhoA3\\Imagens\\back.png")); // NOI18N
+        jButto5.setIcon(new javax.swing.ImageIcon("Imagens/back.png")); // NOI18N
         jButto5.setText("<html>F1<br />Voltar Ao Login</html>");
         jButto5.setToolTipText("");
         jButto5.setActionCommand("<html>F1<br />Voltar Ao Login</html>");
