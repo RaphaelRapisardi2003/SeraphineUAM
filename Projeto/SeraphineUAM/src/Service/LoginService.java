@@ -1,6 +1,6 @@
 package Service;
 
-public class ValidarLogin {
+public class LoginService {
     public boolean ValidarSenha(String Senha) {
         if (Senha == null) return false;
         if (Senha.length() < 8) return false;

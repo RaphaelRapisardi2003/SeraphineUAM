@@ -1,11 +1,11 @@
 package Controller;
 
 import Model.Pessoa;
-import Service.ValidarLogin;
+import Service.LoginService;
 
 public class TelaLoginController {
     public boolean EfetuarLogin (Pessoa pessoa) {
-        ValidarLogin validarLogin = new ValidarLogin();
+        LoginService validarLogin = new LoginService();
 
        if (!validarLogin.ValidarNomeDeUsuario(pessoa.getNomeDeUsuario())) return false;
        
