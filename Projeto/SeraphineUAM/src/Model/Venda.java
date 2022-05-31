@@ -1,16 +1,18 @@
 package Model;
 
+import java.util.ArrayList;
+
 import Model.Produto;
 
 public class Venda {
     private int IDCompra;
     private float ValorTotal;
-    private Produto Produtos;
+    private ArrayList<Produto> Produtos;
 
     public Venda() {
         this.IDCompra = 0;
         this.ValorTotal = 0;
-        this.Produtos = new Produto();
+        this.Produtos = new ArrayList<Produto>();
     }
 
     public int getIDCompra() {
@@ -29,12 +31,12 @@ public class Venda {
         this.ValorTotal = ValorTotal;
     }
 
-    public Produto getProdutos() {
+    public ArrayList<Produto> getProdutos() {
         return Produtos;
     }
 
-    public void setProdutos(Produto Produtos) {
-        this.Produtos = Produtos;
+    public void setProdutos(Produto Produto) {
+        this.Produtos.add(Produto);
     }
     
     
