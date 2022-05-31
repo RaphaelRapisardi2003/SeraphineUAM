@@ -8,8 +8,9 @@
         </group>
         <group name="SeraphineUAM"/>
         <group name="Projeto">
+            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/TelaAtendente.java</file>
             <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/Controller/TelaAtendenteController.java</file>
-            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/Login.java</file>
+            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/Controller/TelaLoginController.java</file>
         </group>
     </open-files>
 </project-private>
