@@ -179,14 +179,13 @@ public class Login extends javax.swing.JFrame {
     }// GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
-
         if (jComboBox1.getSelectedItem().equals("Funcionário")) {
             TelaAtendente atend = new TelaAtendente();
             atend.setVisible(true);
             dispose();
-        } else {
-            dispose();
         }
+        dispose();
+        
     }// GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBox1ActionPerformed
