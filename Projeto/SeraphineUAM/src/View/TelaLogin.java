@@ -184,18 +184,17 @@ public class TelaLogin extends javax.swing.JFrame {
             
         }
         
-        if (jComboBox1.getSelectedItem().equals("Funcionário")) {
+        if (jComboBox1.getSelectedItem().equals("Administrador")) {
             
             TelaLoginController telaLoginController = new TelaLoginController();
             
             if (telaLoginController.EfetuarLogin(new Pessoa())) {
-                TelaAtendente atend = new TelaAtendente();
-                atend.setVisible(true);
                 dispose();       
             }
             
             
         }
+        
         dispose();
         
     }// GEN-LAST:event_jButton1ActionPerformed
