@@ -7,14 +7,14 @@ public class TelaLoginController {
     public boolean EfetuarLogin (Pessoa pessoa) {
         ValidarLogin validarLogin = new ValidarLogin();
 
-        if (!validarLogin.ValidarNomeDeUsuario(pessoa.getNomeDeUsuario())) return false;
+        if (validarLogin.ValidarNomeDeUsuario(pessoa.getNomeDeUsuario())) return true;
         
-        if (!validarLogin.ValidarSenha(pessoa.getSenha())) return false;
+        if (validarLogin.ValidarSenha(pessoa.getSenha())) return true;
 
         return Login(pessoa);
     }
 
     private boolean Login (Pessoa pessoa) {
-        return true;
+        return false;
     }
 }
