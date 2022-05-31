@@ -1,9 +1,9 @@
 package Model;
 
 public class Produto {
-    String Descricao;
-    double QtdEstoque;
-    float Preco;
+    private String Descricao;
+    private double QtdEstoque;
+    private float Preco;
     
     public Produto() {
         this.Descricao = "";

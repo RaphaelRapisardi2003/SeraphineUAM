@@ -3,9 +3,9 @@ package Model;
 import java.util.List;
 
 public class Cliente extends Pessoa {    
-    String Nome, Endereco;  
-    double Telefone, Celular, Cpf; 
-    int Idade;
+    private String Nome, Endereco;  
+    private double Telefone, Celular, Cpf; 
+    private int Idade;
 
     public Cliente() {
         this.Nome = "";
