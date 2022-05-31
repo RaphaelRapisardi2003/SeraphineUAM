@@ -174,14 +174,13 @@ public class TelaLogin extends javax.swing.JFrame {
         if (jComboBox1.getSelectedItem().equals("Funcionário")) {
             
             TelaLoginController telaLoginController = new TelaLoginController();
-            
-            if (telaLoginController.EfetuarLogin(new Pessoa())) {
+            Pessoa pessoa = new Pessoa(jTextField1.getText(), jPasswordField1.getPassword().toString());
+
+            if (telaLoginController.EfetuarLogin(pessoa)) {
                 TelaAtendente atend = new TelaAtendente();
                 atend.setVisible(true);
                 dispose();       
-            }
-            
-            
+            }            
         }
         
         if (jComboBox1.getSelectedItem().equals("Administrador")) {
@@ -191,8 +190,6 @@ public class TelaLogin extends javax.swing.JFrame {
             if (telaLoginController.EfetuarLogin(new Pessoa())) {
                 dispose();       
             }
-            
-            
         }
         
         dispose();

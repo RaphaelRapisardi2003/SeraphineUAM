@@ -5,7 +5,7 @@ public class Pessoa {
     private int ID, Idade;
     
     public Pessoa (String NomeDeUsuario, String Senha) {
-        this.NomeDeUsuario = Nome;
+        this.NomeDeUsuario = NomeDeUsuario;
         this.Senha = Senha;
     }
 
