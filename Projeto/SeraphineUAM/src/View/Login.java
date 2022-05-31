@@ -1,5 +1,8 @@
 package View;
 
+import Controller.TelaLoginController;
+import Model.Pessoa;
+
 public class Login extends javax.swing.JFrame {
 
     /**
@@ -180,9 +183,16 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         if (jComboBox1.getSelectedItem().equals("Funcionário")) {
-            TelaAtendente atend = new TelaAtendente();
-            atend.setVisible(true);
-            dispose();
+            
+            TelaLoginController telaLoginController = new TelaLoginController();
+            
+            if (telaLoginController.EfetuarLogin(new Pessoa())) {
+                TelaAtendente atend = new TelaAtendente();
+                atend.setVisible(true);
+                dispose();       
+            }
+            
+            
         }
         dispose();
         
