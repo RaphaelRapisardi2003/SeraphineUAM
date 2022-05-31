@@ -112,7 +112,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -151,11 +151,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\rapha\OneDrive\&#xc1;rea de Trabalho\TrabalhoA3\Imagens\istockphoto-1095289632-170667a (1).jpg"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBox1">
           <Properties>
@@ -173,9 +168,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\rapha\OneDrive\&#xc1;rea de Trabalho\TrabalhoA3\Imagens\seraphine.jpg"/>
-            </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
