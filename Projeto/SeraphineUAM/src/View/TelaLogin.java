@@ -186,8 +186,9 @@ public class TelaLogin extends javax.swing.JFrame {
         if (jComboBox1.getSelectedItem().equals("Administrador")) {
             
             TelaLoginController telaLoginController = new TelaLoginController();
+            Pessoa pessoa = new Pessoa(jTextField1.getText(), jPasswordField1.getPassword().toString());
             
-            if (telaLoginController.EfetuarLogin(new Pessoa())) {
+            if (telaLoginController.EfetuarLogin(pessoa)) {
                 dispose();       
             }
         }
