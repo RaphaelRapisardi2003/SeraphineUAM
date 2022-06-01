@@ -3,27 +3,16 @@ package Model;
 import java.util.List;
 
 public class Cliente extends Pessoa {    
-    private String Nome, Endereco;  
+    private String Endereco;
     private double Telefone, Celular, Cpf; 
     private int Idade;
 
     public Cliente() {
-        this.Nome = "";
         this.Endereco = "";
         this.Telefone = 0;
         this.Celular = 0;
         this.Cpf = 0;
         this.Idade = 0;
-    }
-    
-    
-
-    public String getNome() {
-        return Nome;
-    }
-
-    public void setNome(String Nome) {
-        this.Nome = Nome;
     }
 
     public String getEndereco() {
