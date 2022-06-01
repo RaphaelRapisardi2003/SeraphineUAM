@@ -350,20 +350,14 @@
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" pref="191" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">Imagens
             </DimensionLayout>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\rapha\OneDrive\&#xc1;rea de Trabalho\TrabalhoA3\Imagens\logo seraphine.jpg"/>
+                  <Image iconType="2" name="./Imagens//Imagens/\logo seraphine.jpg"/>
                 </Property>
               </Properties>
             </Component>
@@ -375,7 +369,7 @@
               <Color blue="fe" green="fe" red="fe" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\rapha\OneDrive\&#xc1;rea de Trabalho\TrabalhoA3\Imagens\Add.png"/>
+              <Image iconType="2" name="./Imagens//Imagens/\Add.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -394,7 +388,7 @@
               <Color blue="fe" green="fe" red="fe" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\rapha\OneDrive\&#xc1;rea de Trabalho\TrabalhoA3\Imagens\Menos.png"/>
+              <Image iconType="2" name="./Imagens//Imagens/\Menos.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -413,7 +407,7 @@
               <Color blue="fe" green="fe" red="fe" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\rapha\OneDrive\&#xc1;rea de Trabalho\TrabalhoA3\Imagens\x (1).jpg"/>
+              <Image iconType="2" name="./Imagens//Imagens/\x (1).jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;F4&lt;br /&gt;Cancelar compra&lt;/html&gt;"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -432,7 +426,7 @@
               <Color blue="fe" green="fe" red="fe" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\rapha\OneDrive\&#xc1;rea de Trabalho\TrabalhoA3\Imagens\V.png"/>
+              <Image iconType="2" name="./Imagens//Imagens/\V.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;F5&lt;br /&gt;Finalizar compra&lt;/html&gt;"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -451,7 +445,7 @@
               <Color blue="f3" green="f3" red="f5" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\rapha\OneDrive\&#xc1;rea de Trabalho\TrabalhoA3\Imagens\back.png"/>
+              <Image iconType="2" name="./Imagens//Imagens/\back.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;F1&lt;br /&gt;Voltar Ao Login&lt;/html&gt;"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
