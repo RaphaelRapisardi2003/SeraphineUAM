@@ -3,3 +3,4 @@
 *build
 *.class
 *.vscode
+/Projeto/SeraphineUAM/dist/

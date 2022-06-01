@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.awt.event.KeyEvent;
 import java.util.Vector;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
