@@ -11,6 +11,8 @@ public class TelaAtendenteController {
 
         return new Object[]{ produto.getId(), produto.getQtdEstoque(), produto.getPreco() };
     }
+    
+    public void RemoverItem(Produto produto, double Qtd) {}
 
     private float CalcularValorTotalDoItem(double QtdCompra, float Preco) {
         return (Preco * (float) QtdCompra);
