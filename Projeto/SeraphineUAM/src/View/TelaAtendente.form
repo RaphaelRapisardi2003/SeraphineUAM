@@ -297,6 +297,8 @@
               <Color blue="fe" green="fe" red="fe" type="rgb"/>
             </Property>
           </Properties>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel4">
             </Component>

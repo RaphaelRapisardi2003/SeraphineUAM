@@ -335,7 +335,7 @@ public class TelaAtendente extends javax.swing.JFrame {
 
         if(!produtoService.VerificarSeOProdutoExiste(produto)) {
             if (produtoService.ValidarProduto(produto))
-                dfm.addRow(telaAtendenteController.AdicionarItem(produto, 10));
+                dfm.addRow(telaAtendenteController.AdicionarItem(produto));
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -348,7 +348,23 @@ public class TelaAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1KeyTyped
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
+        Produto produto = new Produto();
+        int SelectedRow = jTable1.getSelectedRow();
+
+        produto.setId(Integer.parseInt((
+                    jTable1.getValueAt(SelectedRow, 0).toString()
+                )
+            )
+        );
+
+        try {
+            ((DefaultTableModel)jTable1.getModel()).removeRow(SelectedRow);
+            telaAtendenteController.RemoverItem(produto);
+        }
+        catch(Exception e){
+            
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton2KeyPressed
