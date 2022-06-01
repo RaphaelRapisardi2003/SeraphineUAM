@@ -1,5 +1,9 @@
 package View;
 
+import Controller.TelaAtendenteController;
+import Model.Produto;
+import Service.ProdutoService;
+
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.Vector;
@@ -58,7 +62,6 @@ public class TelaAtendente extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
                         {"2133", "Cereais Yummi",  new Integer(2),  new Float(23.15),  new Float(56.3), "Singed Pereira"},
-                        {null, "", null, null, null, null}
                 },
                 new String [] {
                         "Código", "Descrição", "Qtd", "Preço R$", "Total R$", "Vendedor"
@@ -356,10 +359,15 @@ public class TelaAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
+        ProdutoService produtoService = new ProdutoService();
+        Produto produto = new Produto();
         DefaultTableModel dfm = (DefaultTableModel) jTable1.getModel();
-        Vector<?> rowData = null;
-        dfm.addRow(rowData);
 
+        if(!produtoService.VerificarSeOProdutoExiste(produto)) {
+            if (produtoService.ValidarProduto(produto))
+                dfm.addRow(telaAtendenteController.AdicionarItem(produto, 10));
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
