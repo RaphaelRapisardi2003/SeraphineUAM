@@ -1,12 +1,16 @@
 package Model;
 
 public class Pessoa {
-    private String Nome, Cargo, NomeDeUsuario, Senha;
+    private String Nome, NomeDeUsuario, Senha;
     private int ID, Idade;
+    
+    public Pessoa (String NomeDeUsuario, String Senha) {
+        this.NomeDeUsuario = NomeDeUsuario;
+        this.Senha = Senha;
+    }
 
     public Pessoa() {
         this.Nome = "";
-        this.Cargo = "";
         this.NomeDeUsuario = "";
         this.Senha = "";
         this.Idade = 0;
@@ -18,14 +22,6 @@ public class Pessoa {
 
     public void setNome(String nome) {
         Nome = nome;
-    }
-
-    public String getCargo() {
-        return Cargo;
-    }
-
-    public void setCargo(String cargo) {
-        Cargo = cargo;
     }
 
     public String getNomeDeUsuario() {

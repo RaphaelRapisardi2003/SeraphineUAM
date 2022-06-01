@@ -1,5 +1,9 @@
 package View;
 
+import Controller.TelaAtendenteController;
+import Model.Produto;
+import Service.ProdutoService;
+
 import java.awt.Color;
 import java.util.Vector;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -87,18 +91,14 @@ public class TelaAtendente extends javax.swing.JFrame {
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"2133", "Cereais Yummi",  new Integer(2),  new Float(23.15),  new Float(56.3), "Singed Pereira"},
-                {null, "", null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {"2133", "Cereais Yummi",  new Float(23.15), "Singed Pereira"}
             },
             new String [] {
-                "Código", "Descrição", "Qtd", "Preço R$", "Total R$", "Vendedor"
+                "Código", "Descrição", "Preço R$", "Vendedor"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -117,18 +117,12 @@ public class TelaAtendente extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(0).setMinWidth(50);
             jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
             jTable1.getColumnModel().getColumn(0).setMaxWidth(50);
-            jTable1.getColumnModel().getColumn(2).setMinWidth(50);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(50);
-            jTable1.getColumnModel().getColumn(2).setMaxWidth(50);
-            jTable1.getColumnModel().getColumn(3).setMinWidth(100);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(100);
-            jTable1.getColumnModel().getColumn(3).setMaxWidth(100);
-            jTable1.getColumnModel().getColumn(4).setMinWidth(100);
-            jTable1.getColumnModel().getColumn(4).setPreferredWidth(100);
-            jTable1.getColumnModel().getColumn(4).setMaxWidth(100);
-            jTable1.getColumnModel().getColumn(5).setMinWidth(200);
-            jTable1.getColumnModel().getColumn(5).setPreferredWidth(200);
-            jTable1.getColumnModel().getColumn(5).setMaxWidth(200);
+            jTable1.getColumnModel().getColumn(2).setMinWidth(100);
+            jTable1.getColumnModel().getColumn(2).setPreferredWidth(100);
+            jTable1.getColumnModel().getColumn(2).setMaxWidth(100);
+            jTable1.getColumnModel().getColumn(3).setMinWidth(200);
+            jTable1.getColumnModel().getColumn(3).setPreferredWidth(200);
+            jTable1.getColumnModel().getColumn(3).setMaxWidth(200);
         }
 
         jPanel2.setBackground(new java.awt.Color(254, 254, 254));
@@ -387,10 +381,15 @@ public class TelaAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
+        ProdutoService produtoService = new ProdutoService();
+        Produto produto = new Produto();
         DefaultTableModel dfm = (DefaultTableModel) jTable1.getModel();
-        Vector<?> rowData = null;
-        dfm.addRow(rowData);
 
+        if(!produtoService.VerificarSeOProdutoExiste(produto)) {
+            if (produtoService.ValidarProduto(produto))
+                dfm.addRow(telaAtendenteController.AdicionarItem(produto));
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
@@ -402,7 +401,23 @@ public class TelaAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1KeyTyped
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
+        Produto produto = new Produto();
+        int SelectedRow = jTable1.getSelectedRow();
+
+        produto.setId(Integer.parseInt((
+                    jTable1.getValueAt(SelectedRow, 0).toString()
+                )
+            )
+        );
+
+        try {
+            ((DefaultTableModel)jTable1.getModel()).removeRow(SelectedRow);
+            telaAtendenteController.RemoverItem(produto);
+        }
+        catch(Exception e){
+            
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton2KeyPressed

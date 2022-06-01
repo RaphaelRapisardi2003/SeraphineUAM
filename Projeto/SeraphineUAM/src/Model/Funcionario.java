@@ -1,7 +1,7 @@
 package Model;
 
 public class Funcionario extends Pessoa{
-    String Categoria;
+    private String Categoria;
 
     public Funcionario() {
         this.Categoria = "";
