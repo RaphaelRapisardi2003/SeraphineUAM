@@ -8,33 +8,51 @@ public class TelaLoginController {
     private String codigoDeErro;
 
     public boolean EfetuarLogin(Pessoa pessoa, String cargo) {
-        LoginService validarCharLogin = new LoginService();
         LoginService validarLogin = new LoginService();
 
-        if (!validarCharLogin.ValidarNomeDeUsuario(pessoa.getNomeDeUsuario())) {
-            codigoDeErro = validarCharLogin.getCodigoDeErroLogin();
+        if (!validarLogin.ValidarNomeDeUsuario(pessoa.getNomeDeUsuario())) {
+            codigoDeErro = validarLogin.getCodigoDeErro();
             return false;
         }
 
-        if (!validarCharLogin.ValidarSenha(pessoa.getSenha())) {
-            codigoDeErro = validarCharLogin.getCodigoDeErroLogin();
+        if (!validarLogin.ValidarSenha(pessoa.getSenha())) {
+            codigoDeErro = validarLogin.getCodigoDeErro();
+            return false;   
+        }
+
+        if ("Administrador".equals(cargo)) {
+            if(!EfetuarLoginAdministrador(pessoa));
             return false;
         }
 
-        if ("Admin".equals(cargo)) {
-
-            if (!validarLogin.ValidarLoginAdmin(pessoa.getNomeDeUsuario(), pessoa.getSenha())) {
-                codigoDeErro = validarLogin.getCodigoDeErroLogin();
-                return false;
-            }
-        } else if ("Funcionario".equals(cargo)) {
-            if (!validarLogin.ValidarLoginFuncionario(pessoa.getNomeDeUsuario(), pessoa.getSenha())) {
-                codigoDeErro = validarLogin.getCodigoDeErroLogin();
-                return false;
-            }
+        if ("Funcionário".equals(cargo)) {
+            if(!EfetuarLoginFuncionario(pessoa));
+            return false;
         }
 
         return Login(pessoa);
+    }
+
+    private boolean EfetuarLoginFuncionario(Pessoa pessoa) {
+        LoginService validarLogin = new LoginService();
+        
+        if (!validarLogin.ValidarLoginFuncionario(pessoa.getNomeDeUsuario(), pessoa.getSenha())) {
+            codigoDeErro = validarLogin.getCodigoDeErro();
+            return false;
+        }
+        
+        return true;
+    }
+
+    private boolean EfetuarLoginAdministrador(Pessoa pessoa) {
+        LoginService validarLogin = new LoginService();
+        
+        if (!validarLogin.ValidarLoginAdmin(pessoa.getNomeDeUsuario(), pessoa.getSenha())) {
+            codigoDeErro = validarLogin.getCodigoDeErro();
+            return false;
+        }
+                    
+        return true;
     }
 
     public String getCogidoDeErro() {

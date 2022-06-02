@@ -5,11 +5,16 @@ import DAO.LoginDAO;
 
 public class LoginService {
 
-    private DAO connect = new DAO();
-    private String CodigoDeErroLogin;
+    private DAO connect;
+    private String CodigoDeErro;
+
+    public LoginService () {
+        connect = new DAO();
+        CodigoDeErro = "";
+    } 
     
-    public String getCodigoDeErroLogin() {
-        return this.getCodigoDeErroLogin();
+    public String getCodigoDeErro() {
+        return this.CodigoDeErro;
     }
 
     public boolean ValidarSenha(String Senha) {
@@ -40,11 +45,11 @@ public class LoginService {
             if (login == true) {
                 return true;
             } else {
-                CodigoDeErroLogin = new LoginDAO().getCodigoDeErro();
+                CodigoDeErro = new LoginDAO().getCodigoDeErro();
                 return false;
             }
         } else {
-            CodigoDeErroLogin = connect.getCodigoDeErroConn();
+            CodigoDeErro = connect.getCodigoDeErroConn();
             return false;
 
         }
@@ -55,11 +60,11 @@ public class LoginService {
             if (login == true) {
                 return true;
             } else {
-                CodigoDeErroLogin = new LoginDAO().getCodigoDeErro();
+                CodigoDeErro = new LoginDAO().getCodigoDeErro();
                 return false;
             }
         } else {
-            CodigoDeErroLogin = connect.getCodigoDeErroConn();
+            CodigoDeErro = connect.getCodigoDeErroConn();
             return false;
 
         }

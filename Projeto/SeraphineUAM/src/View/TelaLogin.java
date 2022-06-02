@@ -196,14 +196,15 @@ public class TelaLogin extends javax.swing.JFrame {
             TelaLoginController telaLoginController = new TelaLoginController();
             Pessoa pessoa = new Pessoa(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()));
 
-            if (telaLoginController.EfetuarLogin(pessoa, "Funcionario")) {
+            if (telaLoginController.EfetuarLogin(pessoa, jComboBox1.getSelectedItem().toString())) {
                 TelaAtendente atend = new TelaAtendente();
                 atend.setVisible(true);
                 dispose();
-            } else {
-                JOptionPane.showMessageDialog(null,
-                        telaLoginController.getCogidoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
             }
+            
+            JOptionPane.showMessageDialog(null,
+                telaLoginController.getCogidoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+            
         }
 
         if (jComboBox1.getSelectedItem().equals("Administrador")) {
@@ -211,12 +212,12 @@ public class TelaLogin extends javax.swing.JFrame {
             TelaLoginController telaLoginController = new TelaLoginController();
             Pessoa pessoa = new Pessoa(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()));
             
-            if (telaLoginController.EfetuarLogin(pessoa, "Admin")) {
+            if (telaLoginController.EfetuarLogin(pessoa, jComboBox1.getSelectedItem().toString())) {
                 dispose();
-            } else {
-                JOptionPane.showMessageDialog(null,
-                        telaLoginController.getCogidoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
             }
+            JOptionPane.showMessageDialog(null,
+                telaLoginController.getCogidoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+            
         }
 
         dispose();
