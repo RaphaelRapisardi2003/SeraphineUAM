@@ -2,6 +2,7 @@ package View;
 
 import Controller.TelaLoginController;
 import Model.Pessoa;
+import javax.swing.JOptionPane;
 
 public class TelaLogin extends javax.swing.JFrame {
 
@@ -172,29 +173,35 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         if (jComboBox1.getSelectedItem().equals("Funcionário")) {
-            
-            TelaLoginController telaLoginController = new TelaLoginController();
-            Pessoa pessoa = new Pessoa(jTextField1.getText(), jPasswordField1.getPassword().toString());
 
-            if (telaLoginController.EfetuarLogin(pessoa)) {
+            TelaLoginController telaLoginController = new TelaLoginController();
+            Pessoa pessoa = new Pessoa(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()));
+
+            if (telaLoginController.EfetuarLogin(pessoa, "Funcionario")) {
                 TelaAtendente atend = new TelaAtendente();
                 atend.setVisible(true);
-                dispose();       
-            }            
-        }
-        
-        if (jComboBox1.getSelectedItem().equals("Administrador")) {
-            
-            TelaLoginController telaLoginController = new TelaLoginController();
-            Pessoa pessoa = new Pessoa(jTextField1.getText(), jPasswordField1.getPassword().toString());
-            
-            if (telaLoginController.EfetuarLogin(pessoa)) {
-                dispose();       
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        telaLoginController.getCogidoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
             }
         }
-        
+
+        if (jComboBox1.getSelectedItem().equals("Administrador")) {
+
+            TelaLoginController telaLoginController = new TelaLoginController();
+            Pessoa pessoa = new Pessoa(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()));
+            
+            if (telaLoginController.EfetuarLogin(pessoa, "Admin")) {
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        telaLoginController.getCogidoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+
         dispose();
-        
+
     }// GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBox1ActionPerformed
