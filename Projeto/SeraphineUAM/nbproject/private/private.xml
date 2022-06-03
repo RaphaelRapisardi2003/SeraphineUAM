@@ -10,5 +10,12 @@
             <file>file:/C:/Users/rapha/OneDrive/Área%20de%20Trabalho/SeraphineUAM/Projeto/SeraphineUAM/src/View/TelaAtendente.java</file>
             <file>file:/C:/Users/rapha/OneDrive/Área%20de%20Trabalho/SeraphineUAM/Projeto/SeraphineUAM/src/Main.java</file>
         </group>
+        <group name="Projeto">
+            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DAO/DAO.java</file>
+            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/View/TelaLogin.java</file>
+            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DAO/LoginDAO.java</file>
+            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Service/LoginService.java</file>
+            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Controller/TelaLoginController.java</file>
+        </group>
     </open-files>
 </project-private>

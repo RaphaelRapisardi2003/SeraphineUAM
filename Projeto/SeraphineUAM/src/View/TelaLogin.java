@@ -216,7 +216,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
             if (telaLoginController.EfetuarLogin(pessoa, jComboBox1.getSelectedItem().toString())) {
                 JOptionPane.showMessageDialog(null,
-                        "Login Efetuado com Sucesso!", "CAIXA DE LOGIN PROVISÓRIA", JOptionPane.WARNING_MESSAGE);
+                        "Login Efetuado com Sucesso!", "CAIXA DE LOGIN PROVISÓRIA", JOptionPane.INFORMATION_MESSAGE);
                 dispose();
             } else {
                 codigoDeErro = telaLoginController.getCodigoDeErro();
