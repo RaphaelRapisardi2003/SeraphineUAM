@@ -17,17 +17,19 @@ public class TelaLoginController {
 
         if (!validarLogin.ValidarSenha(pessoa.getSenha())) {
             codigoDeErro = validarLogin.getCodigoDeErro();
-            return false;   
+            return false;
         }
 
         if ("Administrador".equals(cargo)) {
-            if(!EfetuarLoginAdministrador(pessoa));
-            return false;
+            if (!EfetuarLoginAdministrador(pessoa)) {
+                return false;
+            }
         }
 
         if ("Funcionário".equals(cargo)) {
-            if(!EfetuarLoginFuncionario(pessoa));
-            return false;
+            if (!EfetuarLoginFuncionario(pessoa)) {
+                return false;
+            }
         }
 
         return Login(pessoa);
@@ -35,28 +37,28 @@ public class TelaLoginController {
 
     private boolean EfetuarLoginFuncionario(Pessoa pessoa) {
         LoginService validarLogin = new LoginService();
-        
+
         if (!validarLogin.ValidarLoginFuncionario(pessoa.getNomeDeUsuario(), pessoa.getSenha())) {
             codigoDeErro = validarLogin.getCodigoDeErro();
             return false;
         }
-        
+
         return true;
     }
 
     private boolean EfetuarLoginAdministrador(Pessoa pessoa) {
         LoginService validarLogin = new LoginService();
-        
+
         if (!validarLogin.ValidarLoginAdmin(pessoa.getNomeDeUsuario(), pessoa.getSenha())) {
             codigoDeErro = validarLogin.getCodigoDeErro();
             return false;
         }
-                    
+
         return true;
     }
 
-    public String getCogidoDeErro() {
-        return this.codigoDeErro;
+    public String getCodigoDeErro() {
+        return codigoDeErro;
     }
 
     private boolean Login(Pessoa pessoa) {

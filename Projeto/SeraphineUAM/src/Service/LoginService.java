@@ -6,10 +6,12 @@ import DAO.LoginDAO;
 public class LoginService {
 
     private DAO connect;
+    private LoginDAO loginDAO;
     private String CodigoDeErro;
 
     public LoginService () {
         connect = new DAO();
+        loginDAO = new LoginDAO();
         CodigoDeErro = "";
     } 
     
@@ -41,11 +43,11 @@ public class LoginService {
 
     public boolean ValidarLoginAdmin(String NomeDeUsuario, String Senha) {
         if (connect.conectarComConfirmacao() == true) {
-            boolean login = new LoginDAO().validarLoginAdmin(NomeDeUsuario, Senha);
+            boolean login = loginDAO.validarLoginAdmin(NomeDeUsuario, Senha);
             if (login == true) {
                 return true;
             } else {
-                CodigoDeErro = new LoginDAO().getCodigoDeErro();
+                CodigoDeErro = loginDAO.getCodigoDeErro();
                 return false;
             }
         } else {

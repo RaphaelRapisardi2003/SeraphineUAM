@@ -8,7 +8,7 @@ public class LoginDAO {
     private String codigoDeErro;
     
     public String getCodigoDeErro(){
-        return this.codigoDeErro;
+        return codigoDeErro;
     }
     
     public boolean validarLoginAdmin(String nomeDeUsuario, String senha) {
@@ -19,7 +19,7 @@ public class LoginDAO {
             return false;
         }
         try {
-            String sql = "SELECT * FROM administrador WHERE USUARIO_DE_USUARIO = ? AND SENHA = ?";
+            String sql = "SELECT * FROM administrador WHERE NOME_DE_USUARIO = ? AND SENHA = ?";
             PreparedStatement st = conn.prepareStatement(sql);
             
             st.setString(1, nomeDeUsuario);
@@ -46,7 +46,7 @@ public class LoginDAO {
             return false;
         }
         try {
-            String sql = "SELECT * FROM funcionario WHERE USUARIO_DE_USUARIO = ? AND SENHA = ?";
+            String sql = "SELECT * FROM funcionario WHERE NOME_DE_USUARIO = ? AND SENHA = ?";
             PreparedStatement st = conn.prepareStatement(sql);
             
             st.setString(1, nomeDeUsuario);

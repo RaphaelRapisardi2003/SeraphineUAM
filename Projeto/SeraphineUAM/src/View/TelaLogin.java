@@ -5,6 +5,8 @@ import Model.Pessoa;
 import javax.swing.JOptionPane;
 
 public class TelaLogin extends javax.swing.JFrame {
+    
+    private String codigoDeErro;
 
     /**
      * Creates new form Main
@@ -200,27 +202,28 @@ public class TelaLogin extends javax.swing.JFrame {
                 TelaAtendente atend = new TelaAtendente();
                 atend.setVisible(true);
                 dispose();
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        telaLoginController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
             }
-            
-            JOptionPane.showMessageDialog(null,
-                telaLoginController.getCogidoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
-            
+
         }
 
         if (jComboBox1.getSelectedItem().equals("Administrador")) {
 
             TelaLoginController telaLoginController = new TelaLoginController();
             Pessoa pessoa = new Pessoa(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()));
-            
-            if (telaLoginController.EfetuarLogin(pessoa, jComboBox1.getSelectedItem().toString())) {
-                dispose();
-            }
-            JOptionPane.showMessageDialog(null,
-                telaLoginController.getCogidoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
-            
-        }
 
-        dispose();
+            if (telaLoginController.EfetuarLogin(pessoa, jComboBox1.getSelectedItem().toString())) {
+                JOptionPane.showMessageDialog(null,
+                        "Login Efetuado com Sucesso!", "CAIXA DE LOGIN PROVISÓRIA", JOptionPane.WARNING_MESSAGE);
+                dispose();
+            } else {
+                codigoDeErro = telaLoginController.getCodigoDeErro();
+                JOptionPane.showMessageDialog(null,
+                        codigoDeErro, "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
+        }
 
     }// GEN-LAST:event_jButton1ActionPerformed
 
