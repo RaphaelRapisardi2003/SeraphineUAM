@@ -14,6 +14,7 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
         setResizable(false);
+        
     }
 
     /**
@@ -215,8 +216,9 @@ public class TelaLogin extends javax.swing.JFrame {
             Pessoa pessoa = new Pessoa(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()));
 
             if (telaLoginController.EfetuarLogin(pessoa, jComboBox1.getSelectedItem().toString())) {
-                JOptionPane.showMessageDialog(null,
-                        "Login Efetuado com Sucesso!", "CAIXA DE LOGIN PROVISÓRIA", JOptionPane.INFORMATION_MESSAGE);
+                        TelaADM adm = new TelaADM();
+                        adm.setVisible(true);
+                        
                 dispose();
             } else {
                 codigoDeErro = telaLoginController.getCodigoDeErro();
