@@ -58,11 +58,11 @@ public class LoginService {
     }
     public boolean ValidarLoginFuncionario(String NomeDeUsuario, String Senha) {
         if (connect.conectarComConfirmacao() == true) {
-            boolean login = new LoginDAO().validarLoginFuncionario(NomeDeUsuario, Senha);
+            boolean login = loginDAO.validarLoginFuncionario(NomeDeUsuario, Senha);
             if (login == true) {
                 return true;
             } else {
-                CodigoDeErro = new LoginDAO().getCodigoDeErro();
+                CodigoDeErro = loginDAO.getCodigoDeErro();
                 return false;
             }
         } else {
