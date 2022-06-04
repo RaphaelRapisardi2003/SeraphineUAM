@@ -6,6 +6,10 @@ import Service.LoginService;
 public class TelaLoginController {
 
     private String codigoDeErro;
+    
+    public TelaLoginController () {
+        this.codigoDeErro = "";
+    }
 
     public boolean EfetuarLogin(Pessoa pessoa, String cargo) {
         LoginService validarLogin = new LoginService();
