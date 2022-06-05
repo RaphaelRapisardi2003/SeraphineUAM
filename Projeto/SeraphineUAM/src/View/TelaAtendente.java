@@ -54,6 +54,10 @@ public class TelaAtendente extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButto5 = new javax.swing.JButton();
 
+        jDialog1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jDialog1.setMinimumSize(new java.awt.Dimension(600, 172));
+        jDialog1.setName("jDialog1"); // NOI18N
+
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setText("Venda realizada com sucesso!");
 
@@ -72,14 +76,15 @@ public class TelaAtendente extends javax.swing.JFrame {
         );
         jDialog1Layout.setVerticalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+            .addGroup(jDialog1Layout.createSequentialGroup()
                 .addContainerGap(65, Short.MAX_VALUE)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(57, 57, 57))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(10, 10, 10)))
-                .addGap(57, 57, 57))
+                        .addGap(66, 66, 66))))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -419,7 +424,9 @@ public class TelaAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3KeyTyped
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        jDialog1.setVisible(true);
+        jDialog1.setLocationRelativeTo(null);
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton4KeyPressed
