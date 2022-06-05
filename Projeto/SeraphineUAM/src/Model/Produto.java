@@ -5,12 +5,14 @@ public class Produto {
     private String Descricao;
     private double QtdEstoque;
     private float Preco;
+    private String vendedor;
     
     public Produto() {
         this.Id = 0;
         this.Descricao = "";
         this.QtdEstoque = 0;
         this.Preco = 0;
+        this.vendedor = "";
     }
 
     public int getId() {
@@ -44,6 +46,12 @@ public class Produto {
     public void setPreco(float Preco) {
         this.Preco = Preco;
     }
-    
-    
+
+    public String getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(String vendedor) {
+        this.vendedor = vendedor;
+    }
 }
