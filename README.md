@@ -32,8 +32,9 @@
 ## 📁 Como acessar o projeto
 Você pode acessar o projeto clicando [aqui](https://github.com/RaphaelRapisardi2003/SeraphineUAM/tree/main/Projeto/SeraphineUAM).
 * Login Administrador:
-Usuário: SeraphineAdmin123
-Senha: BestCantoraSeraphina
+<p> Usuário: SeraphineAdmin123
+<p> Senha: BestCantoraSeraphina
+ 
 * Login Funcionário:
-Usuário: SeraphineAtendente123
-Senha: CantoraAtendente
+<p> Usuário: SeraphineAtendente123
+<p> Senha: CantoraAtendente
