@@ -11,14 +11,12 @@
         </group>
         <group name="Projeto">
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DAO/DAO.java</file>
-            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/View/TelaADM.java</file>
-            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/View/TelaLogin.java</file>
-            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/View/AdmView.java</file>
-            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Service/PessoaService.java</file>
+            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DTO/DeletarDTO.java</file>
+            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DTO/VendaDTO.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DAO/LoginDAO.java</file>
-            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Service/LoginService.java</file>
-            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Controller/TelaLoginController.java</file>
-            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Service/ProdutoService.java</file>
+            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DTO/ResgatarDTO.java</file>
+            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DTO/EditarDTO.java</file>
+            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DTO/InserirDTO.java</file>
         </group>
     </open-files>
 </project-private>
