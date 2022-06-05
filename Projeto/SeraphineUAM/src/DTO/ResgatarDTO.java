@@ -61,6 +61,8 @@ public class ResgatarDTO {
             return 000;
         }
     }
+    
+    //(1, "NOME", "String")
 
     public Object getDataAdministrador(int id, String atributo, String tipo) {
         switch (tipo) {
