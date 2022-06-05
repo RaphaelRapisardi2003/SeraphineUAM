@@ -193,9 +193,9 @@ public class TelaAtendente extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(254, 254, 254));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Add.png"))); // NOI18N
+        jButton1.setText("<html><br />Adicionar Item</html>");
         jButton1.setToolTipText("");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setLabel("<html>F2<br />Adicionar Item</html>");
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,9 +213,9 @@ public class TelaAtendente extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(254, 254, 254));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Menos.png"))); // NOI18N
+        jButton2.setText("<html><br />remover item</html>");
         jButton2.setToolTipText("");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setLabel("<html>F3<br />remover item</html>");
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,7 +233,7 @@ public class TelaAtendente extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(254, 254, 254));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/X.jpg"))); // NOI18N
-        jButton3.setText("<html>F4<br />Cancelar compra</html>");
+        jButton3.setText("<html><br />Cancelar compra</html>");
         jButton3.setToolTipText("");
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -253,7 +253,7 @@ public class TelaAtendente extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(254, 254, 254));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/V.png"))); // NOI18N
-        jButton4.setText("<html>F5<br />Finalizar compra</html>");
+        jButton4.setText("<html><br />Finalizar compra</html>");
         jButton4.setToolTipText("");
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -273,7 +273,7 @@ public class TelaAtendente extends javax.swing.JFrame {
 
         jButto5.setBackground(new java.awt.Color(245, 243, 243));
         jButto5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back.png"))); // NOI18N
-        jButto5.setText("<html>F1<br />Voltar Ao Login</html>");
+        jButto5.setText("<html><br />Voltar Ao Login</html>");
         jButto5.setToolTipText("");
         jButto5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButto5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -428,7 +428,9 @@ public class TelaAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4KeyTyped
 
     private void jButto5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButto5ActionPerformed
-        // TODO add your handling code here:
+        TelaLogin login = new TelaLogin();
+        login.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButto5ActionPerformed
 
     private void jButto5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButto5KeyPressed

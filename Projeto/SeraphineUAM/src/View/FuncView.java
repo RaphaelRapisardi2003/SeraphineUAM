@@ -40,7 +40,7 @@ public class FuncView extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(180, 142, 243));
 
@@ -60,11 +60,12 @@ public class FuncView extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(254, 254, 254));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Add.png"))); // NOI18N
-        jButton1.setText("<html>F1<br />Adicionar Funcionário</html>");
+        jButton1.setText("<html><br />Adicionar Funcionário</html>");
+        jButton1.setToolTipText("");
 
         jButton2.setBackground(new java.awt.Color(254, 254, 254));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Menos.png"))); // NOI18N
-        jButton2.setText("<html>F2<br />Remover Funcionário</html>");
+        jButton2.setText("<html><br />Remover Funcionário</html>");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -119,4 +120,8 @@ public class FuncView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    void isVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

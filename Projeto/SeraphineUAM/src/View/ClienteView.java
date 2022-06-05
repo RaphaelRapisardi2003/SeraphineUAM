@@ -40,7 +40,7 @@ public class ClienteView extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(180, 142, 243));
 
@@ -60,12 +60,12 @@ public class ClienteView extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(254, 254, 254));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Menos.png"))); // NOI18N
-        jButton2.setText("<html>F1<br />Remover Cliente</html>");
+        jButton2.setText("<html><br />Remover Cliente</html>");
         jButton2.setActionCommand("");
 
         jButton3.setBackground(new java.awt.Color(254, 254, 254));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Add.png"))); // NOI18N
-        jButton3.setText("<html>F1<br />Adicionar Cliente</html>");
+        jButton3.setText("<html><br />Adicionar Cliente</html>");
         jButton3.setActionCommand("");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -120,4 +120,8 @@ public class ClienteView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    void isVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

@@ -57,6 +57,8 @@ public class TelaADM extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,12 +107,11 @@ public class TelaADM extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField2)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel3)))
+                    .addComponent(jTextField2)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -153,7 +154,7 @@ public class TelaADM extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(254, 254, 254));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Add.png"))); // NOI18N
-        jButton2.setText("<html>F2<br />Adicionar Item</html>");
+        jButton2.setText("<html><br />Adicionar Item</html>");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +165,7 @@ public class TelaADM extends javax.swing.JFrame {
 
         jButton8.setBackground(new java.awt.Color(254, 254, 254));
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/X.jpg"))); // NOI18N
-        jButton8.setText("<html>F4<br />Cancelar compra</html>");
+        jButton8.setText("<html><br />Cancelar compra</html>");
         jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -175,7 +176,7 @@ public class TelaADM extends javax.swing.JFrame {
 
         jButton9.setBackground(new java.awt.Color(254, 254, 254));
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Menos.png"))); // NOI18N
-        jButton9.setText("<html>F3<br />Remover Item</html>");
+        jButton9.setText("<html><br />Remover Item</html>");
         jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -185,8 +186,8 @@ public class TelaADM extends javax.swing.JFrame {
         });
 
         jButton10.setBackground(new java.awt.Color(254, 254, 254));
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/view func.png"))); // NOI18N
-        jButton10.setText("<html>F6<br />Vizualizar Clientes/Funcionários</html>");
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Search.png"))); // NOI18N
+        jButton10.setText("<html><br />Vizualizar Clientes</html>");
         jButton10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -197,7 +198,7 @@ public class TelaADM extends javax.swing.JFrame {
 
         jButton11.setBackground(new java.awt.Color(254, 254, 254));
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/V.png"))); // NOI18N
-        jButton11.setText("<html>F5<br />Finalizar compra</html>");
+        jButton11.setText("<html><br />Finalizar compra</html>");
         jButton11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -208,7 +209,7 @@ public class TelaADM extends javax.swing.JFrame {
 
         jButton12.setBackground(new java.awt.Color(254, 254, 254));
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back.png"))); // NOI18N
-        jButton12.setText("<html>F1<br />Voltar Ao Login</html>");
+        jButton12.setText("<html><br />Voltar Ao Login</html>");
         jButton12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -219,12 +220,34 @@ public class TelaADM extends javax.swing.JFrame {
 
         jButton13.setBackground(new java.awt.Color(254, 254, 254));
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/view adm.png"))); // NOI18N
-        jButton13.setText("<html>F7<br />Vizualizar Adiminastradores</html>");
+        jButton13.setText("<html><br />Vizualizar Adiminastradores</html>");
         jButton13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton13.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
+            }
+        });
+
+        jButton14.setBackground(new java.awt.Color(254, 254, 254));
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/view func.png"))); // NOI18N
+        jButton14.setText("<html><br />Vizualizar Funcionários</html>");
+        jButton14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton14.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jButton15.setBackground(new java.awt.Color(254, 254, 254));
+        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Produto.png"))); // NOI18N
+        jButton15.setText("<html><br />Criar/Editar Produtos</html>");
+        jButton15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton15.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
             }
         });
 
@@ -252,8 +275,12 @@ public class TelaADM extends javax.swing.JFrame {
                         .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16))))
@@ -274,7 +301,9 @@ public class TelaADM extends javax.swing.JFrame {
                     .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -307,7 +336,9 @@ public class TelaADM extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
+        ClienteView cliente = new ClienteView();
+        cliente.setVisible(true);
+
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -315,12 +346,26 @@ public class TelaADM extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
+        TelaLogin login = new TelaLogin();
+        login.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
+        AdmView admview = new AdmView();
+        admview.setVisible(true);
+
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        FuncView func = new FuncView();
+        func.setVisible(true);
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        CriarProduto prod = new CriarProduto();
+        prod.setVisible(true);
+    }//GEN-LAST:event_jButton15ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -331,6 +376,8 @@ public class TelaADM extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
