@@ -10,7 +10,7 @@ import Model.Produto;
  *
  * @author rapha
  */
-public class TelaADMController {
+public class    TelaADMController {
     private String codigoDeErro;
     
     public TelaADMController () {
