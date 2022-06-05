@@ -3,7 +3,6 @@ package View;
 import Controller.TelaAtendenteController;
 import Model.Produto;
 import Service.ProdutoService;
-
 import java.awt.Color;
 import java.util.Vector;
 import javax.swing.table.DefaultTableCellRenderer;

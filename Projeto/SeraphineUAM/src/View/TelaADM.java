@@ -8,15 +8,9 @@ import Controller.TelaADMController;
 import Model.Produto;
 import Service.ProdutoService;
 import java.awt.Color;
-import static java.awt.Frame.MAXIMIZED_BOTH;
-import java.util.Vector;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author rapha
- */
 public class TelaADM extends javax.swing.JFrame {
 
     /**
@@ -25,11 +19,13 @@ public class TelaADM extends javax.swing.JFrame {
     public TelaADM() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
+        
 
         DefaultTableCellRenderer head_render = new DefaultTableCellRenderer();
         head_render.setBackground(new Color(254,254,254));
         jTable2.getTableHeader().setDefaultRenderer(head_render);
         head_render.setOpaque(true);
+        
     }
 
     /**
@@ -101,6 +97,7 @@ public class TelaADM extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(180, 142, 243));
 
+        jTable2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 { new Integer(2133), "Monitor Yummi's",  new Float(23.15), "Singed Pereira"}
@@ -117,6 +114,11 @@ public class TelaADM extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTable2.setGridColor(new java.awt.Color(204, 204, 204));
+        jTable2.setMinimumSize(new java.awt.Dimension(365, 20));
+        jTable2.setPreferredSize(new java.awt.Dimension(425, 20));
+        jTable2.setSelectionBackground(new java.awt.Color(204, 0, 0));
+        jTable2.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jTable2.setShowGrid(true);
         jScrollPane2.setViewportView(jTable2);
         if (jTable2.getColumnModel().getColumnCount() > 0) {
