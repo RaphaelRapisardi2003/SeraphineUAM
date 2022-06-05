@@ -110,6 +110,11 @@ public class TelaAtendente extends javax.swing.JFrame {
         jTable1.setShowGrid(true);
         jTable1.getTableHeader().setResizingAllowed(false);
         jTable1.getTableHeader().setReorderingAllowed(false);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setMinWidth(50);
@@ -142,7 +147,7 @@ public class TelaAtendente extends javax.swing.JFrame {
 
         jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField3.setText("23,15");
+        jTextField3.setText("0.0");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -439,6 +444,10 @@ public class TelaAtendente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButto5KeyTyped
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        LinhaSelecionada();
+    }//GEN-LAST:event_jTable1MouseClicked
+
     private void AtualizarPreco() {
         TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
         String ValorTotal = Float.toString(telaAtendenteController.CalcularValorTotal(jTable1));
@@ -446,8 +455,13 @@ public class TelaAtendente extends javax.swing.JFrame {
         jTextField1.setText(ValorTotal);
     }
 
+    private void LinhaSelecionada() {
+        TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
 
-
+        jTextField3.setText(Float.toString(
+            telaAtendenteController.RetornarDadosDaLinhaSelecionada(jTable1).getPreco())
+        );
+    }
     /**
      * @param args the command line arguments
      */
