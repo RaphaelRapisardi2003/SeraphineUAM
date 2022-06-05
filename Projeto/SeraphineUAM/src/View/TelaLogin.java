@@ -204,8 +204,11 @@ public class TelaLogin extends javax.swing.JFrame {
                 atend.setVisible(true);
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(null,
-                        telaLoginController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+                        try {
+			throw new Exception("Login ou Senha Incorretos!");
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+		}
             }
 
         }
@@ -222,10 +225,14 @@ public class TelaLogin extends javax.swing.JFrame {
                 dispose();
             } else {
                 codigoDeErro = telaLoginController.getCodigoDeErro();
-                JOptionPane.showMessageDialog(null,
-                        codigoDeErro, "ERRO", JOptionPane.ERROR_MESSAGE);
+                        try {
+			throw new Exception("Login ou Senha Incorretos!");
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+		}
+	}
             }
-        }
+        
 
     }// GEN-LAST:event_jButton1ActionPerformed
 
