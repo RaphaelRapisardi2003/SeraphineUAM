@@ -2,6 +2,8 @@ package Controller;
 
 import Model.Produto;
 
+import javax.swing.*;
+
 public class TelaAtendenteController {
     
     private String codigoDeErro;
@@ -41,5 +43,17 @@ public class TelaAtendenteController {
     
     public void AtualizarPreco () {
         
+    }
+
+    public float CalcularValorTotal(JTable jtable) {
+        float ValorTotal = 0;
+
+        for (int i = 0; i < jtable.getRowCount(); i++) {
+            ValorTotal += Float.parseFloat(
+                    jtable.getValueAt(i, 2).toString()
+            );
+        }
+
+        return ValorTotal;
     }
 }

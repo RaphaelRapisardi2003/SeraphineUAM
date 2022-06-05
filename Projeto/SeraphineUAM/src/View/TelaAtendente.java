@@ -22,7 +22,7 @@ public class TelaAtendente extends javax.swing.JFrame {
         jTable1.getTableHeader().setDefaultRenderer(head_render);
         head_render.setOpaque(true);
 
-
+        AtualizarPreco();
     }
 
     /**
@@ -380,19 +380,17 @@ public class TelaAtendente extends javax.swing.JFrame {
         Produto produto = new Produto();
         int SelectedRow = jTable1.getSelectedRow();
 
-        produto.setId(Integer.parseInt((
-                    jTable1.getValueAt(SelectedRow, 0).toString()
-                )
-            )
-        );
+        produto.setId(Integer.parseInt((jTable1.getValueAt(SelectedRow, 0).toString())));
 
         try {
             ((DefaultTableModel)jTable1.getModel()).removeRow(SelectedRow);
             telaAtendenteController.RemoverItem(produto);
         }
         catch(Exception e){
-            
+            System.out.println(e.getMessage());
         }
+
+        AtualizarPreco();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton2KeyPressed
@@ -440,6 +438,15 @@ public class TelaAtendente extends javax.swing.JFrame {
     private void jButto5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButto5KeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_jButto5KeyTyped
+
+    private void AtualizarPreco() {
+        TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
+        String ValorTotal = Float.toString(telaAtendenteController.CalcularValorTotal(jTable1));
+
+        jTextField1.setText(ValorTotal);
+    }
+
+
 
     /**
      * @param args the command line arguments
