@@ -4,7 +4,9 @@
  */
 package View;
 
+import Controller.TelaADMController;
 import Model.Produto;
+import Service.ProdutoService;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.util.Vector;
@@ -67,17 +69,33 @@ public class TelaADM extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Código", "Descrição", "Preço R$", "Vendedor"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jTable2.setShowGrid(true);
         jScrollPane2.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(0).setMinWidth(100);
+            jTable2.getColumnModel().getColumn(0).setPreferredWidth(100);
+            jTable2.getColumnModel().getColumn(0).setMaxWidth(100);
+            jTable2.getColumnModel().getColumn(2).setMinWidth(100);
+            jTable2.getColumnModel().getColumn(2).setPreferredWidth(100);
+            jTable2.getColumnModel().getColumn(2).setMaxWidth(100);
+            jTable2.getColumnModel().getColumn(3).setMinWidth(200);
+            jTable2.getColumnModel().getColumn(3).setPreferredWidth(200);
+            jTable2.getColumnModel().getColumn(3).setMaxWidth(200);
+        }
 
         jPanel2.setBackground(new java.awt.Color(254, 254, 254));
 
@@ -323,9 +341,15 @@ public class TelaADM extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        TelaADMController telaADMController = new TelaADMController();
+        ProdutoService produtoService = new ProdutoService();
+        Produto produto = new Produto();
         DefaultTableModel dfm = (DefaultTableModel) jTable2.getModel();
-        Vector<?> rowData = null;
-        dfm.addRow(rowData);
+
+        if(!produtoService.VerificarSeOProdutoExiste(produto)) {
+            if (produtoService.ValidarProduto(produto))
+                dfm.addRow(telaADMController.AdicionarItem(produto));
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -333,7 +357,24 @@ public class TelaADM extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        
+        TelaADMController telaADMController = new TelaADMController();
+        Produto produto = new Produto();
+        int SelectedRow = jTable2.getSelectedRow();
+
+        produto.setId(Integer.parseInt((
+                jTable2.getValueAt(SelectedRow, 0).toString()
+                )
+            )
+        );
+
+        try {
+            ((DefaultTableModel)jTable2.getModel()).removeRow(SelectedRow);
+            telaADMController.RemoverItem(produto);
+        }
+        catch(Exception e){
+            
+       }
+       
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -396,8 +437,6 @@ public class TelaADM extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 
-    private static class TelaADMController {
-
         
     }
-}
+
