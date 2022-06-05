@@ -69,7 +69,7 @@ public class TelaADM extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null}
+                { new Integer(2133), "Cereais Yummi's",  new Float(23.15), "Singed Pereira"}
             },
             new String [] {
                 "Código", "Descrição", "Preço R$", "Vendedor"
@@ -374,7 +374,6 @@ public class TelaADM extends javax.swing.JFrame {
         catch(Exception e){
             
        }
-       
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed

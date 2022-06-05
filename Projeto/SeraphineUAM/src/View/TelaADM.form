@@ -116,10 +116,18 @@
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="1">
-                    <Column editable="true" title="C&#xf3;digo" type="java.lang.Integer"/>
-                    <Column editable="true" title="Descri&#xe7;&#xe3;o" type="java.lang.String"/>
-                    <Column editable="true" title="Pre&#xe7;o R$" type="java.lang.Float"/>
-                    <Column editable="true" title="Vendedor" type="java.lang.String"/>
+                    <Column editable="true" title="C&#xf3;digo" type="java.lang.Integer">
+                      <Data value="2133"/>
+                    </Column>
+                    <Column editable="true" title="Descri&#xe7;&#xe3;o" type="java.lang.String">
+                      <Data value="Cereais Yummi&apos;s"/>
+                    </Column>
+                    <Column editable="true" title="Pre&#xe7;o R$" type="java.lang.Float">
+                      <Data value="23.15"/>
+                    </Column>
+                    <Column editable="true" title="Vendedor" type="java.lang.String">
+                      <Data value="Singed Pereira"/>
+                    </Column>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
