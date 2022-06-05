@@ -4,6 +4,7 @@
  */
 package View;
 
+import Model.Produto;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.util.Vector;
@@ -332,7 +333,7 @@ public class TelaADM extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -394,4 +395,9 @@ public class TelaADM extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
+    private static class TelaADMController {
+
+        
+    }
 }
