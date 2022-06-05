@@ -26,7 +26,7 @@
 # 🤖 Técnicas e tecnologias utilizadas
 
 - ``Java``
-- ``Java AWT``
+- ``Java Swing``
 - ``Paradigma de orientação a objetos``
 
 ## 📁 Como acessar o projeto
