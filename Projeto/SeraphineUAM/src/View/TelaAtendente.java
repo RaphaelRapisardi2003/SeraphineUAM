@@ -87,6 +87,7 @@ public class TelaAtendente extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setType(java.awt.Window.Type.POPUP);
 
         jPanel3.setBackground(new java.awt.Color(180, 142, 243));
 

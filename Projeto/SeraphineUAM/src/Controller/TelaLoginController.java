@@ -2,12 +2,15 @@ package Controller;
 
 import Model.Pessoa;
 import Service.LoginService;
+import View.TelaDeLoading;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class TelaLoginController {
 
     private String codigoDeErro;
-    
-    public TelaLoginController () {
+
+    public TelaLoginController() {
         this.codigoDeErro = "";
     }
 
@@ -40,22 +43,42 @@ public class TelaLoginController {
     }
 
     private boolean EfetuarLoginFuncionario(Pessoa pessoa) {
-        LoginService validarLogin = new LoginService();
+        try {
+            TelaDeLoading telaDeLoading = new TelaDeLoading("Carregando");
+            telaDeLoading.setVisible(true);
+            LoginService validarLogin = new LoginService();
 
-        if (!validarLogin.ValidarLoginFuncionario(pessoa.getNomeDeUsuario(), pessoa.getSenha())) {
-            codigoDeErro = validarLogin.getCodigoDeErro();
-            return false;
+            if (!validarLogin.ValidarLoginFuncionario(pessoa.getNomeDeUsuario(), pessoa.getSenha())) {
+                codigoDeErro = validarLogin.getCodigoDeErro();
+                telaDeLoading.pararContagem();
+                telaDeLoading.setVisible(false);
+                return false;
+            }
+            telaDeLoading.setVisible(false);
+            telaDeLoading.pararContagem();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(TelaLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return true;
     }
 
     private boolean EfetuarLoginAdministrador(Pessoa pessoa) {
-        LoginService validarLogin = new LoginService();
+        try {
+            TelaDeLoading telaDeLoading = new TelaDeLoading("Carregando");
+            telaDeLoading.setVisible(true);
+            LoginService validarLogin = new LoginService();
 
-        if (!validarLogin.ValidarLoginAdmin(pessoa.getNomeDeUsuario(), pessoa.getSenha())) {
-            codigoDeErro = validarLogin.getCodigoDeErro();
-            return false;
+            if (!validarLogin.ValidarLoginAdmin(pessoa.getNomeDeUsuario(), pessoa.getSenha())) {
+                codigoDeErro = validarLogin.getCodigoDeErro();
+                telaDeLoading.pararContagem();
+                telaDeLoading.setVisible(false);
+                return false;
+            }
+            telaDeLoading.setVisible(false);
+            telaDeLoading.pararContagem();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(TelaLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return true;
