@@ -3,6 +3,7 @@ package Controller;
 import Model.Produto;
 import Model.Produto;
 import javax.swing.*;
+import java.sql.Struct;
 
 public class    TelaADMController {
     private String codigoDeErro;
@@ -36,14 +37,10 @@ public class    TelaADMController {
         
     }
     
-    public void AtualizarValorTotal () {
-        
+    public void AtualizarValor (JTextField CampoDeTexto, String Valor) {
+        CampoDeTexto.setText(Valor);
     }
-    
-    public void AtualizarPreco () {
-        
-    }
-    
+
     public Produto RetornarDadosDaLinhaSelecionada(JTable jtable) {
         Produto produto = new Produto();
 

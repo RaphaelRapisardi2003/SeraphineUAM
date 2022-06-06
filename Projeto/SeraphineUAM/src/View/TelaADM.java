@@ -452,7 +452,7 @@ public class TelaADM extends javax.swing.JFrame {
             telaADMController.RemoverItem(produto);
         }
         catch(Exception e){
-            
+
        }
 
         AtualizarPreco();
@@ -534,15 +534,16 @@ public class TelaADM extends javax.swing.JFrame {
         TelaADMController telaADMController = new TelaADMController();
         String ValorTotal = Float.toString(telaADMController.CalcularValorTotal(jTable1));
 
-        jTextField1.setText(ValorTotal);
+        telaADMController.AtualizarValor(jTextField1, ValorTotal);
     }
 
     private void LinhaSelecionada() {
-        TelaADMController telaAtendenteController = new TelaADMController();
-
-        jTextField3.setText(Float.toString(
-            telaAtendenteController.RetornarDadosDaLinhaSelecionada(jTable1).getPreco())
+        TelaADMController telaADMController = new TelaADMController();
+        String Preco = Float.toString(
+            telaADMController.RetornarDadosDaLinhaSelecionada(jTable1).getPreco()
         );
+
+        telaADMController.AtualizarValor(jTextField3, Preco);
     }
     /**
      * @param args the command line arguments

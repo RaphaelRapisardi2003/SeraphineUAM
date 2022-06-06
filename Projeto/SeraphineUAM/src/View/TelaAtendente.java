@@ -1,5 +1,6 @@
 package View;
 
+import Controller.TelaADMController;
 import Controller.TelaAtendenteController;
 import Model.Produto;
 import Service.ProdutoService;
@@ -459,15 +460,16 @@ public class TelaAtendente extends javax.swing.JFrame {
         TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
         String ValorTotal = Float.toString(telaAtendenteController.CalcularValorTotal(jTable1));
 
-        jTextField1.setText(ValorTotal);
+        telaAtendenteController.AtualizarValor(jTextField1, ValorTotal);
     }
 
     private void LinhaSelecionada() {
         TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
-
-        jTextField3.setText(Float.toString(
-            telaAtendenteController.RetornarDadosDaLinhaSelecionada(jTable1).getPreco())
+        String Preco = Float.toString(
+                telaAtendenteController.RetornarDadosDaLinhaSelecionada(jTable1).getPreco()
         );
+
+        telaAtendenteController.AtualizarValor(jTextField3, Preco);
     }
     /**
      * @param args the command line arguments

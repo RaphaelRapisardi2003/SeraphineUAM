@@ -37,13 +37,9 @@ public class TelaAtendenteController {
     public void EncessarSessão() {
         
     }
-    
-    public void AtualizarValorTotal () {
-        
-    }
-    
-    public void AtualizarPreco () {
-        
+
+    public void AtualizarValor (JTextField CampoDeTexto, String Valor) {
+        CampoDeTexto.setText(Valor);
     }
 
     public float CalcularValorTotal(JTable jtable) {
