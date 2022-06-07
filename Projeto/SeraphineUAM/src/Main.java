@@ -1,4 +1,3 @@
-import View.CriarProduto;
 import View.TelaLogin;
 
 public class Main extends javax.swing.JFrame {
