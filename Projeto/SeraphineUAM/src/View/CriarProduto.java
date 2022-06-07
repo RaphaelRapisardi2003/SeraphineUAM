@@ -307,8 +307,6 @@ public class CriarProduto extends javax.swing.JFrame {
         int n = produtos.size();
         DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
         
-        System.out.println(dfm.getRowCount());
-        
         dfm.removeRow(0);
         for (int i = 0; i < dfm.getRowCount(); i++) {
             dfm.removeRow(i);
