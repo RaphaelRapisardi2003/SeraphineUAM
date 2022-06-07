@@ -88,7 +88,6 @@ public class TelaAtendente extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setType(java.awt.Window.Type.POPUP);
 
         jPanel3.setBackground(new java.awt.Color(180, 142, 243));
 
@@ -387,21 +386,11 @@ public class TelaAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1KeyTyped
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
-        Produto produto = new Produto();
-        int SelectedRow = jTable1.getSelectedRow();
+        SelecionarProduto selecionarProduto = new SelecionarProduto();
 
-        produto.setId(Integer.parseInt((jTable1.getValueAt(SelectedRow, 0).toString())));
+        selecionarProduto.setVisible(true);
 
-        try {
-            ((DefaultTableModel)jTable1.getModel()).removeRow(SelectedRow);
-            telaAtendenteController.RemoverItem(produto);
-        }
-        catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-
-        AtualizarPreco();
+        AdicionarItemATabela();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton2KeyPressed
@@ -470,6 +459,24 @@ public class TelaAtendente extends javax.swing.JFrame {
         );
 
         telaAtendenteController.AtualizarValor(jTextField3, Preco);
+    }
+
+    private void AdicionarItemATabela() {
+        TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
+        Produto produto = new Produto();
+        int SelectedRow = jTable1.getSelectedRow();
+
+        produto.setId(Integer.parseInt((jTable1.getValueAt(SelectedRow, 0).toString())));
+
+        try {
+            ((DefaultTableModel)jTable1.getModel()).removeRow(SelectedRow);
+            telaAtendenteController.RemoverItem(produto);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        AtualizarPreco();
     }
     /**
      * @param args the command line arguments
