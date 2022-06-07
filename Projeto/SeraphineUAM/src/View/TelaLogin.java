@@ -16,7 +16,7 @@ public class TelaLogin extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        telaDeLoading.setLocationRelativeTo(null);
+        barraDeLoading.setVisible(false);
 
     }
 
@@ -30,10 +30,6 @@ public class TelaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        telaDeLoading = new javax.swing.JDialog();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jProgressBar1 = new javax.swing.JProgressBar();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
@@ -45,54 +41,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-
-        telaDeLoading.setMinimumSize(new java.awt.Dimension(331, 176));
-
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel4.setText("Carregando...");
-
-        jProgressBar1.setIndeterminate(true);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
-        );
-
-        javax.swing.GroupLayout telaDeLoadingLayout = new javax.swing.GroupLayout(telaDeLoading.getContentPane());
-        telaDeLoading.getContentPane().setLayout(telaDeLoadingLayout);
-        telaDeLoadingLayout.setHorizontalGroup(
-            telaDeLoadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(telaDeLoadingLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        telaDeLoadingLayout.setVerticalGroup(
-            telaDeLoadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(telaDeLoadingLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        barraDeLoading = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SERAPHINE");
@@ -163,6 +112,10 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
+        barraDeLoading.setFocusable(false);
+        barraDeLoading.setIndeterminate(true);
+        barraDeLoading.setRequestFocusEnabled(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -197,8 +150,11 @@ public class TelaLogin extends javax.swing.JFrame {
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(163, 163, 163)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(135, 135, 135)
+                                .addComponent(barraDeLoading, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(169, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,6 +175,8 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(jCheckBox1)
                 .addGap(27, 27, 27)
                 .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(barraDeLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,8 +229,8 @@ public class TelaLogin extends javax.swing.JFrame {
     }// GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
+        barraDeLoading.setVisible(true);
         if (jComboBox1.getSelectedItem().equals("Funcionário")) {
-            telaDeLoading.setVisible(true);
 
             TelaLoginController telaLoginController = new TelaLoginController();
             Pessoa pessoa = new Pessoa(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()));
@@ -280,10 +238,10 @@ public class TelaLogin extends javax.swing.JFrame {
             if (telaLoginController.EfetuarLogin(pessoa, jComboBox1.getSelectedItem().toString())) {
                 TelaAtendente atend = new TelaAtendente();
                 atend.setVisible(true);
-                telaDeLoading.setVisible(false);
+                barraDeLoading.setVisible(false);
                 dispose();
             } else {
-                telaDeLoading.setVisible(false);
+                barraDeLoading.setVisible(false);
                 try {
                     throw new Exception("Login ou Senha Incorretos!");
                 } catch (Exception e) {
@@ -294,19 +252,18 @@ public class TelaLogin extends javax.swing.JFrame {
         }
 
         if (jComboBox1.getSelectedItem().equals("Administrador")) {
-            telaDeLoading.setVisible(true);
 
             TelaLoginController telaLoginController = new TelaLoginController();
             Pessoa pessoa = new Pessoa(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()));
 
             if (telaLoginController.EfetuarLogin(pessoa, jComboBox1.getSelectedItem().toString())) {
-                telaDeLoading.setVisible(false);
+                barraDeLoading.setVisible(false);
                 TelaADM adm = new TelaADM();
                 adm.setVisible(true);
 
                 dispose();
             } else {
-                telaDeLoading.setVisible(false);
+                barraDeLoading.setVisible(false);
                 codigoDeErro = telaLoginController.getCodigoDeErro();
                 try {
                     throw new Exception("Login ou Senha Incorretos!");
@@ -327,20 +284,17 @@ public class TelaLogin extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JProgressBar barraDeLoading;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JDialog telaDeLoading;
     // End of variables declaration//GEN-END:variables
 }
