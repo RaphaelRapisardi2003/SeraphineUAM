@@ -4,8 +4,14 @@
  */
 package View;
 
+import Model.Produto;
+import Service.ProdutoService;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,8 +28,10 @@ public class CriarProduto extends javax.swing.JFrame {
         
         DefaultTableCellRenderer head_render = new DefaultTableCellRenderer();
         head_render.setBackground(new Color(254,254,254));
-        jTable1.getTableHeader().setDefaultRenderer(head_render);
+        tabela.getTableHeader().setDefaultRenderer(head_render);
         head_render.setOpaque(true);
+        
+        atualizarTabela();
     }
 
     /**
@@ -37,17 +45,19 @@ public class CriarProduto extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabela = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        botaoVoltar = new javax.swing.JButton();
+        botaoCriarItem = new javax.swing.JButton();
+        labelDescricao = new javax.swing.JLabel();
+        labelPreco = new javax.swing.JLabel();
+        campoDeTexto_Descricao = new javax.swing.JTextField();
+        campoDeTexto_ID = new javax.swing.JTextField();
+        botaoEditarItem = new javax.swing.JButton();
+        labelID = new javax.swing.JLabel();
+        campoDeTexto_Preco = new javax.swing.JTextField();
+        labelQtdEstoque1 = new javax.swing.JLabel();
+        campoDeTexto_QtdEstoque = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(10, 10));
@@ -55,83 +65,89 @@ public class CriarProduto extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(180, 142, 243));
         jPanel1.setForeground(new java.awt.Color(204, 204, 204));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null}
             },
             new String [] {
-                "Código", "Descrição", "Preço R$"
+                "Código", "Descrição", "Preço R$", "Em estoque"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jTable1.setShowGrid(true);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(200);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(200);
-            jTable1.getColumnModel().getColumn(2).setMinWidth(300);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(300);
-            jTable1.getColumnModel().getColumn(2).setMaxWidth(300);
+        tabela.setShowGrid(true);
+        jScrollPane1.setViewportView(tabela);
+        if (tabela.getColumnModel().getColumnCount() > 0) {
+            tabela.getColumnModel().getColumn(0).setMinWidth(200);
+            tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tabela.getColumnModel().getColumn(0).setMaxWidth(200);
+            tabela.getColumnModel().getColumn(2).setMinWidth(300);
+            tabela.getColumnModel().getColumn(2).setPreferredWidth(300);
+            tabela.getColumnModel().getColumn(2).setMaxWidth(300);
         }
 
         jPanel2.setBackground(new java.awt.Color(254, 254, 254));
 
-        jButton2.setBackground(new java.awt.Color(254, 254, 254));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back.png"))); // NOI18N
-        jButton2.setText("<html><br />Voltar</html>");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botaoVoltar.setBackground(new java.awt.Color(254, 254, 254));
+        botaoVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/back.png"))); // NOI18N
+        botaoVoltar.setText("<html><br />Voltar</html>");
+        botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botaoVoltarActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(254, 254, 254));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Add.png"))); // NOI18N
-        jButton1.setText("<html><br />Criar Novo Item</html>");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botaoCriarItem.setBackground(new java.awt.Color(254, 254, 254));
+        botaoCriarItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Add.png"))); // NOI18N
+        botaoCriarItem.setText("<html><br />Criar Novo Item</html>");
+        botaoCriarItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botaoCriarItemActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setText("Código");
+        labelDescricao.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        labelDescricao.setText("Descrição");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel2.setText("Descrição");
+        labelPreco.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        labelPreco.setText("Preço ");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel3.setText("Preço ");
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        campoDeTexto_ID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                campoDeTexto_IDActionPerformed(evt);
             }
         });
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        botaoEditarItem.setBackground(new java.awt.Color(254, 254, 254));
+        botaoEditarItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icon Editor.png"))); // NOI18N
+        botaoEditarItem.setText("Editar Item");
+        botaoEditarItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                botaoEditarItemActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(254, 254, 254));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icon Editor.png"))); // NOI18N
-        jButton3.setText("Editar Item");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        labelID.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        labelID.setText("ID");
+
+        campoDeTexto_Preco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                campoDeTexto_PrecoActionPerformed(evt);
+            }
+        });
+
+        labelQtdEstoque1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        labelQtdEstoque1.setText("Quantidade em estoque");
+
+        campoDeTexto_QtdEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoDeTexto_QtdEstoqueActionPerformed(evt);
             }
         });
 
@@ -143,40 +159,52 @@ public class CriarProduto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel3)
-                        .addComponent(jTextField1)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
-                        .addComponent(jTextField3))
-                    .addComponent(jLabel1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botaoEditarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(botaoCriarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelDescricao)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(labelPreco)
+                                .addComponent(campoDeTexto_Descricao, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
+                                .addComponent(campoDeTexto_ID)
+                                .addComponent(labelID)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(campoDeTexto_Preco)
+                        .addContainerGap())
+                    .addComponent(campoDeTexto_QtdEstoque)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(labelQtdEstoque1)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(jLabel2)
-                .addGap(62, 62, 62)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jLabel3)
-                .addGap(53, 53, 53)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addGap(21, 21, 21)
+                .addComponent(labelDescricao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(campoDeTexto_Descricao, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(labelPreco)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(campoDeTexto_Preco, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(labelQtdEstoque1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(campoDeTexto_QtdEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(labelID)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(campoDeTexto_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoCriarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoEditarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -188,7 +216,7 @@ public class CriarProduto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1286, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -215,44 +243,103 @@ public class CriarProduto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void botaoCriarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCriarItemActionPerformed
+        Produto produto = new Produto();
+        ProdutoService produtoService = new ProdutoService();
+        
+        produto.setDescricao(String.valueOf(campoDeTexto_Descricao.getText()));
+        produto.setPreco(Float.valueOf(campoDeTexto_Preco.getText()));
+        produto.setQtdEstoque(Integer.valueOf(campoDeTexto_QtdEstoque.getText()));
+        
+        if (produtoService.ValidarProduto(produto) == true && produtoService.VerificarSeOProdutoExiste(produto) == true){
+            if (produtoService.CriarProduto(produto)){
+                JOptionPane.showMessageDialog(null, "Item criado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+                atualizarTabela();
+            } else {
+                JOptionPane.showMessageDialog(null, produtoService.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, produtoService.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_botaoCriarItemActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void campoDeTexto_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDeTexto_IDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_campoDeTexto_IDActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void botaoEditarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarItemActionPerformed
+        Produto produto = new Produto();
+        ProdutoService produtoService = new ProdutoService();
+        
+        produto.setDescricao(String.valueOf(campoDeTexto_Descricao.getText()));
+        produto.setPreco(Float.valueOf(campoDeTexto_Preco.getText()));
+        produto.setQtdEstoque(Integer.valueOf(campoDeTexto_QtdEstoque.getText()));
+        produto.setId(Integer.valueOf(campoDeTexto_ID.getText()));
+        
+        if (produtoService.ValidarProduto(produto) == true) {
+            if (produtoService.EditarProduto(produto) == true) {
+                JOptionPane.showMessageDialog(null, "Item editado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+                atualizarTabela();
+            } else {
+                JOptionPane.showMessageDialog(null, produtoService.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, produtoService.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_botaoEditarItemActionPerformed
+
+    private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_botaoVoltarActionPerformed
+
+    private void campoDeTexto_PrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDeTexto_PrecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_campoDeTexto_PrecoActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void campoDeTexto_QtdEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDeTexto_QtdEstoqueActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_campoDeTexto_QtdEstoqueActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+    
+    private void atualizarTabela() {
+        ProdutoService produtoService = new ProdutoService();
+        List<Produto> produtos = new ArrayList(produtoService.AtualizarTabelaDeProdutos());
+        int n = produtos.size();
+        DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
+        
+        System.out.println(dfm.getRowCount());
+        
+        dfm.removeRow(0);
+        for (int i = 0; i < dfm.getRowCount(); i++) {
+            dfm.removeRow(i);
+        }
+        
+        for (int i = 0; i < n; i++) {
+            Produto produto = (Produto) produtos.get(i);
+            dfm.insertRow(i, produtoService.AdicionarItem(produto));
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton botaoCriarItem;
+    private javax.swing.JButton botaoEditarItem;
+    private javax.swing.JButton botaoVoltar;
+    private javax.swing.JTextField campoDeTexto_Descricao;
+    private javax.swing.JTextField campoDeTexto_ID;
+    private javax.swing.JTextField campoDeTexto_Preco;
+    private javax.swing.JTextField campoDeTexto_QtdEstoque;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel labelDescricao;
+    private javax.swing.JLabel labelID;
+    private javax.swing.JLabel labelPreco;
+    private javax.swing.JLabel labelQtdEstoque1;
+    private javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
 }

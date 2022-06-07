@@ -3,7 +3,7 @@ package Model;
 public class Produto {
     private int Id;
     private String Descricao;
-    private double QtdEstoque;
+    private int QtdEstoque;
     private float Preco;
     private String vendedor;
     
@@ -31,11 +31,11 @@ public class Produto {
         this.Descricao = Descricao;
     }
 
-    public double getQtdEstoque() {
+    public int getQtdEstoque() {
         return QtdEstoque;
     }
 
-    public void setQtdEstoque(double QtdEstoque) {
+    public void setQtdEstoque(int QtdEstoque) {
         this.QtdEstoque = QtdEstoque;
     }
 

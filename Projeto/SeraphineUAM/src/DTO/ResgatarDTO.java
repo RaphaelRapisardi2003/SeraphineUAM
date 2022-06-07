@@ -30,6 +30,9 @@ package DTO;
 
 import java.sql.*;
 import DAO.DAO;
+import Model.Produto;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ResgatarDTO {
 
@@ -40,7 +43,7 @@ public class ResgatarDTO {
         return codigoDeErro;
     }
 
-    public int getID(String nomeDeUsuario, String senha, String cargo) {
+    public int getIDPessoa(String nomeDeUsuario, String senha, String cargo) {
         int fkId = 0;
         try {
             connect = new DAO().conectarSemConfirmacao();
@@ -60,6 +63,64 @@ public class ResgatarDTO {
             codigoDeErro = "ERRO AO RESGATAR VALOR 'ID'\nCódigo de erro: " + String.valueOf(erro);
             return 000;
         }
+    }
+    
+    public int getIDItem(String descricao) {
+        int fkId = 0;
+        DAO dao = new DAO();
+        try {
+            connect = dao.conectarSemConfirmacao();
+        } catch (Exception erro) {
+            codigoDeErro = dao.getCodigoDeErroConn();
+            return 000;
+        }
+        try {
+            String sql = "SELECT `ID` FROM produto WHERE DESCRICAO=?";
+            PreparedStatement st = connect.prepareStatement(sql);
+            
+            st.setString(1, descricao);
+            
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                fkId = rs.getInt("ID");
+            }
+            return fkId;
+        } catch (SQLException erro) {
+            codigoDeErro = "ERRO AO RESGATAR VALOR 'ID'\nCódigo de erro: " + String.valueOf(erro);
+            return 000;
+        }
+    }
+    
+    public List<Produto> listarProdutos() {
+        List<Produto> lista = new ArrayList<>();
+        String sql = "SELECT * FROM produto";
+        DAO dao = new DAO();
+        
+        try {
+            connect = dao.conectarSemConfirmacao();
+        } catch (Exception erro) {
+            codigoDeErro = dao.getCodigoDeErroConn();
+            return null;
+        }
+        try {
+            PreparedStatement st = connect.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            Produto p;
+            
+            while(rs.next()) {
+                p = new Produto();
+                p.setId(rs.getInt("ID"));
+                p.setDescricao(rs.getString("DESCRICAO"));
+                p.setQtdEstoque(rs.getInt("QTDESTOQUE"));
+                p.setPreco((float) rs.getDouble("PRECO"));
+                
+                lista.add(p);
+            }
+        } catch (SQLException erro) {
+            codigoDeErro = "ERRO AO LISTAR PRODUTOS\nCódigo do erro: " + String.valueOf(erro);
+            return null;
+        }
+        return lista;
     }
     
     //(1, "NOME", "String")

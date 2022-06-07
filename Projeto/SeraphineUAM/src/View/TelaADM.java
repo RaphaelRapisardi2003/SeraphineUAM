@@ -143,6 +143,11 @@ public class TelaADM extends javax.swing.JFrame {
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTextField1.setText("56,30");
         jTextField1.setToolTipText("");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setBackground(new java.awt.Color(254, 254, 254));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -529,6 +534,10 @@ public class TelaADM extends javax.swing.JFrame {
         CriarProduto prod = new CriarProduto();
         prod.setVisible(true);
     }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void AtualizarPreco() {
         TelaADMController telaADMController = new TelaADMController();
