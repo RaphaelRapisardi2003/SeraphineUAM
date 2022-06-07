@@ -15,6 +15,9 @@
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DTO/EditarDTO.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DTO/InserirDTO.java</file>
         </group>
-        <group name="SeraphineUAM"/>
+        <group name="SeraphineUAM">
+            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/TelaAtendente.java</file>
+            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/SelecionarProduto.java</file>
+        </group>
     </open-files>
 </project-private>

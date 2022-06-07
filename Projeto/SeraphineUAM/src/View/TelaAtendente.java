@@ -366,15 +366,11 @@ public class TelaAtendente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
-        ProdutoService produtoService = new ProdutoService();
-        Produto produto = new Produto();
-        DefaultTableModel dfm = (DefaultTableModel) jTable1.getModel();
+        SelecionarProduto selecionarProduto = new SelecionarProduto();
 
-        if(!produtoService.VerificarSeOProdutoExiste(produto)) {
-            if (produtoService.ValidarProduto(produto))
-                dfm.addRow(telaAtendenteController.AdicionarItem(produto));
-        }
+        selecionarProduto.setVisible(true);
+
+        AdicionarItemATabela(selecionarProduto.getProduto());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
@@ -386,11 +382,7 @@ public class TelaAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1KeyTyped
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        SelecionarProduto selecionarProduto = new SelecionarProduto();
-
-        selecionarProduto.setVisible(true);
-
-        AdicionarItemATabela();
+        RemoverItemDaTabela();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton2KeyPressed
@@ -461,7 +453,18 @@ public class TelaAtendente extends javax.swing.JFrame {
         telaAtendenteController.AtualizarValor(jTextField3, Preco);
     }
 
-    private void AdicionarItemATabela() {
+    private void AdicionarItemATabela(Produto produto) {
+        TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
+        ProdutoService produtoService = new ProdutoService();
+        DefaultTableModel dfm = (DefaultTableModel) jTable1.getModel();
+
+        if(!produtoService.VerificarSeOProdutoExiste(produto)) {
+            if (produtoService.ValidarProduto(produto))
+                dfm.addRow(telaAtendenteController.AdicionarItem(produto));
+        }
+    }
+
+    private void RemoverItemDaTabela() {
         TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
         Produto produto = new Produto();
         int SelectedRow = jTable1.getSelectedRow();
