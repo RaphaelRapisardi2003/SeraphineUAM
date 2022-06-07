@@ -30,6 +30,7 @@ package DTO;
 
 import java.sql.*;
 import DAO.DAO;
+import Model.Funcionario;
 import Model.Produto;
 import java.util.ArrayList;
 import java.util.List;
@@ -115,6 +116,39 @@ public class ResgatarDTO {
                 p.setPreco((float) rs.getDouble("PRECO"));
                 
                 lista.add(p);
+            }
+        } catch (SQLException erro) {
+            codigoDeErro = "ERRO AO LISTAR PRODUTOS\nCódigo do erro: " + String.valueOf(erro);
+            return null;
+        }
+        return lista;
+    }
+    public List<Funcionario> listarFuncionarios() {
+        List<Funcionario> lista = new ArrayList<>();
+        String sql = "SELECT * FROM funcionario";
+        DAO dao = new DAO();
+        
+        try {
+            connect = dao.conectarSemConfirmacao();
+        } catch (Exception erro) {
+            codigoDeErro = dao.getCodigoDeErroConn();
+            return null;
+        }
+        try {
+            PreparedStatement st = connect.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            Funcionario f;
+            
+            while(rs.next()) {
+                f = new Funcionario();
+                f.setID(rs.getInt("ID"));
+                f.setNome(rs.getString("NOME"));
+                f.setNomeDeUsuario(rs.getString("NOME_DE_USUARIO"));
+                f.setSenha(rs.getString("SENHA"));
+                f.setIdade(rs.getInt("IDADE"));
+                f.setCategoria(rs.getString("CATEGORIA"));
+                
+                lista.add(f);
             }
         } catch (SQLException erro) {
             codigoDeErro = "ERRO AO LISTAR PRODUTOS\nCódigo do erro: " + String.valueOf(erro);

@@ -36,10 +36,11 @@ public class InserirDTO {
     }
 
     public boolean adicionarFuncionario(String nome, String nomeDeUsuario, String senha, int idade, String categoria) {
+        DAO dao = new DAO();
         try {
-            connect = new DAO().conectarSemConfirmacao();
+            connect = dao.conectarSemConfirmacao();
         } catch (Exception erro) {
-            codigoDeErro = new DAO().getCodigoDeErroConn();
+            codigoDeErro = dao.getCodigoDeErroConn();
             return false;
         }
         try {

@@ -4,8 +4,17 @@
  */
 package View;
 
+import Controller.TelaViewController;
+import Model.Funcionario;
+import Model.Produto;
+import Service.PessoaService;
+import Service.ProdutoService;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,8 +30,10 @@ public class FuncView extends javax.swing.JFrame {
 
         DefaultTableCellRenderer head_render = new DefaultTableCellRenderer();
         head_render.setBackground(new Color(254,254,254));
-        jTable1.getTableHeader().setDefaultRenderer(head_render);
+        tabela.getTableHeader().setDefaultRenderer(head_render);
         head_render.setOpaque(true);
+        
+        atualizarTabela();
     }
 
     /**
@@ -34,38 +45,302 @@ public class FuncView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        AddFunc = new javax.swing.JFrame();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        AddFunc_labelNome = new javax.swing.JLabel();
+        AddFunc_CampoDeTexto_Nome = new javax.swing.JTextField();
+        AddFunc_labelNomeDeUsuario = new javax.swing.JLabel();
+        AddFunc_CampoDeTexto_Senha = new javax.swing.JTextField();
+        AddFunc_labelSenha = new javax.swing.JLabel();
+        AddFunc_CampoDeTexto_Idade = new javax.swing.JTextField();
+        AddFunc_labelIdade = new javax.swing.JLabel();
+        AddFunc_CampoDeTexto_NomeDeUsuario = new javax.swing.JTextField();
+        AddFunc_labelCategoria = new javax.swing.JLabel();
+        AddFunc_CampoDeTexto_Categoria = new javax.swing.JTextField();
+        AddFunc_botaoAdicionar = new javax.swing.JButton();
+        DelFunc = new javax.swing.JFrame();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        labelRemoveFuncionariobyID = new javax.swing.JLabel();
+        DelFunc_labelID = new javax.swing.JLabel();
+        DelFunc_CampoDeTexto_ID = new javax.swing.JTextField();
+        DelFunc_botaoRemover = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        tabela = new javax.swing.JTable();
+        botaoAddFuncionario = new javax.swing.JButton();
+        botaoDelFuncionario = new javax.swing.JButton();
+
+        AddFunc.setBackground(new java.awt.Color(180, 142, 243));
+        AddFunc.setMinimumSize(new java.awt.Dimension(616, 509));
+
+        jPanel2.setBackground(new java.awt.Color(180, 142, 243));
+
+        AddFunc_labelNome.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        AddFunc_labelNome.setText("Nome");
+
+        AddFunc_CampoDeTexto_Nome.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        AddFunc_CampoDeTexto_Nome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddFunc_CampoDeTexto_NomeActionPerformed(evt);
+            }
+        });
+
+        AddFunc_labelNomeDeUsuario.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        AddFunc_labelNomeDeUsuario.setText("Nome de Usuário");
+
+        AddFunc_CampoDeTexto_Senha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        AddFunc_CampoDeTexto_Senha.setToolTipText("");
+
+        AddFunc_labelSenha.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        AddFunc_labelSenha.setText("Senha");
+
+        AddFunc_CampoDeTexto_Idade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        AddFunc_labelIdade.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        AddFunc_labelIdade.setText("Idade");
+
+        AddFunc_CampoDeTexto_NomeDeUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        AddFunc_CampoDeTexto_NomeDeUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddFunc_CampoDeTexto_NomeDeUsuarioActionPerformed(evt);
+            }
+        });
+
+        AddFunc_labelCategoria.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        AddFunc_labelCategoria.setText("Categoria");
+
+        AddFunc_CampoDeTexto_Categoria.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        AddFunc_botaoAdicionar.setText("Adicionar");
+        AddFunc_botaoAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddFunc_botaoAdicionarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AddFunc_CampoDeTexto_Categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AddFunc_labelCategoria)
+                            .addComponent(AddFunc_CampoDeTexto_NomeDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AddFunc_labelIdade)
+                            .addComponent(AddFunc_CampoDeTexto_Idade, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AddFunc_labelSenha)
+                            .addComponent(AddFunc_CampoDeTexto_Senha, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AddFunc_labelNomeDeUsuario)
+                            .addComponent(AddFunc_CampoDeTexto_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AddFunc_labelNome)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(AddFunc_botaoAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(AddFunc_labelNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddFunc_CampoDeTexto_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(AddFunc_labelNomeDeUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddFunc_CampoDeTexto_NomeDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(AddFunc_labelSenha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddFunc_CampoDeTexto_Senha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(AddFunc_labelIdade)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddFunc_CampoDeTexto_Idade, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(AddFunc_labelCategoria)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddFunc_CampoDeTexto_Categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(AddFunc_botaoAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout AddFuncLayout = new javax.swing.GroupLayout(AddFunc.getContentPane());
+        AddFunc.getContentPane().setLayout(AddFuncLayout);
+        AddFuncLayout.setHorizontalGroup(
+            AddFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddFuncLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        AddFuncLayout.setVerticalGroup(
+            AddFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddFuncLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        DelFunc.setMinimumSize(new java.awt.Dimension(522, 300));
+
+        jPanel4.setBackground(new java.awt.Color(180, 142, 243));
+
+        labelRemoveFuncionariobyID.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        labelRemoveFuncionariobyID.setText("Remova Funcionário por ID");
+
+        DelFunc_labelID.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        DelFunc_labelID.setText("Digite o ID do funcionário");
+
+        DelFunc_CampoDeTexto_ID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        DelFunc_CampoDeTexto_ID.setToolTipText("");
+        DelFunc_CampoDeTexto_ID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelFunc_CampoDeTexto_IDActionPerformed(evt);
+            }
+        });
+
+        DelFunc_botaoRemover.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        DelFunc_botaoRemover.setText("REMOVER");
+        DelFunc_botaoRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelFunc_botaoRemoverActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addComponent(DelFunc_labelID))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DelFunc_CampoDeTexto_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelRemoveFuncionariobyID)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addComponent(DelFunc_botaoRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(138, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(labelRemoveFuncionariobyID)
+                .addGap(61, 61, 61)
+                .addComponent(DelFunc_labelID)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DelFunc_CampoDeTexto_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(DelFunc_botaoRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout DelFuncLayout = new javax.swing.GroupLayout(DelFunc.getContentPane());
+        DelFunc.getContentPane().setLayout(DelFuncLayout);
+        DelFuncLayout.setHorizontalGroup(
+            DelFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        DelFuncLayout.setVerticalGroup(
+            DelFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(180, 142, 243));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nome", "Nome de Usuário", "Senha", "Idade", "Categoria"
             }
-        ));
-        jTable1.setShowGrid(true);
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, true
+            };
 
-        jButton1.setBackground(new java.awt.Color(254, 254, 254));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Add.png"))); // NOI18N
-        jButton1.setText("<html><br />Adicionar Funcionário</html>");
-        jButton1.setToolTipText("");
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
-        jButton2.setBackground(new java.awt.Color(254, 254, 254));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Menos.png"))); // NOI18N
-        jButton2.setText("<html><br />Remover Funcionário</html>");
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabela.setShowGrid(true);
+        jScrollPane1.setViewportView(tabela);
+
+        botaoAddFuncionario.setBackground(new java.awt.Color(254, 254, 254));
+        botaoAddFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Add.png"))); // NOI18N
+        botaoAddFuncionario.setText("<html><br />Adicionar Funcionário</html>");
+        botaoAddFuncionario.setToolTipText("");
+        botaoAddFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAddFuncionarioActionPerformed(evt);
+            }
+        });
+
+        botaoDelFuncionario.setBackground(new java.awt.Color(254, 254, 254));
+        botaoDelFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Menos.png"))); // NOI18N
+        botaoDelFuncionario.setText("<html><br />Remover Funcionário</html>");
+        botaoDelFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoDelFuncionarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -77,9 +352,9 @@ public class FuncView extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botaoAddFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botaoDelFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -89,8 +364,8 @@ public class FuncView extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE))
+                    .addComponent(botaoAddFuncionario)
+                    .addComponent(botaoDelFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -109,16 +384,109 @@ public class FuncView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botaoAddFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddFuncionarioActionPerformed
+        AddFunc.setVisible(true);
+    }//GEN-LAST:event_botaoAddFuncionarioActionPerformed
+
+    private void botaoDelFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDelFuncionarioActionPerformed
+        DelFunc.setVisible(true);
+    }//GEN-LAST:event_botaoDelFuncionarioActionPerformed
+
+    private void AddFunc_CampoDeTexto_NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddFunc_CampoDeTexto_NomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddFunc_CampoDeTexto_NomeActionPerformed
+
+    private void AddFunc_CampoDeTexto_NomeDeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddFunc_CampoDeTexto_NomeDeUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddFunc_CampoDeTexto_NomeDeUsuarioActionPerformed
+
+    private void AddFunc_botaoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddFunc_botaoAdicionarActionPerformed
+        Funcionario funcionario = new Funcionario();
+        TelaViewController telaViewController = new TelaViewController();
+        
+        funcionario.setNome(String.valueOf(AddFunc_CampoDeTexto_Nome.getText()));
+        funcionario.setNomeDeUsuario(String.valueOf(AddFunc_CampoDeTexto_NomeDeUsuario.getText()));
+        funcionario.setSenha(String.valueOf(AddFunc_CampoDeTexto_Senha.getText()));
+        funcionario.setIdade(Integer.valueOf(AddFunc_CampoDeTexto_Idade.getText()));
+        funcionario.setCategoria(String.valueOf(AddFunc_CampoDeTexto_Categoria.getText()));
+        
+        if (telaViewController.validarDados(funcionario) == true) {
+            if (telaViewController.adicionarFuncionario(funcionario) == true) {
+                JOptionPane.showMessageDialog(null, "Funcionario adicionado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+                atualizarTabela();
+                AddFunc.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_AddFunc_botaoAdicionarActionPerformed
+
+    private void DelFunc_CampoDeTexto_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelFunc_CampoDeTexto_IDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DelFunc_CampoDeTexto_IDActionPerformed
+
+    private void DelFunc_botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelFunc_botaoRemoverActionPerformed
+        TelaViewController telaViewController = new TelaViewController();
+        
+        if (telaViewController.apagarFuncionario(Integer.valueOf(DelFunc_CampoDeTexto_ID.getText())) == true) {
+            JOptionPane.showMessageDialog(null, "Funcionario apagado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+            atualizarTabela();
+            DelFunc.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_DelFunc_botaoRemoverActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
+    private void atualizarTabela() {
+        TelaViewController telaViewController = new TelaViewController();
+        List<Funcionario> funcionarios = new ArrayList(telaViewController.listarFuncionarios());
+        int n = funcionarios.size();
+        DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
+        
+        dfm.removeRow(0);
+        for (int i = 0; i < dfm.getRowCount(); i++) {
+            dfm.removeRow(i);
+        }
+        
+        for (int i = 0; i < n; i++) {
+            Funcionario funcionario = (Funcionario) funcionarios.get(i);
+            dfm.insertRow(i, telaViewController.getDadosToTabela(funcionario));
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JFrame AddFunc;
+    private javax.swing.JTextField AddFunc_CampoDeTexto_Categoria;
+    private javax.swing.JTextField AddFunc_CampoDeTexto_Idade;
+    private javax.swing.JTextField AddFunc_CampoDeTexto_Nome;
+    private javax.swing.JTextField AddFunc_CampoDeTexto_NomeDeUsuario;
+    private javax.swing.JTextField AddFunc_CampoDeTexto_Senha;
+    private javax.swing.JButton AddFunc_botaoAdicionar;
+    private javax.swing.JLabel AddFunc_labelCategoria;
+    private javax.swing.JLabel AddFunc_labelIdade;
+    private javax.swing.JLabel AddFunc_labelNome;
+    private javax.swing.JLabel AddFunc_labelNomeDeUsuario;
+    private javax.swing.JLabel AddFunc_labelSenha;
+    private javax.swing.JFrame DelFunc;
+    private javax.swing.JTextField DelFunc_CampoDeTexto_ID;
+    private javax.swing.JButton DelFunc_botaoRemover;
+    private javax.swing.JLabel DelFunc_labelID;
+    private javax.swing.JButton botaoAddFuncionario;
+    private javax.swing.JButton botaoDelFuncionario;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel labelRemoveFuncionariobyID;
+    private javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
 
     void isVisible(boolean b) {
