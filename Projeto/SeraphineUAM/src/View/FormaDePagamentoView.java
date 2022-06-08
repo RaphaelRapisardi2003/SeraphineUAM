@@ -4,6 +4,10 @@
  */
 package View;
 
+import Model.Produto;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author pedro
@@ -15,12 +19,17 @@ public class FormaDePagamentoView extends javax.swing.JFrame {
     private boolean focusDinheiro = false;
     private boolean focusPix = false;
     
+    private List<Produto> produtos;
+    
 
     /**
      * Creates new form FormaDePagamentoView
+     * @param produto
      */
-    public FormaDePagamentoView() {
+    public FormaDePagamentoView(List<Produto> produto) {
         initComponents();
+        
+        produtos = new ArrayList(produto);
     }
 
     /**
@@ -265,6 +274,11 @@ public class FormaDePagamentoView extends javax.swing.JFrame {
 
         botaoConfirmar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         botaoConfirmar.setText("Confirmar");
+        botaoConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConfirmarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelMainLayout = new javax.swing.GroupLayout(panelMain);
         panelMain.setLayout(panelMainLayout);
@@ -344,12 +358,14 @@ public class FormaDePagamentoView extends javax.swing.JFrame {
 
     private void CampoDeTexto_CartaoCreditoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoDeTexto_CartaoCreditoFocusGained
         if (focusCartaoCredito == false) {
+            focusCartaoCredito = true;
             CampoDeTexto_CartaoDebito.setText("");
         }
     }//GEN-LAST:event_CampoDeTexto_CartaoCreditoFocusGained
 
     private void CampoDeTexto_CartaoDebitoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoDeTexto_CartaoDebitoFocusGained
         if (focusCartaoDebito == false) {
+            focusCartaoDebito = true;
             CampoDeTexto_CartaoCredito.setText("");
         }
     }//GEN-LAST:event_CampoDeTexto_CartaoDebitoFocusGained
@@ -360,6 +376,7 @@ public class FormaDePagamentoView extends javax.swing.JFrame {
 
     private void CampoDeTexto_DinheiroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoDeTexto_DinheiroFocusGained
         if (focusDinheiro == false) {
+            focusDinheiro = true;
             CampoDeTexto_Dinheiro.setText("");
         }
     }//GEN-LAST:event_CampoDeTexto_DinheiroFocusGained
@@ -370,6 +387,7 @@ public class FormaDePagamentoView extends javax.swing.JFrame {
 
     private void CampoDeTexto_PixFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoDeTexto_PixFocusGained
         if (focusPix == false) {
+            focusPix = true;
             CampoDeTexto_Pix.setText("");
         }
     }//GEN-LAST:event_CampoDeTexto_PixFocusGained
@@ -385,6 +403,10 @@ public class FormaDePagamentoView extends javax.swing.JFrame {
     private void CampoDeTexto_CartaoDebito3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoDeTexto_CartaoDebito3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoDeTexto_CartaoDebito3ActionPerformed
+
+    private void botaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoConfirmarActionPerformed
 
     /**
      * @param args the command line arguments

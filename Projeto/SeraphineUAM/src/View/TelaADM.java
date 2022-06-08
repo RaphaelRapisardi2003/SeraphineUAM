@@ -564,8 +564,22 @@ public class TelaADM extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3KeyTyped
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        jDialog1.setVisible(true);
-        jDialog1.setLocationRelativeTo(null);
+        
+        TelaADMController telaADMController = new TelaADMController();
+        
+        List<Produto> produtos = new ArrayList();
+        int n = jTable1.getRowCount();
+        DefaultTableModel dfm = (DefaultTableModel) jTable1.getModel();
+        
+        for (int i = 0; i < n; i++) {
+            produtos.add(telaADMController.RetornarDadosDaLinhaIndicadaPorIndex(jTable1, i));
+        }
+        
+        FormaDePagamentoView payView = new FormaDePagamentoView(produtos);
+        payView.setVisible(true);
+        
+        //jDialog1.setVisible(true);
+        //jDialog1.setLocationRelativeTo(null);
 
     }//GEN-LAST:event_jButton4ActionPerformed
 

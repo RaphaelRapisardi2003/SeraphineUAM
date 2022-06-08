@@ -59,6 +59,24 @@ public class    TelaADMController {
         return produto;
     }
     
+    public Produto RetornarDadosDaLinhaIndicadaPorIndex(JTable jtable, int i) {
+        Produto produto = new Produto();
+
+        produto.setId(
+                Integer.parseInt(jtable.getValueAt(i,0).toString())
+        );
+
+        produto.setDescricao(
+                jtable.getValueAt(i,1).toString()
+        );
+
+        produto.setPreco(
+                Float.parseFloat(jtable.getValueAt(i,2).toString())
+        );
+
+        return produto;
+    }
+    
     public float CalcularValorTotal(JTable jtable) {
         float ValorTotal = 0;
 
