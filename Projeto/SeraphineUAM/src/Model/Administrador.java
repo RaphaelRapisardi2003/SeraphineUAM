@@ -1,19 +1,19 @@
 package Model;
 
 public class Administrador extends Pessoa{
-    private int Departamento;
+    private String Departamento;
     private int Funcionarios;
 
     public Administrador() {
-        this.Departamento = 0;
+        this.Departamento = null;
         this.Funcionarios = 0;
     }
 
-    public int getDepartamento() {
+    public String getDepartamento() {
         return Departamento;
     }
 
-    public void setDepartamento(int Departamento) {
+    public void setDepartamento(String Departamento) {
         this.Departamento = Departamento;
     }
     public int getFuncionarios() {

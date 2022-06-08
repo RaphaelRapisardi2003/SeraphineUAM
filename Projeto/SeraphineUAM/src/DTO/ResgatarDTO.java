@@ -180,8 +180,8 @@ public class ResgatarDTO {
                 d.setNomeDeUsuario(rs.getString("NOME_DE_USUARIO"));
                 d.setSenha(rs.getString("SENHA"));
                 d.setIdade(rs.getInt("IDADE"));
-                d.setDepartamento(rs.getInt("DEPARTAMENTO"));
-                d.setFuncionarios(rs.getInt("FUNCIONÁRIOS"));
+                d.setDepartamento(rs.getString("DEPARTAMENTO"));
+                d.setFuncionarios(rs.getInt("FUNCIONARIOS"));
                 
                 lista.add(d);
             }

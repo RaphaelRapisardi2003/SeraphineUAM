@@ -61,7 +61,7 @@ public class InserirDTO {
         }
     }
  
-    public boolean adicionarAdministrador(String nome, String nomeDeUsuario, String senha, int idade, int departamento, int funcionarios) {
+    public boolean adicionarAdministrador(String nome, String nomeDeUsuario, String senha, int idade, String departamento, int funcionarios) {
         try {
             connect = new DAO().conectarSemConfirmacao();
         } catch (Exception erro) {
@@ -76,7 +76,7 @@ public class InserirDTO {
             st.setString(2, nomeDeUsuario);
             st.setString(3, senha);
             st.setInt(4, idade);
-            st.setInt(5, departamento);
+            st.setString(5, departamento);
             st.setInt(6, funcionarios);
 
             st.execute();

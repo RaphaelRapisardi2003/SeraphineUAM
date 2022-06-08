@@ -20,7 +20,7 @@ public class ADMService {
     
     public boolean adicionarAdministrador (Administrador administrador) {
         InserirDTO dto = new InserirDTO();
-        if (dto.adicionarAdministrador(administrador.getNome(), administrador.getNomeDeUsuario(), administrador.getSenha(), administrador.getIdade(), administrador.getFuncionarios(),administrador.getDepartamento()) == true) {
+        if (dto.adicionarAdministrador(administrador.getNome(), administrador.getNomeDeUsuario(), administrador.getSenha(), administrador.getIdade(), administrador.getDepartamento(),administrador.getFuncionarios()) == true) {
             return true;
         } else {
             codigoDeErro = dto.getCodigoDeErro();

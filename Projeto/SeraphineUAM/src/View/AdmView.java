@@ -278,7 +278,7 @@ public class AdmView extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -367,7 +367,7 @@ public class AdmView extends javax.swing.JFrame {
         administrador.setNomeDeUsuario(String.valueOf(AddADM_CampoDeTexto_NomeDeUsuario.getText()));
         administrador.setSenha(String.valueOf(AddADM_CampoDeTexto_Senha.getText()));
         administrador.setIdade(Integer.valueOf(AddADM_CampoDeTexto_Idade.getText()));
-        administrador.setDepartamento(Integer.valueOf(AddADM_CampoDeTexto_Departamento.getText()));
+        administrador.setDepartamento(String.valueOf(AddADM_CampoDeTexto_Departamento.getText()));
         administrador.setFuncionarios(Integer.valueOf(AddADM_CampoDeTexto_Funcionarios.getText()));
         
         if (telaViewController.validarDados(administrador) == true) {
@@ -397,8 +397,8 @@ public class AdmView extends javax.swing.JFrame {
     
     private void atualizarTabela() {
         TelaViewController telaViewController = new TelaViewController();
-        List<Administrador> administrador = new ArrayList(telaViewController.listarAdministrador());
-        int n = administrador.size();
+        List<Administrador> administradores = new ArrayList(telaViewController.listarAdministrador());
+        int n = administradores.size();
         DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
         
         dfm.removeRow(0);
@@ -407,7 +407,7 @@ public class AdmView extends javax.swing.JFrame {
         }
         
         for (int i = 0; i < n; i++) {
-            Administrador administrador = (Administrador) administrador.get(i);
+            Administrador administrador = (Administrador) administradores.get(i);
             dfm.insertRow(i, telaViewController.getDadosToTabelaADM(administrador));
         }
     }
