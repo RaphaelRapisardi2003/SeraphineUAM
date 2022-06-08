@@ -3,6 +3,7 @@ package Service;
 import DTO.InserirDTO;
 import DTO.ResgatarDTO;
 import Model.Administrador;
+import Model.Cliente;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +33,26 @@ public class ADMService {
         ResgatarDTO dto = new ResgatarDTO();
         try {
             return dto.listarAdministrador();
+        } catch (Exception e) {
+            codigoDeErro = dto.getCodigoDeErro();
+            return null;
+        }
+    }
+    
+    public boolean adicionarCliente (Cliente cliente) {
+        InserirDTO dto = new InserirDTO();
+        if (dto.adicionarCliente(cliente.getNome(), cliente.getNomeDeUsuario(), cliente.getSenha(), cliente.getIdade(), cliente.getEndereco(),cliente.getTelefone(), cliente.getCelular(), cliente.getCpf()) == true) {
+            return true;
+        } else {
+            codigoDeErro = dto.getCodigoDeErro();
+            return false;
+        }
+    }
+    
+    public List<Cliente> listarClientes(Cliente cliente) {
+        ResgatarDTO dto = new ResgatarDTO();
+        try {
+            return dto.listarCliente();
         } catch (Exception e) {
             codigoDeErro = dto.getCodigoDeErro();
             return null;

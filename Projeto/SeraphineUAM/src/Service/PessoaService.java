@@ -21,4 +21,25 @@ public class PessoaService {
 
         return false;
     }
+    
+    public boolean ValidarTelefone(int telefone) {
+        if (telefone > 0 && telefone < 9999999999L)
+            return true;
+        
+        return false;
+    }
+    
+    public boolean ValidarCelular(int celular) {
+        if (celular > 0 && celular < 99999999999L)
+            return true;
+        
+        return false;
+    }
+    
+    public boolean ValidarCPF(int cpf) {
+        if (cpf > 0 && cpf < 99999999999L)
+            return true;
+        
+        return false;
+    }
 }

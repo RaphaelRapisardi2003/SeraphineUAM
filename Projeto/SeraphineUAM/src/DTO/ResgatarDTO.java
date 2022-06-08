@@ -33,6 +33,7 @@ import DAO.DAO;
 import Model.Funcionario;
 import Model.Produto;
 import Model.Administrador;
+import Model.Cliente;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -184,6 +185,42 @@ public class ResgatarDTO {
                 d.setFuncionarios(rs.getInt("FUNCIONARIOS"));
                 
                 lista.add(d);
+            }
+        } catch (SQLException erro) {
+            codigoDeErro = "ERRO AO LISTAR PRODUTOS\nCódigo do erro: " + String.valueOf(erro);
+            return null;
+        }
+        return lista;
+     }
+     public List<Cliente> listarCliente() {
+        List<Cliente> lista = new ArrayList<>();
+        String sql = "SELECT * FROM cliente";
+        DAO dao = new DAO();
+        
+        try {
+            connect = dao.conectarSemConfirmacao();
+        } catch (Exception erro) {
+            codigoDeErro = dao.getCodigoDeErroConn();
+            return null;
+        }
+        try {
+            PreparedStatement st = connect.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            Cliente c;
+            
+            while(rs.next()) {
+                c = new Cliente();
+                c.setID(rs.getInt("ID"));
+                c.setNome(rs.getString("NOME"));
+                c.setNomeDeUsuario(rs.getString("NOME_DE_USUARIO"));
+                c.setSenha(rs.getString("SENHA"));
+                c.setIdade(rs.getInt("IDADE"));
+                c.setEndereco(rs.getString("ENDERECO"));
+                c.setTelefone(rs.getInt("TELEFONE"));
+                c.setCelular(rs.getInt("CELULAR"));
+                c.setCpf(rs.getInt("CPF"));
+                
+                lista.add(c);
             }
         } catch (SQLException erro) {
             codigoDeErro = "ERRO AO LISTAR PRODUTOS\nCódigo do erro: " + String.valueOf(erro);
