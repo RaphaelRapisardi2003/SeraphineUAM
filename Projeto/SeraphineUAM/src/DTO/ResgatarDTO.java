@@ -32,6 +32,7 @@ import java.sql.*;
 import DAO.DAO;
 import Model.Funcionario;
 import Model.Produto;
+import Model.Administrador;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -156,6 +157,40 @@ public class ResgatarDTO {
         }
         return lista;
     }
+     public List<Administrador> listarAdministrador() {
+        List<Administrador> lista = new ArrayList<>();
+        String sql = "SELECT * FROM administrador";
+        DAO dao = new DAO();
+        
+        try {
+            connect = dao.conectarSemConfirmacao();
+        } catch (Exception erro) {
+            codigoDeErro = dao.getCodigoDeErroConn();
+            return null;
+        }
+        try {
+            PreparedStatement st = connect.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            Administrador d;
+            
+            while(rs.next()) {
+                d = new Administrador();
+                d.setID(rs.getInt("ID"));
+                d.setNome(rs.getString("NOME"));
+                d.setNomeDeUsuario(rs.getString("NOME_DE_USUARIO"));
+                d.setSenha(rs.getString("SENHA"));
+                d.setIdade(rs.getInt("IDADE"));
+                d.setDepartamento(rs.getInt("DEPARTAMENTO"));
+                d.setFuncionarios(rs.getInt("FUNCIONÁRIOS"));
+                
+                lista.add(d);
+            }
+        } catch (SQLException erro) {
+            codigoDeErro = "ERRO AO LISTAR PRODUTOS\nCódigo do erro: " + String.valueOf(erro);
+            return null;
+        }
+        return lista;
+     }
     
     //(1, "NOME", "String")
 

@@ -4,8 +4,17 @@
  */
 package View;
 
+import Controller.TelaViewController;
+import Model.Administrador;
 import java.awt.Color;
+import Model.Produto;
+import Service.ADMService;
+import Service.ProdutoService;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,6 +32,8 @@ public class AdmView extends javax.swing.JFrame {
         head_render.setBackground(new Color(254,254,254));
         jTable1.getTableHeader().setDefaultRenderer(head_render);
         head_render.setOpaque(true);
+        
+        atualizarTabela();
     }
 
     /**
@@ -34,11 +45,225 @@ public class AdmView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        AddADM = new javax.swing.JFrame();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        AddADM_labelNome = new javax.swing.JLabel();
+        AddADM_labelNomeDeUsuario = new javax.swing.JLabel();
+        AddADM_labelSenha = new javax.swing.JLabel();
+        AddADM_labelIdade = new javax.swing.JLabel();
+        AddADM_labelDepartamento = new javax.swing.JLabel();
+        AddADM_labelFuncionarios = new javax.swing.JLabel();
+        AddADM_CampoDeTexto_Nome = new javax.swing.JTextField();
+        AddADM_CampoDeTexto_NomeDeUsuario = new javax.swing.JTextField();
+        AddADM_CampoDeTexto_Senha = new javax.swing.JTextField();
+        AddADM_CampoDeTexto_Idade = new javax.swing.JTextField();
+        AddADM_CampoDeTexto_Departamento = new javax.swing.JTextField();
+        AddADM_CampoDeTexto_Funcionarios = new javax.swing.JTextField();
+        AddADM_botaoAdicionar = new javax.swing.JButton();
+        DelADM = new javax.swing.JFrame();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        labelRemoveAdministradorbyID = new javax.swing.JLabel();
+        DelADM_labelID = new javax.swing.JLabel();
+        DelADM_CampoDeTexto_ID = new javax.swing.JTextField();
+        DelADM_botaoRemover = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        botaoAddAdministrador = new javax.swing.JButton();
+        botaoDelAdministrador = new javax.swing.JButton();
+
+        jPanel2.setBackground(new java.awt.Color(180, 142, 243));
+
+        AddADM_labelNome.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        AddADM_labelNome.setText("Nome");
+
+        AddADM_labelNomeDeUsuario.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        AddADM_labelNomeDeUsuario.setText("Nome De Usuário");
+
+        AddADM_labelSenha.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        AddADM_labelSenha.setText("Senha");
+
+        AddADM_labelIdade.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        AddADM_labelIdade.setText("Idade");
+
+        AddADM_labelDepartamento.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        AddADM_labelDepartamento.setText("Departamento");
+
+        AddADM_labelFuncionarios.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        AddADM_labelFuncionarios.setText("Funcionários");
+
+        AddADM_botaoAdicionar.setText("Adicionar");
+        AddADM_botaoAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddADM_botaoAdicionarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(AddADM_labelFuncionarios)
+                            .addComponent(AddADM_labelDepartamento)
+                            .addComponent(AddADM_labelIdade)
+                            .addComponent(AddADM_labelSenha)
+                            .addComponent(AddADM_labelNomeDeUsuario)
+                            .addComponent(AddADM_labelNome)
+                            .addComponent(AddADM_CampoDeTexto_Nome, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+                            .addComponent(AddADM_CampoDeTexto_NomeDeUsuario)
+                            .addComponent(AddADM_CampoDeTexto_Senha)
+                            .addComponent(AddADM_CampoDeTexto_Idade)
+                            .addComponent(AddADM_CampoDeTexto_Departamento)
+                            .addComponent(AddADM_CampoDeTexto_Funcionarios)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(AddADM_botaoAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(AddADM_labelNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddADM_CampoDeTexto_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AddADM_labelNomeDeUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AddADM_CampoDeTexto_NomeDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AddADM_labelSenha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AddADM_CampoDeTexto_Senha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AddADM_labelIdade)
+                .addGap(12, 12, 12)
+                .addComponent(AddADM_CampoDeTexto_Idade, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AddADM_labelDepartamento)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AddADM_CampoDeTexto_Departamento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AddADM_labelFuncionarios)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AddADM_CampoDeTexto_Funcionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(AddADM_botaoAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout AddADMLayout = new javax.swing.GroupLayout(AddADM.getContentPane());
+        AddADM.getContentPane().setLayout(AddADMLayout);
+        AddADMLayout.setHorizontalGroup(
+            AddADMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        AddADMLayout.setVerticalGroup(
+            AddADMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel4.setBackground(new java.awt.Color(180, 142, 243));
+
+        labelRemoveAdministradorbyID.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        labelRemoveAdministradorbyID.setText("Remover ADM por ID");
+
+        DelADM_labelID.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        DelADM_labelID.setText("Digite o ID do ADM");
+
+        DelADM_botaoRemover.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        DelADM_botaoRemover.setText("REMOVER");
+        DelADM_botaoRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelADM_botaoRemoverActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(DelADM_labelID))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(labelRemoveAdministradorbyID))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(DelADM_CampoDeTexto_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(DelADM_botaoRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(106, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(labelRemoveAdministradorbyID)
+                .addGap(55, 55, 55)
+                .addComponent(DelADM_labelID)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DelADM_CampoDeTexto_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(DelADM_botaoRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout DelADMLayout = new javax.swing.GroupLayout(DelADM.getContentPane());
+        DelADM.getContentPane().setLayout(DelADMLayout);
+        DelADMLayout.setHorizontalGroup(
+            DelADMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        DelADMLayout.setVerticalGroup(
+            DelADMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -58,19 +283,24 @@ public class AdmView extends javax.swing.JFrame {
         jTable1.setShowGrid(true);
         jScrollPane1.setViewportView(jTable1);
 
-        jButton2.setBackground(new java.awt.Color(254, 254, 254));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Add.png"))); // NOI18N
-        jButton2.setText("<html><br />Adicionar ADM</html>");
-        jButton2.setActionCommand("");
-
-        jButton3.setBackground(new java.awt.Color(254, 254, 254));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Menos.png"))); // NOI18N
-        jButton3.setText("<html><br />Remover ADM</html>");
-        jButton3.setActionCommand("");
-        jButton3.setMinimumSize(new java.awt.Dimension(135, 56));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        botaoAddAdministrador.setBackground(new java.awt.Color(254, 254, 254));
+        botaoAddAdministrador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Add.png"))); // NOI18N
+        botaoAddAdministrador.setText("<html><br />Adicionar ADM</html>");
+        botaoAddAdministrador.setActionCommand("");
+        botaoAddAdministrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                botaoAddAdministradorActionPerformed(evt);
+            }
+        });
+
+        botaoDelAdministrador.setBackground(new java.awt.Color(254, 254, 254));
+        botaoDelAdministrador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Menos.png"))); // NOI18N
+        botaoDelAdministrador.setText("<html><br />Remover ADM</html>");
+        botaoDelAdministrador.setActionCommand("");
+        botaoDelAdministrador.setMinimumSize(new java.awt.Dimension(135, 56));
+        botaoDelAdministrador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoDelAdministradorActionPerformed(evt);
             }
         });
 
@@ -83,9 +313,9 @@ public class AdmView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaoAddAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaoDelAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 767, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -96,8 +326,8 @@ public class AdmView extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoAddAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoDelAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -116,20 +346,99 @@ public class AdmView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void botaoDelAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDelAdministradorActionPerformed
+        DelADM.setVisible(true);  
+    }//GEN-LAST:event_botaoDelAdministradorActionPerformed
 
+    private void botaoAddAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddAdministradorActionPerformed
+        AddADM.setVisible(true);
+    }//GEN-LAST:event_botaoAddAdministradorActionPerformed
+
+    private void AddADM_botaoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddADM_botaoAdicionarActionPerformed
+         Administrador administrador = new Administrador();
+        TelaViewController telaViewController = new TelaViewController();
+        
+        administrador.setNome(String.valueOf(AddADM_CampoDeTexto_Nome.getText()));
+        administrador.setNomeDeUsuario(String.valueOf(AddADM_CampoDeTexto_NomeDeUsuario.getText()));
+        administrador.setSenha(String.valueOf(AddADM_CampoDeTexto_Senha.getText()));
+        administrador.setIdade(Integer.valueOf(AddADM_CampoDeTexto_Idade.getText()));
+        administrador.setDepartamento(Integer.valueOf(AddADM_CampoDeTexto_Departamento.getText()));
+        administrador.setFuncionarios(Integer.valueOf(AddADM_CampoDeTexto_Funcionarios.getText()));
+        
+        if (telaViewController.validarDados(administrador) == true) {
+            if (telaViewController.adicionarAdministrador(administrador) == true) {
+                JOptionPane.showMessageDialog(null, "Funcionario adicionado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+                atualizarTabela();
+                AddADM.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_AddADM_botaoAdicionarActionPerformed
+
+    private void DelADM_botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelADM_botaoRemoverActionPerformed
+        TelaViewController telaViewController = new TelaViewController();
+        
+        if (telaViewController.apagarAdministrador(Integer.valueOf(DelADM_CampoDeTexto_ID.getText())) == true) {
+            JOptionPane.showMessageDialog(null, "Funcionario apagado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+            atualizarTabela();
+            DelADM.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_DelADM_botaoRemoverActionPerformed
+    
+    private void atualizarTabela() {
+        TelaViewController telaViewController = new TelaViewController();
+        List<Administrador> administrador = new ArrayList(telaViewController.listarAdministrador());
+        int n = administrador.size();
+        DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
+        
+        dfm.removeRow(0);
+        for (int i = 0; i < dfm.getRowCount(); i++) {
+            dfm.removeRow(i);
+        }
+        
+        for (int i = 0; i < n; i++) {
+            Administrador administrador = (Administrador) administrador.get(i);
+            dfm.insertRow(i, telaViewController.getDadosToTabelaADM(administrador));
+        }
+    }
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JFrame AddADM;
+    private javax.swing.JTextField AddADM_CampoDeTexto_Departamento;
+    private javax.swing.JTextField AddADM_CampoDeTexto_Funcionarios;
+    private javax.swing.JTextField AddADM_CampoDeTexto_Idade;
+    private javax.swing.JTextField AddADM_CampoDeTexto_Nome;
+    private javax.swing.JTextField AddADM_CampoDeTexto_NomeDeUsuario;
+    private javax.swing.JTextField AddADM_CampoDeTexto_Senha;
+    private javax.swing.JButton AddADM_botaoAdicionar;
+    private javax.swing.JLabel AddADM_labelDepartamento;
+    private javax.swing.JLabel AddADM_labelFuncionarios;
+    private javax.swing.JLabel AddADM_labelIdade;
+    private javax.swing.JLabel AddADM_labelNome;
+    private javax.swing.JLabel AddADM_labelNomeDeUsuario;
+    private javax.swing.JLabel AddADM_labelSenha;
+    private javax.swing.JFrame DelADM;
+    private javax.swing.JTextField DelADM_CampoDeTexto_ID;
+    private javax.swing.JButton DelADM_botaoRemover;
+    private javax.swing.JLabel DelADM_labelID;
+    private javax.swing.JButton botaoAddAdministrador;
+    private javax.swing.JButton botaoDelAdministrador;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel labelRemoveAdministradorbyID;
     // End of variables declaration//GEN-END:variables
 
     void isVisible(boolean b) {

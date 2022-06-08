@@ -2,8 +2,10 @@ package Controller;
 
 import DTO.DeletarDTO;
 import DTO.ResgatarDTO;
+import Model.Administrador;
 import javax.swing.*;
 import Model.Funcionario;
+import Service.ADMService;
 import Service.AtendenteService;
 import Service.PessoaService;
 import java.util.ArrayList;
@@ -63,4 +65,52 @@ public class TelaViewController {
             return false;
         }
     }
-}
+    //ADM
+    public List<Administrador> listarAdministrador() {
+        return new ResgatarDTO().listarAdministrador();
+    }
+    public Object[] getDadosToTabelaADM(Administrador administrador){
+        return new Object[]{ 
+            administrador.getID(), 
+            administrador.getNome(), 
+            administrador.getNomeDeUsuario(),
+            administrador.getSenha(),
+            administrador.getIdade(),
+            administrador.getDepartamento(),
+            administrador.getFuncionarios()
+        };
+    }
+
+    public boolean validarDados(Administrador administrador) {
+        PessoaService pessoaService = new PessoaService();
+        
+        if (pessoaService.ValidarNome(administrador.getNome()) == true){
+            if (pessoaService.ValidarIdade(administrador.getIdade()) == true){
+                return true;
+            }
+        }
+        codigoDeErro = "Valores inválidos";
+        return false;
+    }
+    
+    public boolean adicionarAdministrador(Administrador administrador) {
+        ADMService servico = new ADMService();
+        if (servico.adicionarAdministrador(administrador) == true) {
+            return true;
+        } else {
+            codigoDeErro = servico.getCodigoDeErro();
+            return false;
+        }
+    }
+    
+    public boolean apagarAdministrador(int ID) {
+        DeletarDTO dto = new DeletarDTO();
+        if (dto.apagarAdministrador(ID) == true) {
+            return true;
+        } else {
+            codigoDeErro = dto.getCodigoDeErro();
+            return false;
+        }
+    }
+    }
+
