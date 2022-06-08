@@ -1,10 +1,13 @@
 package View;
 
+import Controller.SelecionarProdutoController;
 import Controller.TelaADMController;
 import Controller.TelaAtendenteController;
 import Model.Produto;
 import Service.ProdutoService;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -38,6 +41,11 @@ public class TelaAtendente extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        AddProdutosOnView = new javax.swing.JFrame();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        AddProdutosOnView_tabela = new javax.swing.JTable();
+        AddProdutosOnView_botaoSelecionar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -85,6 +93,80 @@ public class TelaAtendente extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(66, 66, 66))))
+        );
+
+        AddProdutosOnView.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        AddProdutosOnView.setMinimumSize(new java.awt.Dimension(1145, 630));
+
+        jPanel5.setBackground(new java.awt.Color(180, 142, 243));
+
+        AddProdutosOnView_tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null}
+            },
+            new String [] {
+                "Código", "Descrição", "Preço", "Em estoque"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        AddProdutosOnView_tabela.setShowGrid(true);
+        jScrollPane3.setViewportView(AddProdutosOnView_tabela);
+
+        AddProdutosOnView_botaoSelecionar.setBackground(new java.awt.Color(254, 254, 254));
+        AddProdutosOnView_botaoSelecionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/V.png"))); // NOI18N
+        AddProdutosOnView_botaoSelecionar.setText("Selecionar");
+        AddProdutosOnView_botaoSelecionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddProdutosOnView_botaoSelecionarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1133, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(AddProdutosOnView_botaoSelecionar, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddProdutosOnView_botaoSelecionar, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout AddProdutosOnViewLayout = new javax.swing.GroupLayout(AddProdutosOnView.getContentPane());
+        AddProdutosOnView.getContentPane().setLayout(AddProdutosOnViewLayout);
+        AddProdutosOnViewLayout.setHorizontalGroup(
+            AddProdutosOnViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        AddProdutosOnViewLayout.setVerticalGroup(
+            AddProdutosOnViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -366,11 +448,9 @@ public class TelaAtendente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        SelecionarProduto selecionarProduto = new SelecionarProduto();
-
-        selecionarProduto.setVisible(true);
-
-        AdicionarItemATabela(selecionarProduto.getProduto());
+        atualizarTabela();
+        AddProdutosOnView.setLocationRelativeTo(null);
+        AddProdutosOnView.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
@@ -437,6 +517,17 @@ public class TelaAtendente extends javax.swing.JFrame {
         LinhaSelecionada();
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void AddProdutosOnView_botaoSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddProdutosOnView_botaoSelecionarActionPerformed
+        Produto produto = new Produto();
+        SelecionarProdutoController selecionarProduto = new SelecionarProdutoController();
+
+        produto = selecionarProduto.SelecionarProduto(AddProdutosOnView_tabela);
+        
+        AdicionarItemATabela(produto);
+        
+        AddProdutosOnView.dispose();
+    }//GEN-LAST:event_AddProdutosOnView_botaoSelecionarActionPerformed
+
     private void AtualizarPreco() {
         TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
         String ValorTotal = Float.toString(telaAtendenteController.CalcularValorTotal(jTable1));
@@ -481,11 +572,33 @@ public class TelaAtendente extends javax.swing.JFrame {
 
         AtualizarPreco();
     }
+    
+    private void atualizarTabela() {
+        SelecionarProdutoController spc = new SelecionarProdutoController();
+        List<Produto> produtos = new ArrayList(spc.AtualizarTabelaDeProdutos());
+        int n = produtos.size();
+        DefaultTableModel dfm = (DefaultTableModel) AddProdutosOnView_tabela.getModel();
+        
+        dfm.removeRow(0);
+        for (int i = 0; i < dfm.getRowCount(); i++) {
+            dfm.removeRow(i);
+        }
+        
+        dfm.setRowCount(0);
+        
+        for (int i = 0; i < n; i++) {
+            Produto product = (Produto) produtos.get(i);
+            dfm.insertRow(i, spc.AdicionarItem(product));
+        }
+    }
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame AddProdutosOnView;
+    private javax.swing.JButton AddProdutosOnView_botaoSelecionar;
+    private javax.swing.JTable AddProdutosOnView_tabela;
     private javax.swing.JButton jButto5;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -500,7 +613,9 @@ public class TelaAtendente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;

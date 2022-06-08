@@ -312,6 +312,8 @@ public class CriarProduto extends javax.swing.JFrame {
             dfm.removeRow(i);
         }
         
+        dfm.setRowCount(0);
+        
         for (int i = 0; i < n; i++) {
             Produto produto = (Produto) produtos.get(i);
             dfm.insertRow(i, produtoService.AdicionarItem(produto));
