@@ -30,7 +30,7 @@ public class AdmView extends javax.swing.JFrame {
 
         DefaultTableCellRenderer head_render = new DefaultTableCellRenderer();
         head_render.setBackground(new Color(254,254,254));
-        jTable1.getTableHeader().setDefaultRenderer(head_render);
+        tabela.getTableHeader().setDefaultRenderer(head_render);
         head_render.setOpaque(true);
         
         atualizarTabela();
@@ -70,7 +70,7 @@ public class AdmView extends javax.swing.JFrame {
         DelADM_botaoRemover = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabela = new javax.swing.JTable();
         botaoAddAdministrador = new javax.swing.JButton();
         botaoDelAdministrador = new javax.swing.JButton();
 
@@ -269,19 +269,24 @@ public class AdmView extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(180, 142, 243));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nome", "Nome de Usuário", "Senha", "Idade", "Departamento", "Funcionarios"
             }
-        ));
-        jTable1.setShowGrid(true);
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tabela.setShowGrid(true);
+        jScrollPane1.setViewportView(tabela);
 
         botaoAddAdministrador.setBackground(new java.awt.Color(254, 254, 254));
         botaoAddAdministrador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Add.png"))); // NOI18N
@@ -437,8 +442,8 @@ public class AdmView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelRemoveAdministradorbyID;
+    private javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
 
     void isVisible(boolean b) {
