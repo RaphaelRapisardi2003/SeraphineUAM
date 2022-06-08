@@ -178,7 +178,7 @@ public class TelaADM extends javax.swing.JFrame {
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, "Cereais Yummi",  new Float(23.15), null}
+
             },
             new String [] {
                 "Código", "Descrição", "Preço R$", "Em estoque"
