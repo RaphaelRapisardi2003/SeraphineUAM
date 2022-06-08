@@ -1,9 +1,12 @@
 package View;
 
+import Controller.SelecionarProdutoController;
 import Controller.TelaADMController;
 import Model.Produto;
 import Service.ProdutoService;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 public class TelaADM extends javax.swing.JFrame {
@@ -36,6 +39,11 @@ public class TelaADM extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        AddProdutosOnView = new javax.swing.JFrame();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        AddProdutosOnView_tabela = new javax.swing.JTable();
+        AddProdutosOnView_botaoSelecionar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -89,6 +97,80 @@ public class TelaADM extends javax.swing.JFrame {
                         .addGap(66, 66, 66))))
         );
 
+        AddProdutosOnView.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        AddProdutosOnView.setMinimumSize(new java.awt.Dimension(1145, 630));
+
+        jPanel5.setBackground(new java.awt.Color(180, 142, 243));
+
+        AddProdutosOnView_tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null}
+            },
+            new String [] {
+                "Código", "Descrição", "Preço", "Em estoque"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        AddProdutosOnView_tabela.setShowGrid(true);
+        jScrollPane3.setViewportView(AddProdutosOnView_tabela);
+
+        AddProdutosOnView_botaoSelecionar.setBackground(new java.awt.Color(254, 254, 254));
+        AddProdutosOnView_botaoSelecionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/V.png"))); // NOI18N
+        AddProdutosOnView_botaoSelecionar.setText("Selecionar");
+        AddProdutosOnView_botaoSelecionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddProdutosOnView_botaoSelecionarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1133, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(AddProdutosOnView_botaoSelecionar, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddProdutosOnView_botaoSelecionar, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout AddProdutosOnViewLayout = new javax.swing.GroupLayout(AddProdutosOnView.getContentPane());
+        AddProdutosOnView.getContentPane().setLayout(AddProdutosOnViewLayout);
+        AddProdutosOnViewLayout.setHorizontalGroup(
+            AddProdutosOnViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        AddProdutosOnViewLayout.setVerticalGroup(
+            AddProdutosOnViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel3.setBackground(new java.awt.Color(180, 142, 243));
@@ -96,18 +178,25 @@ public class TelaADM extends javax.swing.JFrame {
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"2133", "Cereais Yummi",  new Float(23.15), "Singed Pereira"}
+                {null, "Cereais Yummi",  new Float(23.15), null}
             },
             new String [] {
-                "Código", "Descrição", "Preço R$", "Vendedor"
+                "Código", "Descrição", "Preço R$", "Em estoque"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jTable1.setGridColor(new java.awt.Color(204, 204, 204));
@@ -422,15 +511,9 @@ public class TelaADM extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TelaADMController telaADMController = new TelaADMController();
-        ProdutoService produtoService = new ProdutoService();
-        Produto produto = new Produto();
-        DefaultTableModel dfm = (DefaultTableModel) jTable1.getModel();
-
-        if(!produtoService.VerificarSeOProdutoExiste(produto)) {
-            if (produtoService.ValidarProduto(produto))
-                dfm.addRow(telaADMController.AdicionarItem(produto));
-        }
+        atualizarTabela();
+        AddProdutosOnView.setLocationRelativeTo(null);
+        AddProdutosOnView.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
@@ -539,6 +622,18 @@ public class TelaADM extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void AddProdutosOnView_botaoSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddProdutosOnView_botaoSelecionarActionPerformed
+        Produto produto = new Produto();
+        SelecionarProdutoController selecionarProduto = new SelecionarProdutoController();
+
+        produto = selecionarProduto.SelecionarProduto(AddProdutosOnView_tabela);
+
+        AdicionarItemATabela(produto);
+        AtualizarPreco();
+
+        AddProdutosOnView.dispose();
+    }//GEN-LAST:event_AddProdutosOnView_botaoSelecionarActionPerformed
+
     private void AtualizarPreco() {
         TelaADMController telaADMController = new TelaADMController();
         String ValorTotal = Float.toString(telaADMController.CalcularValorTotal(jTable1));
@@ -557,8 +652,41 @@ public class TelaADM extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    private void AdicionarItemATabela(Produto produto) {
+        TelaADMController telaADMController = new TelaADMController();
+        ProdutoService produtoService = new ProdutoService();
+        DefaultTableModel dfm = (DefaultTableModel) jTable1.getModel();
+
+        if(!produtoService.VerificarSeOProdutoExiste(produto)) {
+            if (produtoService.ValidarProduto(produto))
+                dfm.addRow(telaADMController.AdicionarItem(produto));
+        }
+    }
+    
+    private void atualizarTabela() {
+        SelecionarProdutoController spc = new SelecionarProdutoController();
+        List<Produto> produtos = new ArrayList(spc.AtualizarTabelaDeProdutos());
+        int n = produtos.size();
+        DefaultTableModel dfm = (DefaultTableModel) AddProdutosOnView_tabela.getModel();
+        
+        dfm.removeRow(0);
+        for (int i = 0; i < dfm.getRowCount(); i++) {
+            dfm.removeRow(i);
+        }
+        
+        dfm.setRowCount(0);
+        
+        for (int i = 0; i < n; i++) {
+            Produto product = (Produto) produtos.get(i);
+            dfm.insertRow(i, spc.AdicionarItem(product));
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame AddProdutosOnView;
+    private javax.swing.JButton AddProdutosOnView_botaoSelecionar;
+    private javax.swing.JTable AddProdutosOnView_tabela;
     private javax.swing.JButton jButto5;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -577,7 +705,9 @@ public class TelaADM extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;

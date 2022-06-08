@@ -17,8 +17,8 @@ public class TelaAtendenteController {
         return new Object[]{ 
             produto.getId(), 
             produto.getDescricao(), 
-            produto.getQtdEstoque(), 
-            produto.getPreco() 
+            produto.getPreco(), 
+            produto.getQtdEstoque() 
         };
     }
     

@@ -176,18 +176,25 @@ public class TelaAtendente extends javax.swing.JFrame {
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"2133", "Cereais Yummi",  new Float(23.15), "Singed Pereira"}
+                {"2133", "Cereais Yummi",  new Float(23.15), null}
             },
             new String [] {
-                "Código", "Descrição", "Preço R$", "Vendedor"
+                "Código", "Descrição", "Preço R$", "Em estoque"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jTable1.setGridColor(new java.awt.Color(204, 204, 204));
@@ -524,6 +531,7 @@ public class TelaAtendente extends javax.swing.JFrame {
         produto = selecionarProduto.SelecionarProduto(AddProdutosOnView_tabela);
         
         AdicionarItemATabela(produto);
+        AtualizarPreco();
         
         AddProdutosOnView.dispose();
     }//GEN-LAST:event_AddProdutosOnView_botaoSelecionarActionPerformed
