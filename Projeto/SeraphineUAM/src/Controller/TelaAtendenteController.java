@@ -69,8 +69,8 @@ public class TelaAtendenteController {
                 Float.parseFloat(jtable.getValueAt(jtable.getSelectedRow(),2).toString())
         );
 
-        produto.setVendedor(
-                jtable.getValueAt(jtable.getSelectedRow(),3).toString()
+        produto.setQtdEstoque(
+                Integer.parseInt(jtable.getValueAt(jtable.getSelectedRow(),3).toString())
         );
 
         return produto;
