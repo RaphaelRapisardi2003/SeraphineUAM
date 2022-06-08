@@ -181,14 +181,14 @@ public class TelaADM extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Descrição", "Preço R$", "Em estoque"
+                "Código", "Descrição", "Preço R$"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -219,9 +219,6 @@ public class TelaADM extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(2).setMinWidth(100);
             jTable1.getColumnModel().getColumn(2).setPreferredWidth(100);
             jTable1.getColumnModel().getColumn(2).setMaxWidth(100);
-            jTable1.getColumnModel().getColumn(3).setMinWidth(200);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(200);
-            jTable1.getColumnModel().getColumn(3).setMaxWidth(200);
         }
 
         jPanel2.setBackground(new java.awt.Color(254, 254, 254));
