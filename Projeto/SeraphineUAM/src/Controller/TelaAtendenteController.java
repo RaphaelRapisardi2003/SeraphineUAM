@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Pessoa;
 import Model.Produto;
+import Service.AtendenteService;
 
 import javax.swing.*;
 
@@ -11,6 +12,11 @@ public class TelaAtendenteController {
     
     public TelaAtendenteController () {
         this.codigoDeErro = "";
+    }
+    
+    public String getNameUsuario(int id) {
+        AtendenteService service = new AtendenteService();
+        return service.getNameUsuario(id);
     }
     
     public Object[] AdicionarItem(Produto produto){

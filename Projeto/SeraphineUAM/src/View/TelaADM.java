@@ -29,6 +29,7 @@ public class TelaADM extends javax.swing.JFrame {
         AtualizarPreco();
         
         usuarioID = id;
+        atualizarNameBemVindo();
     }
 
     /**
@@ -54,9 +55,8 @@ public class TelaADM extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        labelBemVindo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -242,16 +242,16 @@ public class TelaADM extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setBackground(new java.awt.Color(254, 254, 254));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setText("Funcionário:");
+        labelBemVindo.setBackground(new java.awt.Color(254, 254, 254));
+        labelBemVindo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        labelBemVindo.setForeground(new java.awt.Color(180, 142, 243));
+        labelBemVindo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelBemVindo.setText("Bem Vindo ***!");
+        labelBemVindo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel3.setBackground(new java.awt.Color(254, 254, 254));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setText("Total R$");
-
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -268,10 +268,9 @@ public class TelaADM extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelBemVindo)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel2)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addContainerGap(22, Short.MAX_VALUE))
@@ -279,10 +278,8 @@ public class TelaADM extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(labelBemVindo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
@@ -595,7 +592,7 @@ public class TelaADM extends javax.swing.JFrame {
             produtos.add(telaADMController.RetornarDadosDaLinhaIndicadaPorIndex(jTable1, i));
         }
         
-        FormaDePagamentoView payView = new FormaDePagamentoView(produtos);
+        FormaDePagamentoView payView = new FormaDePagamentoView(produtos, usuarioID);
         payView.setVisible(true);
         
         //jDialog1.setVisible(true);
@@ -678,7 +675,7 @@ public class TelaADM extends javax.swing.JFrame {
             telaADMController.RetornarDadosDaLinhaSelecionada(jTable1).getPreco()
         );
 
-        telaADMController.AtualizarValor(jTextField3, Preco);
+        telaADMController.AtualizarValor(jTextField4, Preco);
     }
     /**
      * @param args the command line arguments
@@ -713,6 +710,14 @@ public class TelaADM extends javax.swing.JFrame {
             dfm.insertRow(i, spc.AdicionarItem(product));
         }
     }
+    
+    private void atualizarNameBemVindo() {
+        
+        TelaADMController telaADMController = new TelaADMController();
+        
+        labelBemVindo.setText("Bem Vindo(a) " + telaADMController.getNameUsuario(usuarioID) + "!");
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame AddProdutosOnView;
@@ -728,7 +733,6 @@ public class TelaADM extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -742,8 +746,8 @@ public class TelaADM extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel labelBemVindo;
     // End of variables declaration//GEN-END:variables
 }
 

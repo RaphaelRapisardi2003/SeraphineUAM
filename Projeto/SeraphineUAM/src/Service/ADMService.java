@@ -15,6 +15,11 @@ public class ADMService {
         codigoDeErro = "";
     }
     
+    public String getNameUsuario(int id) {
+        ResgatarDTO dto = new ResgatarDTO();
+        return (String) dto.getDataAdministrador(id, "NOME", "String");
+    }
+    
     public String getCodigoDeErro() {
         return this.codigoDeErro;
     }

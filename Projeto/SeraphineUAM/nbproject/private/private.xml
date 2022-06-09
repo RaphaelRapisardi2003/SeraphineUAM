@@ -22,6 +22,7 @@
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DAO/DAO.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/View/FuncView.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Controller/TelaAtendenteController.java</file>
+            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Model/Cliente.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Service/PessoaService.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/View/AdmView.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Service/ADMService.java</file>
@@ -29,13 +30,16 @@
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/View/TelaADM.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DTO/VendaDTO.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DTO/ResgatarDTO.java</file>
+            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Service/LoginService.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/View/ClienteView.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Controller/SelecionarProdutoController.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Service/ProdutoService.java</file>
+            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Model/Pessoa.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DTO/DeletarDTO.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/View/TelaLogin.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Controller/TelaViewController.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DTO/EditarDTO.java</file>
+            <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Controller/TelaLoginController.java</file>
         </group>
     </open-files>
 </project-private>

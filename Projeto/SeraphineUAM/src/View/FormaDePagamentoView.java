@@ -26,10 +26,14 @@ public class FormaDePagamentoView extends javax.swing.JFrame {
      * Creates new form FormaDePagamentoView
      * @param produto
      */
-    public FormaDePagamentoView(List<Produto> produto) {
+    
+    private int usuarioID;
+    
+    public FormaDePagamentoView(List<Produto> produto, int id) {
         initComponents();
         
         produtos = new ArrayList(produto);
+        usuarioID = id;
     }
 
     /**

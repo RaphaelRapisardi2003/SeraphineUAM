@@ -13,6 +13,11 @@ public class AtendenteService {
         codigoDeErro = "";
     }
     
+    public String getNameUsuario(int id) {
+        ResgatarDTO dto = new ResgatarDTO();
+        return (String) dto.getDataFuncionario(id, "NOME", "String");
+    }
+    
     public String getCodigoDeErro() {
         return this.codigoDeErro;
     }

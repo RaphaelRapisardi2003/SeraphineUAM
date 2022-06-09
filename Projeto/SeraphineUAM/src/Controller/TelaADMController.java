@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Produto;
 import Model.Produto;
+import Service.ADMService;
 import javax.swing.*;
 import java.sql.Struct;
 
@@ -10,6 +11,11 @@ public class    TelaADMController {
     
     public TelaADMController () {
         this.codigoDeErro = "";
+    }
+    
+    public String getNameUsuario(int id) {
+        ADMService service = new ADMService();
+        return service.getNameUsuario(id);
     }
     
     public Object[] AdicionarItem(Produto produto){
