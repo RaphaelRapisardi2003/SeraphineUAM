@@ -6,14 +6,6 @@
             <file>file:/C:/Users/rapha/OneDrive/Área%20de%20Trabalho/TrabalhoA3/Projeto/JavaApplication6/src/Main.java</file>
             <file>file:/C:/Users/rapha/OneDrive/Área%20de%20Trabalho/TrabalhoA3/Projeto/JavaApplication6/src/TelaAtendente.java</file>
         </group>
-        <group name="SeraphineUAM">
-            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/TelaAtendente.java</file>
-            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/FormaDePagamentoView.java</file>
-            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/AdmView.java</file>
-            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/TelaADM.java</file>
-            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/CriarProduto.java</file>
-            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/ClienteView.java</file>
-        </group>
         <group name="Projeto">
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/View/FormaDePagamentoView.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/View/TelaADM.java</file>
@@ -39,6 +31,16 @@
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/DTO/EditarDTO.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Model/Produto.java</file>
             <file>file:/C:/Users/pedro/Documents/GitHub/SeraphineUAM/Projeto/SeraphineUAM/src/Controller/SelecionarClienteController.java</file>
+        </group>
+        <group name="SeraphineUAM">
+            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/FormaDePagamentoView.java</file>
+            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/TelaAtendente.java</file>
+            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/Model/Relatorio.java</file>
+            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/Controller/TelaRelatorioController.java</file>
+            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/AdmView.java</file>
+            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/TelaADM.java</file>
+            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/CriarProduto.java</file>
+            <file>file:/home/wvxbs/Documentos/repos/SeraphineUAM/Projeto/SeraphineUAM/src/View/ClienteView.java</file>
         </group>
     </open-files>
 </project-private>
