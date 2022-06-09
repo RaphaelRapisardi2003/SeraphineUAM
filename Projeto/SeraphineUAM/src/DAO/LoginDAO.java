@@ -19,7 +19,7 @@ public class LoginDAO {
             return false;
         }
         try {
-            String sql = "SELECT * FROM administrador WHERE NOME_DE_USUARIO = ? AND SENHA = ?";
+            String sql = "SELECT * FROM `administrador` WHERE NOME_DE_USUARIO = ? AND SENHA = ?";
             PreparedStatement st = conn.prepareStatement(sql);
             
             st.setString(1, nomeDeUsuario);
@@ -27,6 +27,7 @@ public class LoginDAO {
             
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
+                System.out.println("foi");
                 return true;
             } else {
                 codigoDeErro = "Usuario ou senha inválidos.";
