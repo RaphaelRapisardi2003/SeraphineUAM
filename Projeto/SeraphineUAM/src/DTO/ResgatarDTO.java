@@ -218,7 +218,7 @@ public class ResgatarDTO {
                 c.setEndereco(rs.getString("ENDERECO"));
                 c.setTelefone(rs.getInt("TELEFONE"));
                 c.setCelular(rs.getInt("CELULAR"));
-                c.setCpf(rs.getInt("CPF"));
+                c.setCpf(rs.getLong("CPF"));
                 
                 lista.add(c);
             }

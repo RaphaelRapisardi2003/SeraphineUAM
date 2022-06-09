@@ -3,6 +3,11 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JFrame" name="AddCliente">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[616, 642]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -141,7 +146,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Nome"/>
+                    <Property name="text" type="java.lang.String" value="Nome*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="AddADM_labelNomeDeUsuario">
@@ -149,7 +154,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Nome De Usu&#xe1;rio"/>
+                    <Property name="text" type="java.lang.String" value="Nome De Usu&#xe1;rio*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="AddADM_labelSenha">
@@ -157,7 +162,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Senha"/>
+                    <Property name="text" type="java.lang.String" value="Senha*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="AddADM_labelIdade">
@@ -213,6 +218,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="AddADM_CampoDeTexto_CPF">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddADM_CampoDeTexto_CPFActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="AddADM_labelCPF">
                   <Properties>
@@ -231,6 +239,11 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="DelADM">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[522, 300]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -323,7 +336,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="20" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Remover ADM por ID"/>
+                    <Property name="text" type="java.lang.String" value="Remover Cliente por ID"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="DelADM_labelID">
@@ -331,7 +344,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="16" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Digite o ID do ADM"/>
+                    <Property name="text" type="java.lang.String" value="Digite o ID do Cliente"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="DelADM_CampoDeTexto_ID">
@@ -446,7 +459,7 @@
                     <Column editable="false" title="Endere&#xe7;o" type="java.lang.String"/>
                     <Column editable="false" title="Telefone" type="java.lang.Integer"/>
                     <Column editable="false" title="Celular" type="java.lang.Integer"/>
-                    <Column editable="false" title="CPF" type="java.lang.Integer"/>
+                    <Column editable="false" title="CPF" type="java.lang.Long"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

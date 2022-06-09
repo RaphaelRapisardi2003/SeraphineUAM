@@ -4,7 +4,8 @@ import java.util.List;
 
 public class Cliente extends Pessoa {    
     private String Endereco, nome, nomeDeUsuario, senha;
-    private int Telefone, Celular, Cpf; 
+    private int Telefone, Celular;
+    private long Cpf; 
     private int Idade, ID;
 
     public Cliente() {
@@ -71,11 +72,11 @@ public class Cliente extends Pessoa {
         this.Celular = Celular;
     }
 
-    public int getCpf() {
+    public long getCpf() {
         return Cpf;
     }
 
-    public void setCpf(int Cpf) {
+    public void setCpf(long Cpf) {
         this.Cpf = Cpf;
     }
 
