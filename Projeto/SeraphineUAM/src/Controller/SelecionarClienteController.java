@@ -15,44 +15,53 @@ public class SelecionarClienteController {
         return codigoDeErro;
     }
 
-    public SelecionarClienteController () {
+    public SelecionarClienteController() {
         codigoDeErro = "";
     }
 
-    public Object[] AdicionarItem(Cliente cliente){
+    public Object[] AdicionarItem(Cliente cliente) {
         return new Object[]{
-                cliente.getID(),
-                cliente.getNomeDeUsuario(),
-                cliente.getIdade(),
-                cliente.getCelular(),
-                cliente.getCpf()
+            cliente.getID(),
+            cliente.getNomeDeUsuario(),
+            cliente.getIdade(),
+            cliente.getCelular(),
+            cliente.getCpf()
         };
     }
 
-    public Cliente SelecionarCliente(JTable jtable) {
-        return RetornarDadosDaLinhaSelecionada(jtable);
+    public int SelecionarIDCliente(JTable jtable) {
+        return RetornarIDDaLinhaSelecionada(jtable);
+    }
+
+    private int RetornarIDDaLinhaSelecionada(JTable jtable) {
+        Cliente cliente = new Cliente();
+
+        cliente.setID(
+                Integer.parseInt(jtable.getValueAt(jtable.getSelectedRow(), 0).toString())
+        );
+        return cliente.getID();
     }
 
     private Cliente RetornarDadosDaLinhaSelecionada(JTable jtable) {
         Cliente cliente = new Cliente();
 
         cliente.setID(
-                Integer.parseInt(jtable.getValueAt(jtable.getSelectedRow(),0).toString())
+                Integer.parseInt(jtable.getValueAt(jtable.getSelectedRow(), 0).toString())
         );
 
         cliente.setNomeDeUsuario(
-                jtable.getValueAt(jtable.getSelectedRow(),1).toString()
+                jtable.getValueAt(jtable.getSelectedRow(), 1).toString()
         );
 
         cliente.setIdade(
-                Integer.parseInt(jtable.getValueAt(jtable.getSelectedRow(),2).toString())
+                Integer.parseInt(jtable.getValueAt(jtable.getSelectedRow(), 2).toString())
         );
 
         cliente.setCelular(
-                Integer.parseInt(jtable.getValueAt(jtable.getSelectedRow(),3).toString())
+                Integer.parseInt(jtable.getValueAt(jtable.getSelectedRow(), 3).toString())
         );
         cliente.setCpf(
-                Integer.parseInt(jtable.getValueAt(jtable.getSelectedRow(),1).toString())
+                Integer.parseInt(jtable.getValueAt(jtable.getSelectedRow(), 1).toString())
         );
 
         return cliente;

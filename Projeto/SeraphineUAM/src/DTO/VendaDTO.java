@@ -59,6 +59,11 @@ public class VendaDTO {
                     st.setInt(1, lastID);
                     st.setInt(2, product.getId());
                     st.execute();
+                    
+                    int oldQtd = getEstoque(lastID);
+                    int newQtd = oldQtd--;
+                    System.out.println(oldQtd);
+                    downInOneEstoque(lastID, newQtd);
                 }
                 return true;
             } catch (SQLException erro) {
@@ -68,5 +73,35 @@ public class VendaDTO {
         } else {
             return false;
         }
+    }
+    
+    private int getEstoque(int id) {
+        int qtd = 0;
+        DAO dao = new DAO();
+        try {
+            connect = dao.conectarSemConfirmacao();
+        } catch (Exception erro) {
+            codigoDeErro = dao.getCodigoDeErroConn();
+            return 000;
+        }
+        try {
+            String sql = "SELECT QTDESTOQUE FROM produto WHERE ID="+id;
+            PreparedStatement st = connect.prepareStatement(sql);
+            
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                qtd = rs.getInt("QTDESTOQUE");
+                System.out.println("QTD"+qtd);
+            }
+            return qtd;
+        } catch (SQLException erro) {
+            codigoDeErro = "ERRO AO RESGATAR VALOR 'TQDESTOQUE'\nCódigo de erro: " + String.valueOf(erro);
+            return 000;
+        }
+    }
+    
+    private void downInOneEstoque (int id, int qtd) {
+        EditarDTO dto = new EditarDTO();
+        dto.setDataProduto(id, "QTDESTOQUE", qtd, "int");
     }
 }

@@ -45,6 +45,34 @@ public class ResgatarDTO {
     public String getCodigoDeErro() {
         return codigoDeErro;
     }
+    
+    public int getEstoque(int id) {
+        int qtd = 0;
+        DAO dao = new DAO();
+        try {
+            connect = dao.conectarSemConfirmacao();
+        } catch (Exception erro) {
+            codigoDeErro = dao.getCodigoDeErroConn();
+            return 000;
+        }
+        try {
+            String sql = "SELECT QTDESTOQUE FROM produto WHERE ID=?";
+            PreparedStatement st = connect.prepareStatement(sql);
+            
+            st.setInt(1, id);
+            
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                qtd = rs.getInt("QTDESTOQUE");
+                System.out.println("QTD"+qtd);
+            }
+            return qtd;
+        } catch (SQLException erro) {
+            codigoDeErro = "ERRO AO RESGATAR VALOR 'TQDESTOQUE'\nCódigo de erro: " + String.valueOf(erro);
+            return 000;
+        }
+        
+    }
 
     public int getIDPessoa(String nomeDeUsuario, String senha, String cargo) {
         int fkId = 0;
