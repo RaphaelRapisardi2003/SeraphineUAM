@@ -10,6 +10,12 @@ public class TelaLoginController {
     public TelaLoginController() {
         this.codigoDeErro = "";
     }
+    
+    public int getLoginID(Pessoa pessoa, String cargo) {
+        LoginService service = new LoginService();
+        
+        return service.getLoginInt(pessoa, cargo);
+    }
 
     public boolean EfetuarLogin(Pessoa pessoa, String cargo) {
         LoginService validarLogin = new LoginService();

@@ -76,16 +76,18 @@ public class ClienteView extends javax.swing.JFrame {
         botaoRemoverCliente = new javax.swing.JButton();
         botaoAddCliente = new javax.swing.JButton();
 
+        AddCliente.setMinimumSize(new java.awt.Dimension(616, 642));
+
         jPanel2.setBackground(new java.awt.Color(180, 142, 243));
 
         AddCliente_labelNome.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        AddCliente_labelNome.setText("Nome");
+        AddCliente_labelNome.setText("Nome*");
 
         AddADM_labelNomeDeUsuario.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        AddADM_labelNomeDeUsuario.setText("Nome De Usuário");
+        AddADM_labelNomeDeUsuario.setText("Nome De Usuário*");
 
         AddADM_labelSenha.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        AddADM_labelSenha.setText("Senha");
+        AddADM_labelSenha.setText("Senha*");
 
         AddADM_labelIdade.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         AddADM_labelIdade.setText("Idade");
@@ -105,6 +107,12 @@ public class ClienteView extends javax.swing.JFrame {
 
         AddADM_labelCelular.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         AddADM_labelCelular.setText("Celular");
+
+        AddADM_CampoDeTexto_CPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddADM_CampoDeTexto_CPFActionPerformed(evt);
+            }
+        });
 
         AddADM_labelCPF.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         AddADM_labelCPF.setText("CPF");
@@ -212,13 +220,15 @@ public class ClienteView extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        DelADM.setMinimumSize(new java.awt.Dimension(522, 300));
+
         jPanel4.setBackground(new java.awt.Color(180, 142, 243));
 
         labelRemoveAdministradorbyID.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        labelRemoveAdministradorbyID.setText("Remover ADM por ID");
+        labelRemoveAdministradorbyID.setText("Remover Cliente por ID");
 
         DelADM_labelID.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        DelADM_labelID.setText("Digite o ID do ADM");
+        DelADM_labelID.setText("Digite o ID do Cliente");
 
         DelADM_botaoRemover.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         DelADM_botaoRemover.setText("REMOVER");
@@ -303,7 +313,7 @@ public class ClienteView extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Long.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, false
@@ -397,9 +407,9 @@ public class ClienteView extends javax.swing.JFrame {
         cliente.setEndereco(String.valueOf(AddADM_CampoDeTexto_Endereco.getText()));
         cliente.setTelefone(Integer.valueOf(AddADM_CampoDeTexto_Telefone.getText()));
         cliente.setCelular(Integer.valueOf(AddADM_CampoDeTexto_Celular.getText()));
-        cliente.setCpf(Integer.valueOf(AddADM_CampoDeTexto_CPF.getText()));
+        cliente.setCpf(Long.valueOf(AddADM_CampoDeTexto_CPF.getText()));
 
-        if (telaViewController.validarDadosCliente(cliente) == true) {
+        //if (telaViewController.validarDadosCliente(cliente) == true) {
             if (telaViewController.adicionarCliente(cliente) == true) {
                 JOptionPane.showMessageDialog(null, "Funcionario adicionado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
                 atualizarTabela();
@@ -407,9 +417,9 @@ public class ClienteView extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
             }
-        } else {
-            JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
-        }
+        //} else {
+        //    JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        //}
     }//GEN-LAST:event_AddADM_botaoAdicionarActionPerformed
 
     private void DelADM_botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelADM_botaoRemoverActionPerformed
@@ -427,6 +437,10 @@ public class ClienteView extends javax.swing.JFrame {
     private void botaoRemoverClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverClienteActionPerformed
        DelADM.setVisible(true);
     }//GEN-LAST:event_botaoRemoverClienteActionPerformed
+
+    private void AddADM_CampoDeTexto_CPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddADM_CampoDeTexto_CPFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddADM_CampoDeTexto_CPFActionPerformed
 
     /**
      * @param args the command line arguments

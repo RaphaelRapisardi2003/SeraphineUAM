@@ -62,10 +62,11 @@ public class InserirDTO {
     }
  
     public boolean adicionarAdministrador(String nome, String nomeDeUsuario, String senha, int idade, String departamento, int funcionarios) {
+        DAO dao = new DAO();
         try {
-            connect = new DAO().conectarSemConfirmacao();
+            connect = dao.conectarSemConfirmacao();
         } catch (Exception erro) {
-            codigoDeErro = new DAO().getCodigoDeErroConn();
+            codigoDeErro = dao.getCodigoDeErroConn();
             return false;
         }
         try {
@@ -87,11 +88,12 @@ public class InserirDTO {
         }
     }
 
-    public boolean adicionarCliente(String nome, String nomeDeUsuario, String senha, int idade, String endereco, int telefone, int celular, int cpf) {
+    public boolean adicionarCliente(String nome, String nomeDeUsuario, String senha, int idade, String endereco, int telefone, int celular, long cpf) {
+        DAO dao = new DAO();
         try {
-            connect = new DAO().conectarSemConfirmacao();
+            connect = dao.conectarSemConfirmacao();
         } catch (Exception erro) {
-            codigoDeErro = new DAO().getCodigoDeErroConn();
+            codigoDeErro = dao.getCodigoDeErroConn();
             return false;
         }
         try {
@@ -105,7 +107,7 @@ public class InserirDTO {
             st.setString(5, endereco);
             st.setInt(6, telefone);
             st.setInt(7, celular);
-            st.setInt(8, cpf);
+            st.setLong(8, cpf);
 
             st.execute();
             return true;

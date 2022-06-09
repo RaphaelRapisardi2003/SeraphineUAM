@@ -16,7 +16,10 @@ public class TelaAtendente extends javax.swing.JFrame {
     /**
      * Creates new form TelaAtendente
      */
-    public TelaAtendente() {
+    
+    private int usuarioID;
+    
+    public TelaAtendente(int id) {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
 
@@ -26,6 +29,8 @@ public class TelaAtendente extends javax.swing.JFrame {
         head_render.setOpaque(true);
 
         AtualizarPreco();
+        
+        usuarioID = id;
     }
 
     /**

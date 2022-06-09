@@ -36,7 +36,7 @@ public class PessoaService {
         return false;
     }
     
-    public boolean ValidarCPF(int cpf) {
+    public boolean ValidarCPF(long cpf) {
         if (cpf > 0 && cpf < 99999999999L)
             return true;
         
