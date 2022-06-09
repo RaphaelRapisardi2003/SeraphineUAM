@@ -706,7 +706,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagens/Search.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;br /&gt;Vizualizar Clientes&lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;br /&gt;Visualizar Clientes&lt;/html&gt;"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
@@ -722,7 +722,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagens/view func.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;br /&gt;Vizualizar Funcion&#xe1;rios&lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;br /&gt;Visualizar Funcion&#xe1;rios&lt;/html&gt;"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
@@ -738,7 +738,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagens/view adm.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;br /&gt;Vizualizar Adiminastradores&lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;br /&gt;Visualizar Administradores&lt;/html&gt;"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>

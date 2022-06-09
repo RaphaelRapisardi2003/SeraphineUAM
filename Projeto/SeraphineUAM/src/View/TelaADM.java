@@ -501,7 +501,7 @@ public class TelaADM extends javax.swing.JFrame {
 
         jButton10.setBackground(new java.awt.Color(254, 254, 254));
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Search.png"))); // NOI18N
-        jButton10.setText("<html><br />Vizualizar Clientes</html>");
+        jButton10.setText("<html><br />Visualizar Clientes</html>");
         jButton10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -512,7 +512,7 @@ public class TelaADM extends javax.swing.JFrame {
 
         jButton14.setBackground(new java.awt.Color(254, 254, 254));
         jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/view func.png"))); // NOI18N
-        jButton14.setText("<html><br />Vizualizar Funcionários</html>");
+        jButton14.setText("<html><br />Visualizar Funcionários</html>");
         jButton14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton14.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -523,7 +523,7 @@ public class TelaADM extends javax.swing.JFrame {
 
         jButton13.setBackground(new java.awt.Color(254, 254, 254));
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/view adm.png"))); // NOI18N
-        jButton13.setText("<html><br />Vizualizar Adiminastradores</html>");
+        jButton13.setText("<html><br />Visualizar Administradores</html>");
         jButton13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton13.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton13.addActionListener(new java.awt.event.ActionListener() {
