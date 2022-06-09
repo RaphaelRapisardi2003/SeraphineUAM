@@ -4,6 +4,7 @@ import Controller.SelecionarProdutoController;
 import Controller.TelaADMController;
 import Controller.TelaAtendenteController;
 import Model.Produto;
+import Model.Venda;
 import Service.ProdutoService;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class TelaAtendente extends javax.swing.JFrame {
      */
     
     private int usuarioID;
+    private Venda venda = new Venda();
     
     public TelaAtendente(int id) {
         initComponents();
@@ -584,8 +586,29 @@ public class TelaAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3KeyTyped
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        jDialog1.setVisible(true);
-        jDialog1.setLocationRelativeTo(null);
+        
+        TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
+        
+        List<Produto> produtos = new ArrayList();
+        int n = jTable1.getRowCount();
+        DefaultTableModel dfm = (DefaultTableModel) jTable1.getModel();
+        
+        for (int i = 0; i < n; i++) {
+            produtos.add(telaAtendenteController.RetornarDadosDaLinhaIndicadaPorIndex(jTable1, i));
+        }
+        
+        // Essa parte muda
+        venda.setIDCliente(1);
+        //
+        
+        venda.setIDVendedor(usuarioID);
+        venda.setValorTotal(Float.valueOf(jTextField1.getText()));
+        
+        FormaDePagamentoView payView = new FormaDePagamentoView(produtos, venda, usuarioID);
+        payView.setVisible(true);
+        
+        //jDialog1.setVisible(true);
+        //jDialog1.setLocationRelativeTo(null);
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
