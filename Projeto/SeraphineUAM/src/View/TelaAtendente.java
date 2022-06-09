@@ -52,6 +52,11 @@ public class TelaAtendente extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         AddProdutosOnView_tabela = new javax.swing.JTable();
         AddProdutosOnView_botaoSelecionar = new javax.swing.JButton();
+        AddClienteOnView = new javax.swing.JFrame();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        AddProdutosOnView_tabela2 = new javax.swing.JTable();
+        AddProdutosOnView_botaoSelecionar2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -174,6 +179,80 @@ public class TelaAtendente extends javax.swing.JFrame {
         AddProdutosOnViewLayout.setVerticalGroup(
             AddProdutosOnViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        AddClienteOnView.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        AddClienteOnView.setMinimumSize(new java.awt.Dimension(1145, 630));
+
+        jPanel7.setBackground(new java.awt.Color(180, 142, 243));
+
+        AddProdutosOnView_tabela2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nome de Usuário", "Idade", "Celular", "CPF"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        AddProdutosOnView_tabela2.setShowGrid(true);
+        jScrollPane5.setViewportView(AddProdutosOnView_tabela2);
+
+        AddProdutosOnView_botaoSelecionar2.setBackground(new java.awt.Color(254, 254, 254));
+        AddProdutosOnView_botaoSelecionar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/V.png"))); // NOI18N
+        AddProdutosOnView_botaoSelecionar2.setText("Selecionar");
+        AddProdutosOnView_botaoSelecionar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddProdutosOnView_botaoSelecionar2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 1133, Short.MAX_VALUE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(AddProdutosOnView_botaoSelecionar2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddProdutosOnView_botaoSelecionar2, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout AddClienteOnViewLayout = new javax.swing.GroupLayout(AddClienteOnView.getContentPane());
+        AddClienteOnView.getContentPane().setLayout(AddClienteOnViewLayout);
+        AddClienteOnViewLayout.setHorizontalGroup(
+            AddClienteOnViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        AddClienteOnViewLayout.setVerticalGroup(
+            AddClienteOnViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -548,6 +627,10 @@ public class TelaAtendente extends javax.swing.JFrame {
         AddProdutosOnView.dispose();
     }//GEN-LAST:event_AddProdutosOnView_botaoSelecionarActionPerformed
 
+    private void AddProdutosOnView_botaoSelecionar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddProdutosOnView_botaoSelecionar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddProdutosOnView_botaoSelecionar2ActionPerformed
+
     private void AtualizarPreco() {
         TelaAtendenteController telaAtendenteController = new TelaAtendenteController();
         String ValorTotal = Float.toString(telaAtendenteController.CalcularValorTotal(jTable1));
@@ -624,9 +707,12 @@ public class TelaAtendente extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame AddClienteOnView;
     private javax.swing.JFrame AddProdutosOnView;
     private javax.swing.JButton AddProdutosOnView_botaoSelecionar;
+    private javax.swing.JButton AddProdutosOnView_botaoSelecionar2;
     private javax.swing.JTable AddProdutosOnView_tabela;
+    private javax.swing.JTable AddProdutosOnView_tabela2;
     private javax.swing.JButton jButto5;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -642,8 +728,10 @@ public class TelaAtendente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
