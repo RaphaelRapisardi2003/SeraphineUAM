@@ -2,10 +2,13 @@ package Controller;
 
 import DTO.DeletarDTO;
 import DTO.ResgatarDTO;
+import DTO.VendaDTO;
 import Model.Administrador;
 import Model.Cliente;
 import javax.swing.*;
 import Model.Funcionario;
+import Model.Produto;
+import Model.Venda;
 import Service.ADMService;
 import Service.AtendenteService;
 import Service.PessoaService;
@@ -169,6 +172,16 @@ public class TelaViewController {
     public boolean apagarCliente(int ID) {
         DeletarDTO dto = new DeletarDTO();
         if (dto.apagarCliente(ID) == true) {
+            return true;
+        } else {
+            codigoDeErro = dto.getCodigoDeErro();
+            return false;
+        }
+    }
+    
+    public boolean finalizarVenda(Venda venda, List<Produto> produtos) {
+        VendaDTO dto = new VendaDTO();
+        if (dto.registrarVenda(venda, produtos) == true) {
             return true;
         } else {
             codigoDeErro = dto.getCodigoDeErro();

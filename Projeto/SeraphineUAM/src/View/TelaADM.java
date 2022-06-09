@@ -3,6 +3,7 @@ package View;
 import Controller.SelecionarProdutoController;
 import Controller.TelaADMController;
 import Model.Produto;
+import Model.Venda;
 import Service.ProdutoService;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class TelaADM extends javax.swing.JFrame {
      */
     
     private int usuarioID;
+    private Venda venda = new Venda();
     
     public TelaADM(int id) {
         initComponents();
@@ -671,7 +673,7 @@ public class TelaADM extends javax.swing.JFrame {
             produtos.add(telaADMController.RetornarDadosDaLinhaIndicadaPorIndex(jTable1, i));
         }
         
-        FormaDePagamentoView payView = new FormaDePagamentoView(produtos, usuarioID);
+        FormaDePagamentoView payView = new FormaDePagamentoView(produtos, venda, usuarioID);
         payView.setVisible(true);
         
         //jDialog1.setVisible(true);

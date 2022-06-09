@@ -4,35 +4,39 @@
  */
 package View;
 
+import Controller.TelaViewController;
 import Model.Produto;
+import Model.Venda;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author pedro
  */
 public class FormaDePagamentoView extends javax.swing.JFrame {
-    
+
     private boolean focusCartaoCredito = false;
     private boolean focusCartaoDebito = false;
     private boolean focusDinheiro = false;
     private boolean focusPix = false;
-    
+
     private List<Produto> produtos;
-    
+    private Venda venda;
 
     /**
      * Creates new form FormaDePagamentoView
+     *
      * @param produto
      */
-    
     private int usuarioID;
-    
-    public FormaDePagamentoView(List<Produto> produto, int id) {
+
+    public FormaDePagamentoView(List<Produto> produto, Venda venda, int id) {
         initComponents();
-        
+
         produtos = new ArrayList(produto);
+        this.venda = venda;
         usuarioID = id;
     }
 
@@ -409,13 +413,40 @@ public class FormaDePagamentoView extends javax.swing.JFrame {
     }//GEN-LAST:event_CampoDeTexto_CartaoDebito3ActionPerformed
 
     private void botaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmarActionPerformed
-        // TODO add your handling code here:
+        TelaViewController telaViewController = new TelaViewController();
+        boolean continuaVenda = true;
+        
+        if (Double.parseDouble(CampoDeTexto_CartaoCredito.getText()) == 0) {
+            if (Double.parseDouble(CampoDeTexto_CartaoDebito.getText()) == 0) {
+                if (Double.parseDouble(CampoDeTexto_Dinheiro.getText()) == 0) {
+                    if (Double.parseDouble(CampoDeTexto_Pix.getText()) == 0) {
+                        JOptionPane.showMessageDialog(null, "Forma de pagamento inválida", "ERRO", JOptionPane.ERROR_MESSAGE);
+                        continuaVenda = false;
+                    } else {
+                        venda.setFormaDePagamento("Pix");
+                    }
+                } else {
+                    venda.setFormaDePagamento("Dinheiro");
+                }
+            } else {
+                venda.setFormaDePagamento("Cartão de Débito");
+            }
+        } else {
+            venda.setFormaDePagamento("Cartão de Crédito");
+        }
+        if (continuaVenda == true) {
+            if (telaViewController.finalizarVenda(venda, produtos) == true) {
+                JOptionPane.showMessageDialog(null, "Venda Finalizada com Sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_botaoConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CampoDeTexto_CartaoCredito;
