@@ -93,11 +93,6 @@ public class TelaRelatorio extends javax.swing.JFrame {
         AddADM_labelFuncionarios.setText("Funcionários");
 
         AddADM_botaoAdicionar.setText("Adicionar");
-        AddADM_botaoAdicionar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddADM_botaoAdicionarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -195,11 +190,6 @@ public class TelaRelatorio extends javax.swing.JFrame {
 
         DelADM_botaoRemover.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         DelADM_botaoRemover.setText("REMOVER");
-        DelADM_botaoRemover.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DelADM_botaoRemoverActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -323,42 +313,6 @@ public class TelaRelatorio extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void AddADM_botaoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddADM_botaoAdicionarActionPerformed
-         Administrador administrador = new Administrador();
-        TelaViewController telaViewController = new TelaViewController();
-        
-        administrador.setNome(String.valueOf(AddADM_CampoDeTexto_Nome.getText()));
-        administrador.setNomeDeUsuario(String.valueOf(AddADM_CampoDeTexto_NomeDeUsuario.getText()));
-        administrador.setSenha(String.valueOf(AddADM_CampoDeTexto_Senha.getText()));
-        administrador.setIdade(Integer.valueOf(AddADM_CampoDeTexto_Idade.getText()));
-        administrador.setDepartamento(String.valueOf(AddADM_CampoDeTexto_Departamento.getText()));
-        administrador.setFuncionarios(Integer.valueOf(AddADM_CampoDeTexto_Funcionarios.getText()));
-        
-        if (telaViewController.validarDados(administrador) == true) {
-            if (telaViewController.adicionarAdministrador(administrador) == true) {
-                JOptionPane.showMessageDialog(null, "Funcionario adicionado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
-                atualizarTabela();
-                AddADM.setVisible(false);
-            } else {
-                JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_AddADM_botaoAdicionarActionPerformed
-
-    private void DelADM_botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelADM_botaoRemoverActionPerformed
-        TelaViewController telaViewController = new TelaViewController();
-        
-        if (telaViewController.apagarAdministrador(Integer.valueOf(DelADM_CampoDeTexto_ID.getText())) == true) {
-            JOptionPane.showMessageDialog(null, "Funcionario apagado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
-            atualizarTabela();
-            DelADM.setVisible(false);
-        } else {
-            JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_DelADM_botaoRemoverActionPerformed
     
     private void atualizarTabela() {
         TelaViewController telaViewController = new TelaViewController();
