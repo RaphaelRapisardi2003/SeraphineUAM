@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class DAO {
     
-    private final String URL = "jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10498653";
-    private final String SENHA = "pSG6rMrZlY";
-    private final String USUARIO = "sql10498653";
+    private final String URL = "jdbc:mysql://localhost/seraphinesat";
+    private final String SENHA = "";
+    private final String USUARIO = "root";
     
     private Connection connect;
     

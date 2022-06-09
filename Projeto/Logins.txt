@@ -1,0 +1,7 @@
+Administrador:
+	Usuario: usuarioADM
+	Senha: senhaADM
+
+Funcionario:
+	Usuario: funcionarioUsuario
+	Senha: funcionarioSenha
