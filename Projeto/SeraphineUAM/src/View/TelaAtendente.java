@@ -696,7 +696,8 @@ public class TelaAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_AddProdutosOnView_botaoSelecionar2ActionPerformed
 
     private void jButto6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButto6ActionPerformed
-        // TODO add your handling code here:
+        TelaRelatorio telaRelatorio = new TelaRelatorio();
+        telaRelatorio.setVisible(true);
     }//GEN-LAST:event_jButto6ActionPerformed
 
     private void jButto6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButto6KeyPressed
