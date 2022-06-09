@@ -30,7 +30,7 @@ public class VendaDTO {
         }
         try {
             String sql = "INSERT INTO venda(`ID_VENDEDOR`, `TOTAL_PRECO`, `DATA_DE_VENDA`, `ID_CLIENTE`, `FORMA_DE_PAGAMENTO`) VALUES (?,?,NOW(),?,?)";
-            PreparedStatement st = connect.prepareStatement(sql);
+            PreparedStatement st = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             st.setInt(1, venda.getIDVendedor());
             st.setDouble(2, (double) venda.getValorTotal());
@@ -41,7 +41,7 @@ public class VendaDTO {
 
             ResultSet rs = st.getGeneratedKeys();
             if (rs.next()) {
-                lastID = rs.getInt("ID_VENDA");
+                lastID = rs.getInt(1);
             }
             confirmaVenda = true;
         } catch (SQLException erro) {
@@ -62,7 +62,7 @@ public class VendaDTO {
                 }
                 return true;
             } catch (SQLException erro) {
-                codigoDeErro = "ERRO AO INSERIR VENDA\nCódigo de erro: " + String.valueOf(erro);
+                codigoDeErro = "ERRO AO INSERIR REL_VENDA\nCódigo de erro: " + String.valueOf(erro);
                 return false;
             }
         } else {

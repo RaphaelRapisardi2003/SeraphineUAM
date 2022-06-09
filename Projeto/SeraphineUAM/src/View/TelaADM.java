@@ -673,6 +673,11 @@ public class TelaADM extends javax.swing.JFrame {
             produtos.add(telaADMController.RetornarDadosDaLinhaIndicadaPorIndex(jTable1, i));
         }
         
+        venda.setIDCliente(1);
+        
+        venda.setIDVendedor(usuarioID);
+        venda.setValorTotal(Float.valueOf(jTextField1.getText()));
+        
         FormaDePagamentoView payView = new FormaDePagamentoView(produtos, venda, usuarioID);
         payView.setVisible(true);
         
