@@ -2,6 +2,8 @@ package Service;
 
 import DAO.DAO;
 import DAO.LoginDAO;
+import DTO.ResgatarDTO;
+import Model.Pessoa;
 
 public class LoginService {
 
@@ -13,7 +15,12 @@ public class LoginService {
         connect = new DAO();
         loginDAO = new LoginDAO();
         CodigoDeErro = "";
-    } 
+    }
+    
+    public int getLoginInt(Pessoa pessoa, String cargo) {
+        ResgatarDTO dto = new ResgatarDTO();
+        return dto.getIDPessoa(pessoa.getNomeDeUsuario(), pessoa.getSenha(), cargo);
+    }
     
     public String getCodigoDeErro() {
         return this.CodigoDeErro;

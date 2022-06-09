@@ -237,7 +237,7 @@ public class TelaLogin extends javax.swing.JFrame {
             Pessoa pessoa = new Pessoa(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()));
 
             if (telaLoginController.EfetuarLogin(pessoa, jComboBox1.getSelectedItem().toString())) {
-                TelaAtendente atend = new TelaAtendente();
+                TelaAtendente atend = new TelaAtendente(telaLoginController.getLoginID(pessoa, "funcionario"));
                 atend.setVisible(true);
                 barraDeLoading.setVisible(false);
                 dispose();
@@ -259,7 +259,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
             if (telaLoginController.EfetuarLogin(pessoa, jComboBox1.getSelectedItem().toString())) {
                 barraDeLoading.setVisible(false);
-                TelaADM adm = new TelaADM();
+                TelaADM adm = new TelaADM(telaLoginController.getLoginID(pessoa, "administrador"));
                 adm.setVisible(true);
 
                 dispose();
