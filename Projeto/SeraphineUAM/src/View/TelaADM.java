@@ -83,7 +83,6 @@ public class TelaADM extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
-        jButto6 = new javax.swing.JButton();
 
         jDialog1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         jDialog1.setMinimumSize(new java.awt.Dimension(600, 172));
@@ -543,26 +542,6 @@ public class TelaADM extends javax.swing.JFrame {
             }
         });
 
-        jButto6.setBackground(new java.awt.Color(245, 243, 243));
-        jButto6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/view func.png"))); // NOI18N
-        jButto6.setText("<html><br />Exibir Relatórios</html>");
-        jButto6.setToolTipText("");
-        jButto6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButto6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButto6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButto6ActionPerformed(evt);
-            }
-        });
-        jButto6.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButto6KeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jButto6KeyTyped(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -593,8 +572,6 @@ public class TelaADM extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButto6, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButto5, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
@@ -616,8 +593,7 @@ public class TelaADM extends javax.swing.JFrame {
                     .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButto6, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -797,19 +773,6 @@ public class TelaADM extends javax.swing.JFrame {
         AddClienteOnView.setVisible(false);
     }//GEN-LAST:event_AddProdutosOnView_botaoSelecionar2ActionPerformed
 
-    private void jButto6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButto6ActionPerformed
-        TelaRelatorio telaRelatorio = new TelaRelatorio();
-        telaRelatorio.setVisible(true);
-    }//GEN-LAST:event_jButto6ActionPerformed
-
-    private void jButto6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButto6KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButto6KeyPressed
-
-    private void jButto6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButto6KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButto6KeyTyped
-
     private void AtualizarPreco() {
         TelaADMController telaADMController = new TelaADMController();
         String ValorTotal = Float.toString(telaADMController.CalcularValorTotal(jTable1));
@@ -894,7 +857,6 @@ public class TelaADM extends javax.swing.JFrame {
     private javax.swing.JButton AddProdutosOnView_botaoSelecionar2;
     private javax.swing.JTable AddProdutosOnView_tabela;
     private javax.swing.JButton jButto5;
-    private javax.swing.JButton jButto6;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton13;
