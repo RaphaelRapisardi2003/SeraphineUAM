@@ -1,0 +1,66 @@
+create database seraphinesat;
+
+use seraphinesat;
+
+create table administrador(
+	ID int(3) PRIMARY KEY AUTO_INCREMENT not null,
+    NOME varchar(100),
+    NOME_DE_USUARIO varchar(40),
+    SENHA varchar(40),
+    IDADE int(3),
+    DEPARTAMENTO varchar(30),
+    FUNCIONARIOS int(4)
+);
+
+create table funcionario(
+    ID int(4) PRIMARY KEY AUTO_INCREMENT not null,
+    NOME varchar(100),
+    NOME_DE_USUARIO varchar(40),
+    SENHA varchar(40),
+    IDADE int(3),
+    CATEGORIA varchar(40)
+);
+
+create table cliente(
+    ID int(6) PRIMARY KEY AUTO_INCREMENT not null,
+    NOME varchar(100),
+    NOME_DE_USUARIO varchar(40),
+    SENHA varchar(40),
+    IDADE int(3),
+    ENDERECO varchar(200),
+    TELEFONE int(11),
+    CELULAR int(11),
+    CPF int(11)
+);
+
+create table produto(
+    ID int(6) PRIMARY KEY AUTO_INCREMENT not null,
+    DESCRICAO varchar(200),
+    QTDESTOQUE int(6),
+    PRECO double(9, 2)
+);
+
+create table venda(
+    ID_VENDA int(9) PRIMARY KEY AUTO_INCREMENT not null,
+    ID_VENDEDOR int(4),
+    ID_CLIENTE int(6),
+    TOTAL_PRECO double(9, 2),
+    DATA_DA_VENDA datetime,
+    FORMA_DE_PAGAMENTO varchar(40)
+);
+
+create table relVenda(
+    ID_REL_VENDA int(9),
+    ID_REL_PRODUTO int(9),
+    PRIMARY KEY (ID_REL_VENDA, ID_REL_PRODUTO),
+    FOREIGN KEY (ID_REL_VENDA) REFERENCES venda(ID_VENDA),
+    FOREIGN KEY (ID_REL_PRODUTO) REFERENCES produto(ID)
+);
+
+INSERT INTO `administrador`(`NOME`, `NOME_DE_USUARIO`, `SENHA`, `IDADE`, `DEPARTAMENTO`, `FUNCIONARIOS`) VALUES ("AdmNome","usuarioADM","senhaADM",18,"ADM",100);
+
+INSERT INTO `cliente`(`NOME`, `NOME_DE_USUARIO`, `SENHA`, `IDADE`, `ENDERECO`, `TELEFONE`, `CELULAR`, `CPF`) VALUES ("clienteNome","clienteUsuario","clienteSenha",20,"Rua tal","12345678","912345678","123456789");
+
+INSERT INTO `funcionario`(`NOME`, `NOME_DE_USUARIO`, `SENHA`, `IDADE`, `CATEGORIA`) VALUES ("funcionarioNome","funcionarioUsuario","funcionarioSenha",19,"funcionario");
+
+INSERT INTO `produto`(`DESCRICAO`, `QTDESTOQUE`, `PRECO`) VALUES ("Microfone de Qualidade",20,1000);
