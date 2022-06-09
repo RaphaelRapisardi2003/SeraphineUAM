@@ -1,5 +1,6 @@
 package View;
 
+import Controller.SelecionarClienteController;
 import Controller.SelecionarProdutoController;
 import Controller.TelaADMController;
 import Model.Produto;
@@ -192,17 +193,17 @@ public class TelaADM extends javax.swing.JFrame {
 
         AddProdutosOnView_tabela2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null}
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nome de Usuário", "Idade", "Celular", "CPF"
+                "Id", "Nome de Usuário", "Idade", "Celular", "CPF"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -665,7 +666,7 @@ public class TelaADM extends javax.swing.JFrame {
         
         TelaADMController telaADMController = new TelaADMController();
         
-        List<Produto> produtos = new ArrayList();
+        ArrayList<Produto> produtos = new ArrayList();
         int n = jTable1.getRowCount();
         DefaultTableModel dfm = (DefaultTableModel) jTable1.getModel();
         
@@ -673,7 +674,7 @@ public class TelaADM extends javax.swing.JFrame {
             produtos.add(telaADMController.RetornarDadosDaLinhaIndicadaPorIndex(jTable1, i));
         }
         
-        FormaDePagamentoView payView = new FormaDePagamentoView(produtos, venda, usuarioID);
+        FormaDePagamentoView payView = new FormaDePagamentoView(produtos, venda);
         payView.setVisible(true);
         
         //jDialog1.setVisible(true);
@@ -742,6 +743,16 @@ public class TelaADM extends javax.swing.JFrame {
 
         AddProdutosOnView.dispose();
     }//GEN-LAST:event_AddProdutosOnView_botaoSelecionarActionPerformed
+
+    private void SelecionarCliente() {
+        Produto produto = new Produto();
+        SelecionarClienteController selecionarProduto = new SelecionarClienteController();
+
+        AddClienteOnView.setLocationRelativeTo(null);
+        AddClienteOnView.setVisible(true);
+
+        produto = seleceionarCliente.SelecionarCliente();
+    }
 
     private void AddProdutosOnView_botaoSelecionar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddProdutosOnView_botaoSelecionar2ActionPerformed
         // TODO add your handling code here:
