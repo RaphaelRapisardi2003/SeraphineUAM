@@ -4,8 +4,8 @@ import java.sql.*;
 
 public class DAO {
     
-    private final String URL = "jdbc:mysql://localhost/seraphinesat";
-    private final String SENHA = "";
+    private final String URL = "jdbc:mysql://cloudbarueri.duckdns.org:3306/seraphinesat";
+    private final String SENHA = "root";
     private final String USUARIO = "root";
     
     private Connection connect;
@@ -15,9 +15,11 @@ public class DAO {
     public boolean conectarComConfirmacao() {
         try {
             connect = DriverManager.getConnection(URL, USUARIO, SENHA);
+            System.out.println("connected");
             return true;
         } catch (SQLException erro) {
             codigoDeErroConn = "ERRO DE CONEXÃO\nCódigo do erro: " + String.valueOf(erro);
+            System.out.println("erro ao conectar: " + erro);
         }
         return false;
     }
