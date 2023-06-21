@@ -69,6 +69,7 @@ public class FormaDePagamentoView extends javax.swing.JFrame {
         botaoConfirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Forma de Pagamento");
 
         panelBordaRoxa.setBackground(new java.awt.Color(180, 142, 243));
 

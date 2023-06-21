@@ -3,6 +3,9 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JFrame" name="AddADM">
+      <Properties>
+        <Property name="title" type="java.lang.String" value="Adicionar Administrador"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -188,6 +191,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="DelADM">
+      <Properties>
+        <Property name="title" type="java.lang.String" value="Adicionar Administrador"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -313,6 +319,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" value="Administradores"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
