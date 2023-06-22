@@ -738,8 +738,8 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagens/view adm.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;br /&gt;Visualizar Administradores&lt;/html&gt;"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="label" type="java.lang.String" value="&lt;html&gt;&lt;br /&gt;Visualizar ADM&lt;/html&gt;"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
           <Events>

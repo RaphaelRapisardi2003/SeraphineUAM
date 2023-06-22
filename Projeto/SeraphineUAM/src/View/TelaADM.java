@@ -525,8 +525,8 @@ public class TelaADM extends javax.swing.JFrame {
 
         jButton13.setBackground(new java.awt.Color(254, 254, 254));
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/view adm.png"))); // NOI18N
-        jButton13.setText("<html><br />Visualizar Administradores</html>");
         jButton13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton13.setLabel("<html><br />Visualizar ADM</html>");
         jButton13.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

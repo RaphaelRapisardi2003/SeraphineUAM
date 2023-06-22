@@ -75,6 +75,10 @@ public class AdmView extends javax.swing.JFrame {
         botaoDelAdministrador = new javax.swing.JButton();
 
         AddADM.setTitle("Adicionar Administrador");
+        AddADM.setMaximumSize(new java.awt.Dimension(620, 600));
+        AddADM.setMinimumSize(new java.awt.Dimension(620, 600));
+        AddADM.setPreferredSize(new java.awt.Dimension(620, 600));
+        AddADM.setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(180, 142, 243));
 
