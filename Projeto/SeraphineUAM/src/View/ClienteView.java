@@ -78,8 +78,9 @@ public class ClienteView extends javax.swing.JFrame {
         botaoAddCliente = new javax.swing.JButton();
 
         AddCliente.setTitle("Adicionar Cliente");
-        AddCliente.setMaximumSize(new java.awt.Dimension(616, 642));
-        AddCliente.setMinimumSize(new java.awt.Dimension(616, 642));
+        AddCliente.setMaximumSize(new java.awt.Dimension(650, 690));
+        AddCliente.setMinimumSize(new java.awt.Dimension(650, 690));
+        AddCliente.setPreferredSize(new java.awt.Dimension(650, 670));
         AddCliente.setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(180, 142, 243));

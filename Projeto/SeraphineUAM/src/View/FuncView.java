@@ -74,8 +74,8 @@ public class FuncView extends javax.swing.JFrame {
 
         AddFunc.setTitle("Adicionar Funcionário");
         AddFunc.setBackground(new java.awt.Color(180, 142, 243));
-        AddFunc.setMaximumSize(new java.awt.Dimension(616, 509));
-        AddFunc.setMinimumSize(new java.awt.Dimension(616, 509));
+        AddFunc.setMaximumSize(new java.awt.Dimension(630, 530));
+        AddFunc.setMinimumSize(new java.awt.Dimension(630, 530));
         AddFunc.setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(180, 142, 243));

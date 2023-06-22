@@ -9,10 +9,10 @@
           <Color blue="f3" green="8e" red="b4" type="rgb"/>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[616, 509]"/>
+          <Dimension value="[630, 530]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[616, 509]"/>
+          <Dimension value="[630, 530]"/>
         </Property>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
