@@ -78,7 +78,9 @@ public class ClienteView extends javax.swing.JFrame {
         botaoAddCliente = new javax.swing.JButton();
 
         AddCliente.setTitle("Adicionar Cliente");
+        AddCliente.setMaximumSize(new java.awt.Dimension(616, 642));
         AddCliente.setMinimumSize(new java.awt.Dimension(616, 642));
+        AddCliente.setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(180, 142, 243));
 
@@ -187,7 +189,7 @@ public class ClienteView extends javax.swing.JFrame {
                 .addComponent(AddADM_CampoDeTexto_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AddADM_labelCelular)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(AddADM_CampoDeTexto_Celular, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AddADM_botaoAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
