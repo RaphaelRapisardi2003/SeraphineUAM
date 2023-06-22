@@ -141,22 +141,24 @@ public class TelaViewController {
     
     public boolean validarDadosCliente(Cliente cliente) {
         PessoaService pessoaService = new PessoaService();
-        
-        if (pessoaService.ValidarNome(cliente.getNome()) != true) { codigoDeErro = "Nome Inválido"; return false; }
-        if (pessoaService.ValidarNomeDeUsuario(cliente.getNomeDeUsuario()) != true) { codigoDeErro = "Nome de Usuário Inválido"; return false; }
-        if (pessoaService.ValidarSenha(cliente.getSenha()) != true) { codigoDeErro = "Senha Inválido"; return false; }
-        if (pessoaService.ValidarIdade(cliente.getIdade()) != true) { codigoDeErro = "Idade Inválida"; return false; }
-        if (pessoaService.ValidarEndereco(cliente.getEndereco()) != true) { codigoDeErro = "Endereço Inválido"; return false; }
-        if (pessoaService.ValidarTelefone(cliente.getTelefone()) != true) { codigoDeErro = "Telefone Inválido"; return false; }
-        if (pessoaService.ValidarCelular(cliente.getCelular()) != true) { codigoDeErro = "Celular Inválido"; return false; }
-        if (pessoaService.ValidarCPF(cliente.getCpf()) != true) { codigoDeErro = "CPF Inválido"; return false; }
-        
+
+        // ADICIONEI ESSAS LINHAS PRA GERAR UM TEXTO DO MOTIVO DO ERRO
+        if (!pessoaService.ValidarNome(cliente.getNome())) { codigoDeErro = "Nome Inválido"; return false; }
+        if (!pessoaService.ValidarNomeDeUsuario(cliente.getNomeDeUsuario())) { codigoDeErro = "Nome de Usuário Inválido"; return false; }
+        if (!pessoaService.ValidarSenha(cliente.getSenha())) { codigoDeErro = "Senha Inválido"; return false; }
+        if (!pessoaService.ValidarIdade(cliente.getIdade())) { codigoDeErro = "Idade Inválida"; return false; }
+        if (!pessoaService.ValidarEndereco(cliente.getEndereco())) { codigoDeErro = "Endereço Inválido"; return false; }
+        if (!pessoaService.ValidarTelefone(cliente.getTelefone())) { codigoDeErro = "Telefone Inválido"; return false; }
+        if (!pessoaService.ValidarCelular(cliente.getCelular())) { codigoDeErro = "Celular Inválido"; return false; }
+        if (!pessoaService.ValidarCPF(cliente.getCpf())) { codigoDeErro = "CPF Inválido"; return false; }
+
+        // SE NENHUM DOS IFS DE ANTES ACIONAREM, ELE APROVA AS INFORMAÇÕES
         return true;
     }
     
     public boolean adicionarCliente(Cliente cliente) {
         ADMService servico = new ADMService();
-        if (servico.adicionarCliente(cliente) == true) {
+        if (servico.adicionarCliente(cliente)) {
             return true;
         } else {
             codigoDeErro = servico.getCodigoDeErro();

@@ -3,6 +3,10 @@ package Service;
 import java.util.regex.*;
 
 public class PessoaService {
+
+    // TODAS AS VALIDAÇÕES NESSA PÁGINA SÃO DA MESMA MANEIRA
+    // O QUE MUDA É O CÓDIGO DO REGEX
+    // NÃO TENTE ENTENDER O REGEX, PEGUEI TUDO DO CHATGPT
     public boolean ValidarNome(String nome) {
         String regex = "^[\\p{L}\\p{M}\\p{N}\\s]{1,100}$";
         

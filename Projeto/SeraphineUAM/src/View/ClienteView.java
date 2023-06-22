@@ -406,7 +406,8 @@ public class ClienteView extends javax.swing.JFrame {
         
         int idade, telefone, celular;
         String Cpf;
-        
+
+        // ADICIONEI ESSAS 4 LINHAS PQ ELAS SÃO NUMEROS E NÃO STRINGS, DE ALGUMA FORMA DA UM BUG SE FEITO DIFERENTE
         if ("".equals(AddADM_CampoDeTexto_Idade.getText()) || " ".equals(AddADM_CampoDeTexto_Idade.getText())) { idade = 0; } else { idade = Integer.parseInt(AddADM_CampoDeTexto_Idade.getText()); }
         if ("".equals(AddADM_CampoDeTexto_Telefone.getText()) || " ".equals(AddADM_CampoDeTexto_Telefone.getText())) { telefone = 0; } else { telefone = Integer.parseInt(AddADM_CampoDeTexto_Telefone.getText()); }
         if ("".equals(AddADM_CampoDeTexto_Celular.getText()) || " ".equals(AddADM_CampoDeTexto_Celular.getText())) { celular = 0; } else { celular = Integer.parseInt(AddADM_CampoDeTexto_Celular.getText()); }
@@ -421,6 +422,7 @@ public class ClienteView extends javax.swing.JFrame {
         cliente.setCelular(celular);
         cliente.setCpf(Long.parseLong(Cpf));
 
+        // TIREI O COMENTARIO DESSA LINHA
         if (telaViewController.validarDadosCliente(cliente) == true) {
             if (telaViewController.adicionarCliente(cliente) == true) {
                 JOptionPane.showMessageDialog(null, "Funcionario adicionado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
