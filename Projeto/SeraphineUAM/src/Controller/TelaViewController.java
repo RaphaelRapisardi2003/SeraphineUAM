@@ -39,13 +39,13 @@ public class TelaViewController {
     public boolean validarDados(Funcionario funcionario) {
         PessoaService pessoaService = new PessoaService();
 
-        if (pessoaService.ValidarNome(funcionario.getNome()) == true) {
-            if (pessoaService.ValidarIdade(funcionario.getIdade()) == true) {
-                return true;
-            }
-        }
-        codigoDeErro = "Valores inválidos";
-        return false;
+        if (!pessoaService.ValidarNome(funcionario.getNome())) { codigoDeErro = "Nome Inválido"; return false; }
+        if (!pessoaService.ValidarNomeDeUsuario(funcionario.getNomeDeUsuario())) { codigoDeErro = "Nome de Usuário Inválido"; return false; }
+        if (!pessoaService.ValidarSenha(funcionario.getSenha())) { codigoDeErro = "Senha Inválido"; return false; }
+        if (!pessoaService.ValidarIdade(funcionario.getIdade())) { codigoDeErro = "Idade Inválida"; return false; }
+        if (!pessoaService.ValidarCategoria(funcionario.getCategoria())) { codigoDeErro = "Categoria Inválida"; return false; }
+
+        return true;
     }
 
     public boolean adicionarFuncionario(Funcionario funcionario) {

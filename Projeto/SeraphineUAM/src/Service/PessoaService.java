@@ -80,4 +80,13 @@ public class PessoaService {
         
         return matcher.matches();
     }
+
+    public boolean ValidarCategoria(String categoria) {
+        String regex = "^[\\p{L}\\p{M}\\p{N}\\s]{1,40}$";
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(categoria);
+
+        return matcher.matches();
+    }
 }

@@ -402,21 +402,28 @@ public class FuncView extends javax.swing.JFrame {
     private void AddFunc_botaoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddFunc_botaoAdicionarActionPerformed
         Funcionario funcionario = new Funcionario();
         TelaViewController telaViewController = new TelaViewController();
+
+        int idade;
+
+        try {
+            if ("".equals(AddFunc_CampoDeTexto_Idade.getText()) || " ".equals(AddFunc_CampoDeTexto_Idade.getText())) { idade = 0; } else { idade = Integer.parseInt(AddFunc_CampoDeTexto_Idade.getText()); }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Idade não é um Número", "ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
         funcionario.setNome(String.valueOf(AddFunc_CampoDeTexto_Nome.getText()));
         funcionario.setNomeDeUsuario(String.valueOf(AddFunc_CampoDeTexto_NomeDeUsuario.getText()));
         funcionario.setSenha(String.valueOf(AddFunc_CampoDeTexto_Senha.getText()));
-        funcionario.setIdade(Integer.valueOf(AddFunc_CampoDeTexto_Idade.getText()));
+        funcionario.setIdade(idade);
         funcionario.setCategoria(String.valueOf(AddFunc_CampoDeTexto_Categoria.getText()));
         
-        if (telaViewController.validarDados(funcionario) == true) {
-            if (telaViewController.adicionarFuncionario(funcionario) == true) {
-                JOptionPane.showMessageDialog(null, "Funcionario adicionado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
-                atualizarTabela();
-                AddFunc.setVisible(false);
-            } else {
-                JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
-            }
+        if (!telaViewController.validarDados(funcionario)) { JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE); return; }
+
+        if (telaViewController.adicionarFuncionario(funcionario)) {
+            JOptionPane.showMessageDialog(null, "Funcionario adicionado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+            atualizarTabela();
+            AddFunc.setVisible(false);
         } else {
             JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
         }
@@ -428,8 +435,19 @@ public class FuncView extends javax.swing.JFrame {
 
     private void DelFunc_botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelFunc_botaoRemoverActionPerformed
         TelaViewController telaViewController = new TelaViewController();
+
+        int ID;
+
+        try {
+            if ("".equals(DelFunc_CampoDeTexto_ID.getText()) || " ".equals(DelFunc_CampoDeTexto_ID.getText())) { JOptionPane.showMessageDialog(null, "Não há ID para identificar o funcionário", "ERRO", JOptionPane.ERROR_MESSAGE); return; }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "ID não é um Número", "ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        ID = Integer.parseInt(DelFunc_CampoDeTexto_ID.getText());
         
-        if (telaViewController.apagarFuncionario(Integer.valueOf(DelFunc_CampoDeTexto_ID.getText())) == true) {
+        if (telaViewController.apagarFuncionario(ID)) {
             JOptionPane.showMessageDialog(null, "Funcionario apagado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
             atualizarTabela();
             DelFunc.setVisible(false);
