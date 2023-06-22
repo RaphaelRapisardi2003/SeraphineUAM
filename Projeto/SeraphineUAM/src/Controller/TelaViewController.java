@@ -12,6 +12,8 @@ import Model.Venda;
 import Service.ADMService;
 import Service.AtendenteService;
 import Service.PessoaService;
+import Service.ProdutoService;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -184,5 +186,23 @@ public class TelaViewController {
             codigoDeErro = dto.getCodigoDeErro();
             return false;
         }
+    }
+
+    public boolean validarCriacaoDeProduto(Produto produto) {
+        ProdutoService service = new ProdutoService();
+
+        if (!service.ValidarProduto(produto)) { codigoDeErro = service.getCodigoDeErro(); return false; }
+        if (!service.VerificarSeOProdutoExiste(produto)) { codigoDeErro = service.getCodigoDeErro(); return false; }
+
+        return true;
+    }
+
+    public boolean validarEdicaoDeProduto(Produto produto) {
+        ProdutoService service = new ProdutoService();
+
+        if (!service.ValidarProduto(produto)) { codigoDeErro = service.getCodigoDeErro(); return false; }
+        if (!service.ValidarId(produto.getId())) { codigoDeErro = service.getCodigoDeErro(); return false; }
+
+        return true;
     }
 }

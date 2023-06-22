@@ -4,6 +4,7 @@
  */
 package View;
 
+import Controller.TelaViewController;
 import Model.Produto;
 import Service.ProdutoService;
 import java.awt.Color;
@@ -25,12 +26,12 @@ public class CriarProduto extends javax.swing.JFrame {
     public CriarProduto() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
-        
+
         DefaultTableCellRenderer head_render = new DefaultTableCellRenderer();
         head_render.setBackground(new Color(254,254,254));
         tabela.getTableHeader().setDefaultRenderer(head_render);
         head_render.setOpaque(true);
-        
+
         atualizarTabela();
     }
 
@@ -246,21 +247,39 @@ public class CriarProduto extends javax.swing.JFrame {
 
     private void botaoCriarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCriarItemActionPerformed
         Produto produto = new Produto();
-        ProdutoService produtoService = new ProdutoService();
-        
+        TelaViewController controller = new TelaViewController();
+        ProdutoService service = new ProdutoService();
+
+        float Preco;
+        int QtdEstoque;
+
+        try {
+            if ("".equals(campoDeTexto_Preco.getText()) || " ".equals(campoDeTexto_Preco.getText())) { Preco = 0; } else { Preco = Float.parseFloat(campoDeTexto_Preco.getText()); }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Preço não é um Número", "ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        try {
+            if ("".equals(campoDeTexto_QtdEstoque.getText()) || " ".equals(campoDeTexto_QtdEstoque.getText())) { QtdEstoque = 0; } else { QtdEstoque = Integer.parseInt(campoDeTexto_QtdEstoque.getText()); }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Quantidade de estoque não é um Número", "ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         produto.setDescricao(String.valueOf(campoDeTexto_Descricao.getText()));
-        produto.setPreco(Float.valueOf(campoDeTexto_Preco.getText()));
-        produto.setQtdEstoque(Integer.valueOf(campoDeTexto_QtdEstoque.getText()));
-        
-        if (produtoService.ValidarProduto(produto) == true && produtoService.VerificarSeOProdutoExiste(produto) == true){
-            if (produtoService.CriarProduto(produto)){
-                JOptionPane.showMessageDialog(null, "Item criado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
-                atualizarTabela();
-            } else {
-                JOptionPane.showMessageDialog(null, produtoService.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
-            }
+        produto.setPreco(Preco);
+        produto.setQtdEstoque(QtdEstoque);
+
+        if (!controller.validarCriacaoDeProduto(produto)) {
+            JOptionPane.showMessageDialog(null, controller.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (service.CriarProduto(produto)){
+            JOptionPane.showMessageDialog(null, "Item criado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+            atualizarTabela();
         } else {
-            JOptionPane.showMessageDialog(null, produtoService.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, service.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_botaoCriarItemActionPerformed
 
@@ -270,22 +289,48 @@ public class CriarProduto extends javax.swing.JFrame {
 
     private void botaoEditarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarItemActionPerformed
         Produto produto = new Produto();
-        ProdutoService produtoService = new ProdutoService();
-        
+        TelaViewController controller = new TelaViewController();
+        ProdutoService service = new ProdutoService();
+
+        float Preco = 0;
+        int QtdEstoque = 0, ID = 0;
+
+        try {
+            if ("".equals(campoDeTexto_Preco.getText()) || " ".equals(campoDeTexto_Preco.getText())) { Preco = 0; } else { Preco = Float.parseFloat(campoDeTexto_Preco.getText()); }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Preço não é um Número", "ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        try {
+            if ("".equals(campoDeTexto_QtdEstoque.getText()) || " ".equals(campoDeTexto_QtdEstoque.getText())) { QtdEstoque = 0; } else { QtdEstoque = Integer.parseInt(campoDeTexto_QtdEstoque.getText()); }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Quantidade de estoque não é um Número", "ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        try {
+            if ("".equals(campoDeTexto_ID.getText()) || " ".equals(campoDeTexto_ID.getText())) { ID = 0; } else { JOptionPane.showMessageDialog(null, "Não há ID para identificar produto", "ERRO", JOptionPane.ERROR_MESSAGE); return; }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "ID não é um Número", "ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        ID = Integer.parseInt(campoDeTexto_ID.getText());
+
         produto.setDescricao(String.valueOf(campoDeTexto_Descricao.getText()));
-        produto.setPreco(Float.valueOf(campoDeTexto_Preco.getText()));
-        produto.setQtdEstoque(Integer.valueOf(campoDeTexto_QtdEstoque.getText()));
-        produto.setId(Integer.valueOf(campoDeTexto_ID.getText()));
-        
-        if (produtoService.ValidarProduto(produto) == true) {
-            if (produtoService.EditarProduto(produto) == true) {
-                JOptionPane.showMessageDialog(null, "Item editado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
-                atualizarTabela();
-            } else {
-                JOptionPane.showMessageDialog(null, produtoService.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
-            }
+        produto.setPreco(Preco);
+        produto.setQtdEstoque(QtdEstoque);
+        produto.setId(ID);
+
+        if (!controller.validarEdicaoDeProduto(produto)) {
+            JOptionPane.showMessageDialog(null, controller.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (service.EditarProduto(produto)) {
+            JOptionPane.showMessageDialog(null, "Item editado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+            atualizarTabela();
         } else {
-            JOptionPane.showMessageDialog(null, produtoService.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, service.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_botaoEditarItemActionPerformed
 
@@ -301,26 +346,26 @@ public class CriarProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoDeTexto_QtdEstoqueActionPerformed
 
-    
+
     private void atualizarTabela() {
         ProdutoService produtoService = new ProdutoService();
         List<Produto> produtos = new ArrayList(produtoService.AtualizarTabelaDeProdutos());
         int n = produtos.size();
         DefaultTableModel dfm = (DefaultTableModel) tabela.getModel();
-        
+
         dfm.removeRow(0);
         for (int i = 0; i < dfm.getRowCount(); i++) {
             dfm.removeRow(i);
         }
-        
+
         dfm.setRowCount(0);
-        
+
         for (int i = 0; i < n; i++) {
             Produto produto = (Produto) produtos.get(i);
             dfm.insertRow(i, produtoService.AdicionarItem(produto));
         }
     }
-    
+
     /**
      * @param args the command line arguments
      */

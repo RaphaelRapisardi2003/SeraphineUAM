@@ -6,6 +6,8 @@ import DTO.ResgatarDTO;
 import DTO.InserirDTO;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ProdutoService {
     
@@ -36,22 +38,35 @@ public class ProdutoService {
     }
 
     public boolean ValidarProduto(Produto produto) {
-        if (produto.getPreco() < 0) {
-            codigoDeErro = "Preço menor que 0";
-            return false;
-        }
 
-        if (produto.getQtdEstoque() < 0) {
-            codigoDeErro = "Estoque menor que 0";
-            return false;
-        }
+        // create regex
+        Pattern patternPreco = Pattern.compile("^\\d{1,9}\\.\\d+$");
+        Pattern patternQtdEstoque = Pattern.compile("^\\d{1,6}$");
+        Pattern patternDescricao = Pattern.compile("^[\\p{L}\\p{M}\\p{N}\\s]{1,200}$");
+        Matcher matcherPreco = patternPreco.matcher(String.valueOf(produto.getPreco()));
+        Matcher matcherQtdEstoque = patternQtdEstoque.matcher(String.valueOf(produto.getQtdEstoque()));
+        Matcher matcherDescricao = patternDescricao.matcher(produto.getDescricao());
 
-        if (produto.getDescricao().length() < 0) {
-            codigoDeErro = "Descrição vazia";
-            return false;
-        }
+
+        // validate length
+        if (produto.getPreco() <= 0) { codigoDeErro = "Preço menor ou igual a 0"; return false; }
+        if (produto.getQtdEstoque() <= 0) { codigoDeErro = "Estoque menor ou igual a 0"; return false; }
+        if ((produto.getDescricao()).length() == 0) { codigoDeErro = "Descrição vazia"; return false; }
+
+        // validate String structure
+        if (!matcherPreco.matches()) { codigoDeErro = "Valor de preço Inválido"; return false; }
+        if (!matcherQtdEstoque.matches()) { codigoDeErro = "Valor de quantidade Inválido"; return false; }
+        if (!matcherDescricao.matches()) { codigoDeErro = "Descrição Inválida"; return false; }
 
         return true;
+    }
+    public boolean ValidarId(Integer id) {
+        String regex = "^\\d{1,6}$";
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(String.valueOf(id));
+
+        return matcher.matches();
     }
     
     public boolean CriarProduto(Produto produto) {
