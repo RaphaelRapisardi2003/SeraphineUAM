@@ -72,6 +72,7 @@ public class FuncView extends javax.swing.JFrame {
         botaoAddFuncionario = new javax.swing.JButton();
         botaoDelFuncionario = new javax.swing.JButton();
 
+        AddFunc.setTitle("Adicionar Funcionário");
         AddFunc.setBackground(new java.awt.Color(180, 142, 243));
         AddFunc.setMinimumSize(new java.awt.Dimension(616, 509));
 
@@ -200,6 +201,7 @@ public class FuncView extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        DelFunc.setTitle("Remover Funcionário");
         DelFunc.setMinimumSize(new java.awt.Dimension(522, 300));
 
         jPanel4.setBackground(new java.awt.Color(180, 142, 243));
@@ -288,6 +290,7 @@ public class FuncView extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Funcionários");
 
         jPanel1.setBackground(new java.awt.Color(180, 142, 243));
 

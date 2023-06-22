@@ -1,45 +1,79 @@
 package Service;
 
-public class PessoaService {
-    public boolean ValidarNome(String Endereco) {
-        if (Endereco.length() > 0)
-            return true;
+import java.util.regex.*;
 
-        return false;
+public class PessoaService {
+    public boolean ValidarNome(String nome) {
+        String regex = "^[\\p{L}\\p{M}\\p{N}\\s]{1,100}$";
+        
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(nome);
+        
+        return matcher.matches();
+    }
+    
+    public boolean ValidarNomeDeUsuario(String nomeDeUsuario) {
+        if ("".equals(nomeDeUsuario) || " ".equals(nomeDeUsuario)) return true;
+        String regex = "^[a-zA-Z0-9!@#$%^&*()_+=-]{1,20}$";
+        
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(nomeDeUsuario);
+        
+        return matcher.matches();
+    }
+    
+    public boolean ValidarSenha(String senha) {
+        if ("".equals(senha) || " ".equals(senha)) return true;
+        String regex = "^[a-zA-Z0-9!@#$%^&*()_+=-]{1,20}$";
+        
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(senha);
+        
+        return matcher.matches();
     }
 
     public boolean ValidarEndereco(String Endereco) {
-        if (Endereco.length() > 0)
-            return true;
-
-        return false;
+        String regex = "^[\\p{L}\\p{M}\\p{N}\\p{P}\\-\\s]{1,200}$";
+        
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(Endereco);
+        
+        return matcher.matches();
     }
 
-    public boolean ValidarIdade(int Idade) {
-        if (Idade > 0 && Idade < 200)
-            return true;
-
-        return false;
+    public boolean ValidarIdade(int idade) {
+        String regex = "^(?:1[0-1]?[0-9]|120|1?[0-9])$";
+        
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(String.valueOf(idade));
+        
+        return matcher.matches();
     }
     
     public boolean ValidarTelefone(int telefone) {
-        if (telefone > 0 && telefone < 9999999999L)
-            return true;
+        String regex = "^\\d{7,11}$";
         
-        return false;
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(String.valueOf(telefone));
+        
+        return matcher.matches();
     }
     
     public boolean ValidarCelular(int celular) {
-        if (celular > 0 && celular < 99999999999L)
-            return true;
+        String regex = "^\\d{1,11}$";
         
-        return false;
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(String.valueOf(celular));
+        
+        return matcher.matches();
     }
     
     public boolean ValidarCPF(long cpf) {
-        if (cpf > 0 && cpf < 99999999999L)
-            return true;
+        String regex = "^\\d{11}$";
         
-        return false;
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(String.valueOf(cpf));
+        
+        return matcher.matches();
     }
 }

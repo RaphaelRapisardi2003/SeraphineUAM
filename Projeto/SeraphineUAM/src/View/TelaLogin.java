@@ -44,7 +44,7 @@ public class TelaLogin extends javax.swing.JFrame {
         barraDeLoading = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SERAPHINE");
+        setTitle("Seraphine");
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 

@@ -15,11 +15,9 @@ public class DAO {
     public boolean conectarComConfirmacao() {
         try {
             connect = DriverManager.getConnection(URL, USUARIO, SENHA);
-            System.out.println("connected");
             return true;
         } catch (SQLException erro) {
             codigoDeErroConn = "ERRO DE CONEXÃO\nCódigo do erro: " + String.valueOf(erro);
-            System.out.println("erro ao conectar: " + erro);
         }
         return false;
     }

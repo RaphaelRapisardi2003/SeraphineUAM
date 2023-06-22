@@ -74,6 +74,8 @@ public class AdmView extends javax.swing.JFrame {
         botaoAddAdministrador = new javax.swing.JButton();
         botaoDelAdministrador = new javax.swing.JButton();
 
+        AddADM.setTitle("Adicionar Administrador");
+
         jPanel2.setBackground(new java.awt.Color(180, 142, 243));
 
         AddADM_labelNome.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -187,6 +189,8 @@ public class AdmView extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        DelADM.setTitle("Adicionar Administrador");
+
         jPanel4.setBackground(new java.awt.Color(180, 142, 243));
 
         labelRemoveAdministradorbyID.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -266,6 +270,7 @@ public class AdmView extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Administradores");
 
         jPanel1.setBackground(new java.awt.Color(180, 142, 243));
 

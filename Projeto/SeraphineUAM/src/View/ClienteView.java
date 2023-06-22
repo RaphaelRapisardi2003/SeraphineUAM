@@ -13,6 +13,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import java.util.regex.*;
 
 /**
  *
@@ -76,6 +77,7 @@ public class ClienteView extends javax.swing.JFrame {
         botaoRemoverCliente = new javax.swing.JButton();
         botaoAddCliente = new javax.swing.JButton();
 
+        AddCliente.setTitle("Adicionar Cliente");
         AddCliente.setMinimumSize(new java.awt.Dimension(616, 642));
 
         jPanel2.setBackground(new java.awt.Color(180, 142, 243));
@@ -220,6 +222,7 @@ public class ClienteView extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        DelADM.setTitle("Remover Cliente");
         DelADM.setMinimumSize(new java.awt.Dimension(522, 300));
 
         jPanel4.setBackground(new java.awt.Color(180, 142, 243));
@@ -301,6 +304,7 @@ public class ClienteView extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Clientes");
 
         jPanel1.setBackground(new java.awt.Color(180, 142, 243));
 
@@ -399,17 +403,25 @@ public class ClienteView extends javax.swing.JFrame {
     private void AddADM_botaoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddADM_botaoAdicionarActionPerformed
         Cliente cliente = new Cliente();
         TelaViewController telaViewController = new TelaViewController();
+        
+        int idade, telefone, celular;
+        String Cpf;
+        
+        if ("".equals(AddADM_CampoDeTexto_Idade.getText()) || " ".equals(AddADM_CampoDeTexto_Idade.getText())) { idade = 0; } else { idade = Integer.parseInt(AddADM_CampoDeTexto_Idade.getText()); }
+        if ("".equals(AddADM_CampoDeTexto_Telefone.getText()) || " ".equals(AddADM_CampoDeTexto_Telefone.getText())) { telefone = 0; } else { telefone = Integer.parseInt(AddADM_CampoDeTexto_Telefone.getText()); }
+        if ("".equals(AddADM_CampoDeTexto_Celular.getText()) || " ".equals(AddADM_CampoDeTexto_Celular.getText())) { celular = 0; } else { celular = Integer.parseInt(AddADM_CampoDeTexto_Celular.getText()); }
+        if ("".equals(AddADM_CampoDeTexto_CPF.getText()) || " ".equals(AddADM_CampoDeTexto_CPF.getText())) { Cpf = "0"; } else { Cpf = AddADM_CampoDeTexto_CPF.getText(); }
 
         cliente.setNome(String.valueOf(AddADM_CampoDeTexto_Nome.getText()));
         cliente.setNomeDeUsuario(String.valueOf(AddADM_CampoDeTexto_NomeDeUsuario.getText()));
         cliente.setSenha(String.valueOf(AddADM_CampoDeTexto_Senha.getText()));
-        cliente.setIdade(Integer.valueOf(AddADM_CampoDeTexto_Idade.getText()));
+        cliente.setIdade(idade);
         cliente.setEndereco(String.valueOf(AddADM_CampoDeTexto_Endereco.getText()));
-        cliente.setTelefone(Integer.valueOf(AddADM_CampoDeTexto_Telefone.getText()));
-        cliente.setCelular(Integer.valueOf(AddADM_CampoDeTexto_Celular.getText()));
-        cliente.setCpf(Long.valueOf(AddADM_CampoDeTexto_CPF.getText()));
+        cliente.setTelefone(telefone);
+        cliente.setCelular(celular);
+        cliente.setCpf(Long.parseLong(Cpf));
 
-        //if (telaViewController.validarDadosCliente(cliente) == true) {
+        if (telaViewController.validarDadosCliente(cliente) == true) {
             if (telaViewController.adicionarCliente(cliente) == true) {
                 JOptionPane.showMessageDialog(null, "Funcionario adicionado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
                 atualizarTabela();
@@ -417,15 +429,15 @@ public class ClienteView extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
             }
-        //} else {
-        //    JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
-        //}
+        } else {
+            JOptionPane.showMessageDialog(null, telaViewController.getCodigoDeErro(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_AddADM_botaoAdicionarActionPerformed
 
     private void DelADM_botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelADM_botaoRemoverActionPerformed
         TelaViewController telaViewController = new TelaViewController();
 
-        if (telaViewController.apagarCliente(Integer.valueOf(DelADM_CampoDeTexto_ID.getText())) == true) {
+        if (telaViewController.apagarCliente(Integer.parseInt(DelADM_CampoDeTexto_ID.getText())) == true) {
             JOptionPane.showMessageDialog(null, "Funcionario apagado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
             atualizarTabela();
             DelADM.setVisible(false);

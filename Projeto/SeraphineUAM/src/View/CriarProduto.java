@@ -60,6 +60,7 @@ public class CriarProduto extends javax.swing.JFrame {
         campoDeTexto_QtdEstoque = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Criar Produto");
         setMinimumSize(new java.awt.Dimension(10, 10));
 
         jPanel1.setBackground(new java.awt.Color(180, 142, 243));

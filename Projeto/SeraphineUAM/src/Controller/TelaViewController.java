@@ -141,22 +141,17 @@ public class TelaViewController {
     
     public boolean validarDadosCliente(Cliente cliente) {
         PessoaService pessoaService = new PessoaService();
-
-        if (pessoaService.ValidarNome(cliente.getNome()) == true) {
-            if (pessoaService.ValidarIdade(cliente.getIdade()) == true) {
-                if (pessoaService.ValidarEndereco(cliente.getEndereco()) == true) {
-                    if (pessoaService.ValidarTelefone(cliente.getTelefone()) == true) {
-                        if (pessoaService.ValidarCelular(cliente.getCelular()) == true) {
-                            if (pessoaService.ValidarCPF(cliente.getCpf()) == true) {
-                                return true;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        codigoDeErro = "Valores inválidos";
-        return false;
+        
+        if (pessoaService.ValidarNome(cliente.getNome()) != true) { codigoDeErro = "Nome Inválido"; return false; }
+        if (pessoaService.ValidarNomeDeUsuario(cliente.getNomeDeUsuario()) != true) { codigoDeErro = "Nome de Usuário Inválido"; return false; }
+        if (pessoaService.ValidarSenha(cliente.getSenha()) != true) { codigoDeErro = "Senha Inválido"; return false; }
+        if (pessoaService.ValidarIdade(cliente.getIdade()) != true) { codigoDeErro = "Idade Inválida"; return false; }
+        if (pessoaService.ValidarEndereco(cliente.getEndereco()) != true) { codigoDeErro = "Endereço Inválido"; return false; }
+        if (pessoaService.ValidarTelefone(cliente.getTelefone()) != true) { codigoDeErro = "Telefone Inválido"; return false; }
+        if (pessoaService.ValidarCelular(cliente.getCelular()) != true) { codigoDeErro = "Celular Inválido"; return false; }
+        if (pessoaService.ValidarCPF(cliente.getCpf()) != true) { codigoDeErro = "CPF Inválido"; return false; }
+        
+        return true;
     }
     
     public boolean adicionarCliente(Cliente cliente) {

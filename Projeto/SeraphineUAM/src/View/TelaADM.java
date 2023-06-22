@@ -118,6 +118,7 @@ public class TelaADM extends javax.swing.JFrame {
         );
 
         AddProdutosOnView.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        AddProdutosOnView.setTitle("Selecionar Produto");
         AddProdutosOnView.setMinimumSize(new java.awt.Dimension(1145, 630));
 
         jPanel5.setBackground(new java.awt.Color(180, 142, 243));
@@ -192,6 +193,7 @@ public class TelaADM extends javax.swing.JFrame {
         );
 
         AddClienteOnView.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        AddClienteOnView.setTitle("Selecionar Cliente");
         AddClienteOnView.setMinimumSize(new java.awt.Dimension(1145, 630));
 
         jPanel7.setBackground(new java.awt.Color(180, 142, 243));
@@ -266,6 +268,7 @@ public class TelaADM extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Seraphine (Administrador)");
 
         jPanel3.setBackground(new java.awt.Color(180, 142, 243));
 
