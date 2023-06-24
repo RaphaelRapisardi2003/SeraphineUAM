@@ -26,7 +26,7 @@
 - ``Java Swing``
 - ``Paradigma de orientação a objetos``
 
-# ✔⚙️ Como rodar o Sistema
+# ⚙️ Como rodar o Sistema
 Para abrir e rodar o sistema com sucesso, basta acompanhar os passos a seguir. Um ponto importante é que as instruções só serão válidas para a IDE NetBeans 18.
 
 Adicionar o projeto.
